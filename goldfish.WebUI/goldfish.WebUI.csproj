@@ -147,6 +147,7 @@
     <Content Include="content\dist\static\bg-slider.jpg" />
     <Content Include="content\dist\static\bg-slider.png" />
     <Content Include="content\dist\static\bg.jpg" />
+    <Content Include="content\dist\temp\aboutactiveapps.jpg" />
     <Content Include="content\dist\temp\iphone.png" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
