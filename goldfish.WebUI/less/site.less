@@ -4,6 +4,7 @@
 @color-blue: #22a7f0;
 @color-white: #fff;
 @color-gray: #d5d5d5;
+@color-black: #000;
 @color-light-gray: #f8f9fa;
 
 @def-pad: 15px;
@@ -81,6 +82,20 @@ header a {
 header .logo, header nav {
     display: table-cell;
     vertical-align: middle;
+
+    @media (max-width: @screen-xs-max) {
+        display: block;
+        text-align: center;
+    }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    }
+
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    }
+
+    @media (min-width: @screen-lg-min) {
+    }
 }
 
 header .logo {
@@ -99,6 +114,7 @@ header nav {
     text-align: right;
 
     @media (max-width: @screen-xs-max) {
+        text-align: center;
     }
 
     @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
@@ -216,10 +232,42 @@ header nav {
     width: 50%;
     float: left;
     vertical-align: top;
+
+    @media (max-width: @screen-xs-max) {
+        width: 100%;
+        float: none;
+        text-align: center;
+    }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        width: 100%;
+        float: none;
+        text-align: center;
+    }
+
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    }
+
+    @media (min-width: @screen-lg-min) {
+    }
 }
 
 .services > li:nth-child(2n) {
     text-align: right;
+
+    @media (max-width: @screen-xs-max) {
+        text-align: center;
+    }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        text-align: center;
+    }
+
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    }
+
+    @media (min-width: @screen-lg-min) {
+    }
 }
 
 .service__item {
@@ -233,6 +281,22 @@ header nav {
     z-index: 0;
     transition: all .4s;
     padding-right: @def-pad*4;
+
+    @media (max-width: @screen-xs-max) {
+        padding-right: @def-pad*2;
+        width: 100%;
+    }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        padding-right: @def-pad*2;
+        width: 100%;
+    }
+
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    }
+
+    @media (min-width: @screen-lg-min) {
+    }
 }
 
 .service__item:hover {
@@ -248,6 +312,20 @@ header nav {
     left: 100%;
     top: 50%;
     z-index: -1;
+
+    @media (max-width: @screen-xs-max) {
+        content: none;
+    }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        content: none;
+    }
+
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    }
+
+    @media (min-width: @screen-lg-min) {
+    }
 }
 
 
@@ -255,6 +333,22 @@ header nav {
     float: right;
     padding-right: @def-pad*2;
     padding-left: @def-pad*4;
+
+    @media (max-width: @screen-xs-max) {
+        float: none;
+        padding: @def-pad*2;
+    }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        float: none;
+        padding: @def-pad*2;
+    }
+
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    }
+
+    @media (min-width: @screen-lg-min) {
+    }
 }
 
 .services > li:nth-child(2n) > .service__item:after {
@@ -262,12 +356,12 @@ header nav {
     left: auto;
 }
 
-.service__link{
-    position:absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
+.service__link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 .service__title {
@@ -300,6 +394,30 @@ header nav {
     margin-top: -@def-pad*2;
     right: -@def-pad*2;
     transition: all .4s;
+
+    @media (max-width: @screen-xs-max) {
+        top: auto;
+        right: auto;
+        bottom: -30px;
+        margin-top: auto;
+        left: auto;
+        margin-left: -30px;
+    }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        top: auto;
+        right: auto;
+        bottom: -30px;
+        margin-top: auto;
+        left: auto;
+        margin-left: -30px;
+    }
+
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    }
+
+    @media (min-width: @screen-lg-min) {
+    }
 }
 
 .service__item:hover .service__img {
@@ -309,36 +427,65 @@ header nav {
 
 .services > li:nth-child(2n) .service__img {
     left: -@def-pad*2;
+
+    @media (max-width: @screen-xs-max) {
+        left: auto;
+    }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        left: auto;
+    }
+
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    }
+
+    @media (min-width: @screen-lg-min) {
+    }
 }
 
 //employees
-.employees{
-    padding:@def-pad*4 0;
+.employees {
+    padding: @def-pad*4 0 0;
 }
 
-@employe-avatar-size:126px;
+@employe-avatar-size: 126px;
 
-.employe__item{
-    text-align:center;
-    position:relative;
-    border:1px solid @color-gray;
-    border-radius:@def-radius;
-    padding:@def-pad;
-    padding-top:@employe-avatar-size/2 + @def-pad*2;
-    transition:all .4s;
+.employe__item {
+    text-align: center;
+    position: relative;
+    border: 1px solid @color-gray;
+    border-radius: @def-radius;
+    padding: @def-pad @def-pad @def-pad*2;
+    padding-top: @employe-avatar-size/2 + @def-pad*2;
+    transition: all .4s;
+    margin-bottom: @def-pad*4;
+
+    @media (max-width: @screen-xs-max) {
+        margin-bottom: @def-pad*6;
+    }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        margin-bottom: @def-pad*6;
+    }
+
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    }
+
+    @media (min-width: @screen-lg-min) {
+    }
 }
 
-.employe__item:hover{
-    background-color:@color-blue;
-    color:@color-white;
+.employe__item:hover {
+    background-color: @color-blue;
+    color: @color-white;
 }
 
-.employe__link{
-    position:absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
+.employe__link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 .employe__avatar {
@@ -348,44 +495,172 @@ header nav {
     background-size: cover;
     display: inline-block;
     border-radius: 100%;
-    position:absolute;
-    left:50%;
-    margin-left:-@employe-avatar-size/2;
+    position: absolute;
+    left: 50%;
+    margin-left: -@employe-avatar-size/2;
     top: -@employe-avatar-size/2;
+    border: 5px solid @color-white;
+    box-sizing: border-box;
+    transition: all .4s;
 }
 
-.employe__avatar::before{
-    content:'';
-    position:absolute;
-    width:@employe-avatar-size + 10px;
-    height:@employe-avatar-size + 10px;
-    border-radius:100%;
-    left:-5px;
-    top:-5px;
-    border:4px solid @color-white;
+.employe__avatar::after {
+    content: '';
+    position: absolute;
+    width: @employe-avatar-size;
+    height: @employe-avatar-size;
+    top: -5px;
+    right: 0;
+    bottom: 0;
+    left: -5px;
+    border: 1px solid @color-gray;
+    border-radius: 100%;
 }
 
-.employe__avatar::after{
-    content:'';
-    position:absolute;
-    width:@employe-avatar-size + 12px;
-    height:@employe-avatar-size + 12px;
-    border-radius:100%;
-    border:1px solid @color-gray;
-    left:-6px;
-    top:-6px;
+.employe__item:hover .employe__avatar::after {
+    border: none;
 }
 
-.employe__title{
-    text-transform:uppercase;
-    font-size:@header-font-size;
-    color:@color-blue;
-    font-weight:700;
+.employe__title {
+    text-transform: uppercase;
+    font-size: @header-font-size;
+    color: @color-blue;
+    font-weight: 700;
+    transition: all .4s;
 }
 
-.employe__desc{
+.employe__desc {
     .txt;
-    padding:@def-pad 0;
-    font-size:15px;
-    line-height:24px;
+    padding: @def-pad 0;
+    font-size: 15px;
+    line-height: 24px;
+    transition: all .4s;
+}
+
+.employe__item:hover .employe__desc, .employe__item:hover .employe__title {
+    color: @color-white;
+}
+
+.employe__icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: @def-pad*2;
+}
+
+.employe__icons > li {
+    display: inline-block;
+}
+
+.employe__icons > li > a {
+    border: 1px solid @color-gray;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    color: inherit;
+    margin: 0 5px;
+    transition: all .4s;
+}
+
+.employe__item:hover .employe__icons > li > a {
+    background-color: @color-white;
+    border-color: @color-white;
+    color: @color-black;
+}
+
+//projects
+.projects {
+    background-image: url('/content/dist/static/bg-projects.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-right: -@def-pad*2;
+    margin-left: -@def-pad*2;
+    color: @color-white;
+    position: relative;
+}
+
+.projects::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('/content/dist/static/bg-slider.png');
+}
+
+.projects .block-header__title {
+}
+
+.projects .block-header__subtitle::before {
+    background-image: url('/content/dist/static/bg-projects.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.projects__btns {
+    text-align: center;
+    padding-bottom:@def-pad*4;
+    position:relative;
+    z-index:1;
+}
+
+.projects__btns > .btn{
+    border:1px solid @color-white;
+    color:@color-white;
+}
+
+.projects__btns.btn-box > a{
+    background-color:transparent;
+}
+
+.projects__box {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+    padding:0 @def-pad*2;
+    position: relative;
+    z-index: 1;
+}
+
+.project__item {
+    width: 33.33%;
+    padding-bottom: 270px;
+    vertical-align: top;
+    position: relative;
+    display: inline-block;
+
+    @media (max-width: @screen-xs-max) {
+        width: 50%;
+        padding-bottom: 50%;
+    }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    }
+
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    }
+
+    @media (min-width: @screen-lg-min) {
+    }
+}
+
+.project__item > a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-position: center center;
+    background-size: cover;
 }

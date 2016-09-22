@@ -144,6 +144,7 @@
     <Content Include="content\dist\js\jquery.validate.min.js" />
     <Content Include="content\dist\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="content\dist\js\site.min.js" />
+    <Content Include="content\dist\static\bg-projects.jpg" />
     <Content Include="content\dist\static\bg-slider.jpg" />
     <Content Include="content\dist\static\bg-slider.png" />
     <Content Include="content\dist\static\bg.jpg" />
