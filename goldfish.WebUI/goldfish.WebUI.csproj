@@ -144,6 +144,10 @@
     <Content Include="content\dist\js\jquery.validate.min.js" />
     <Content Include="content\dist\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="content\dist\js\site.min.js" />
+    <Content Include="content\dist\static\bg-slider.jpg" />
+    <Content Include="content\dist\static\bg-slider.png" />
+    <Content Include="content\dist\static\bg.jpg" />
+    <Content Include="content\dist\temp\iphone.png" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="scripts\site.js" />

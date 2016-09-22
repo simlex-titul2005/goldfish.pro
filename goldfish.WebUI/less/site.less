@@ -1,3 +1,117 @@
-﻿body {
-    font-size:13px;
+﻿@import 'https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=cyrillic';
+@import (reference) "../bower_components/bootstrap/less/variables.less";
+
+@color-blue: #22a7f0;
+@color-white: #fff;
+
+@def-pad:15px;
+
+body {
+    background-image: url('/content/dist/static/bg.jpg');
+    background-attachment: fixed;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+body > .wrapper{
+    width:1400px;
+    max-width:100%;
+    margin:0 auto;
+}
+
+a, a:visited, a:link, a:visited, a:focus{
+    outline:none;
+}
+
+//slider
+.slider {
+    background-color: @color-blue;
+    background-image: url('/content/dist/static/bg-slider.jpg');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.slider__box::before, .slider__box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.slider__box::before {
+    background-color: @color-blue;
+    opacity: .8;
+}
+
+.slider__box {
+    
+}
+
+.slider__box::after {
+    background-image: url('/content/dist/static/bg-slider.png');
+}
+
+//header
+header{
+    color:@color-white;
+    position:relative;
+    z-index:1000;
+    padding:0 @def-pad*2; 
+    display:table;
+    width:100%;
+    font-size:25px;
+}
+
+header a{
+    color:inherit !important;
+    text-decoration:none !important;
+}
+
+header .logo, header nav{
+    display:table-cell;
+    vertical-align:middle;
+}
+header .logo{
+    text-transform:uppercase;
+}
+
+header .logo{
+    height:90px;
+}
+
+header .logo__before{
+    font-weight:700;
+}
+
+header nav{
+    text-align:right;
+    @media (max-width: @screen-xs-max) {
+    }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    }
+
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    }
+
+    @media (min-width: @screen-lg-min) {
+    }
+}
+
+//slider__content
+.slider__content{
+    padding:@def-pad*4 0 @def-pad*8;
+    position:relative;
+    z-index:1000;
+    text-align:center;
+    color:@color-white;
+}
+
+.slider__item{
+    max-width:70%;
+    margin: 0 auto;
 }
