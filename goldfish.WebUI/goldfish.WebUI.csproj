@@ -175,6 +175,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="Properties\PublishProfiles\goldfishpro - Web Deploy.pubxml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>

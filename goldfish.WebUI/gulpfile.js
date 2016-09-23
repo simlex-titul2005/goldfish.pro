@@ -147,7 +147,8 @@ function createJs() {
         .pipe(concat('js.js'));
 
     var sitejs = gulp.src([
-        'scripts/site.js'
+        'scripts/site.js',
+        'scripts/gf-navbar.js'
     ])
         .pipe(uglify())
         .pipe(concat('sitejs.js'));

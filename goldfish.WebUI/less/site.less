@@ -24,10 +24,73 @@ body > .wrapper {
     margin: 0 auto;
     background-color: @color-white;
     padding: 0 @def-pad*2;
+    position:relative;
 }
 
 a, a:visited, a:link, a:visited, a:focus {
     outline: none;
+}
+
+//navbar
+@gf-navba-width:400px;
+.gf-navbar-wrapper{
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:-8999;
+}
+.gf-navbar{
+    position:fixed;
+    width:@gf-navba-width;
+    max-width:100%;
+    right: 0;
+    height: 100%;
+    background-color:@color-white;
+    padding:@def-pad*4 @def-pad*3;
+    margin-right:-@gf-navba-width;
+}
+
+.gf-navbar__close-btn{
+    text-align:right;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    padding:@def-pad;
+    font-size:15px;
+}
+.gf-navbar__close-btn > .fa{
+    cursor:pointer;
+}
+
+
+.gf-menu{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.gf-menu a{
+    color:@color-accent;
+    text-transform:uppercase;
+    border-bottom:1px solid @color-gray;
+    display:block;
+    line-height:40px;
+    padding:10px 0;
+    text-decoration:none;
+    transition:all .4s;
+    font-size:15px;
+}
+.gf-menu a > .fa-bars{
+    margin-right:10px;
+}
+
+
+.gf-menu a:hover{
+    color:@color-black;
+    padding-left:@def-pad*2;
 }
 
 //slider
