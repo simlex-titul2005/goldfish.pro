@@ -50,6 +50,8 @@ a, a:visited, a:link, a:visited, a:focus {
     background-color:@color-white;
     padding:@def-pad*4 @def-pad*3;
     margin-right:-@gf-navba-width;
+    overflow:hidden;
+    overflow-y:auto;
 }
 
 .gf-navbar__close-btn{
@@ -65,12 +67,15 @@ a, a:visited, a:link, a:visited, a:focus {
     cursor:pointer;
 }
 
-
-.gf-menu{
+.gf-menu, .gf-menu ul{
     list-style:none;
     padding:0;
     margin:0;
 }
+
+.gf-menu ul{
+    padding-left:@def-pad*2;
+} 
 
 .gf-menu a{
     color:@color-accent;
