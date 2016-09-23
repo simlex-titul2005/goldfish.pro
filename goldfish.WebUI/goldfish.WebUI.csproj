@@ -161,10 +161,16 @@
     <Content Include="content\dist\temp\p4.jpg" />
     <Content Include="content\dist\temp\p5.jpg" />
     <Content Include="content\dist\temp\p6.jpg" />
+    <Content Include="content\dist\temp\partner1.png" />
+    <Content Include="content\dist\temp\partner2.png" />
+    <Content Include="content\dist\temp\partner3.png" />
+    <Content Include="content\dist\temp\partner4.png" />
     <Content Include="content\dist\temp\team1.jpg" />
     <Content Include="content\dist\temp\team2.jpg" />
     <Content Include="content\dist\temp\team3.jpg" />
     <Content Include="content\dist\temp\team4.jpg" />
+    <Content Include="content\dist\temp\testemonial3.jpg" />
+    <Content Include="content\dist\temp\testemonial4.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
