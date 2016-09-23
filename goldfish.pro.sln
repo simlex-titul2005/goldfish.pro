@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "goldfish.WebUI", "goldfish.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SX.WebCore", "..\SX.WebCore\SX.WebCore\SX.WebCore.csproj", "{DAF1A092-DED8-4C43-B08D-20E55C6F03A2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "design", "design", "{6AB277AC-3B53-40B0-9FAD-4900A562A77B}"
+	ProjectSection(SolutionItems) = preProject
+		template.psd = template.psd
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
