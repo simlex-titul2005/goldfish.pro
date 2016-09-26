@@ -135,19 +135,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\dist\css\site.min.css" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.eot" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.svg" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.ttf" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.woff" />
-    <Content Include="content\dist\fonts\fontawesome-webfont.woff2" />
-    <Content Include="content\dist\fonts\FontAwesome.otf" />
     <Content Include="content\dist\images\close.png" />
     <Content Include="content\dist\images\loading.gif" />
     <Content Include="content\dist\images\next.png" />
     <Content Include="content\dist\images\prev.png" />
-    <Content Include="content\dist\js\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="content\dist\js\jquery.validate.min.js" />
-    <Content Include="content\dist\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="content\dist\js\site.min.js" />
     <Content Include="content\dist\static\bg-projects.jpg" />
     <Content Include="content\dist\static\bg-slider.jpg" />
@@ -174,8 +165,10 @@
     <Content Include="Global.asax" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
     <None Include="Properties\PublishProfiles\goldfishpro - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -184,8 +177,32 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AffiliateLinksController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BannedUrlsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BannerGroupsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BannersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LogsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NetsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PicturesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RedirectsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SeoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SeoTagsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ShareButtonsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SiteNetsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StatisticsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SiteSettingsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RequestsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ValutesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VideosController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
+    <Compile Include="Controllers\StaticContentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,10 +220,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SX.WebCore\SX.WebCore.Static\SX.WebCore.Static.csproj">
+      <Project>{743adb7f-3413-4789-8d46-b7c902da7a35}</Project>
+      <Name>SX.WebCore.Static</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SX.WebCore\SX.WebCore\SX.WebCore.csproj">
       <Project>{daf1a092-ded8-4c43-b08d-20e55c6f03a2}</Project>
       <Name>SX.WebCore</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Roles\" />
+    <Folder Include="Views\StaticContent\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

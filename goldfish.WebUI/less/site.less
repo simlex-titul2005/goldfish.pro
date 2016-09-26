@@ -12,6 +12,11 @@
 @header-font-size: 17px;
 @def-radius: 3px;
 
+//bootstrap ext
+.form-control {
+    height: 44px;
+}
+
 body {
     background-image: url('/content/dist/static/bg.jpg');
     background-attachment: fixed;
@@ -24,7 +29,7 @@ body > .wrapper {
     margin: 0 auto;
     background-color: @color-white;
     padding: 0 @def-pad*2;
-    position:relative;
+    position: relative;
 }
 
 a, a:visited, a:link, a:visited, a:focus {
@@ -32,70 +37,74 @@ a, a:visited, a:link, a:visited, a:focus {
 }
 
 //navbar
-@gf-navba-width:400px;
-.gf-navbar-wrapper{
-    position:fixed;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    z-index:-8999;
+@gf-navba-width: 400px;
+
+.gf-navbar-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -8999;
 }
-.gf-navbar{
-    position:fixed;
-    width:@gf-navba-width;
-    max-width:100%;
+
+.gf-navbar {
+    position: fixed;
+    width: @gf-navba-width;
+    max-width: 100%;
     right: 0;
     height: 100%;
-    background-color:@color-white;
-    padding:@def-pad*4 @def-pad*3;
-    margin-right:-@gf-navba-width;
-    overflow:hidden;
-    overflow-y:auto;
+    background-color: @color-white;
+    padding: @def-pad*4 @def-pad*3;
+    margin-right: -@gf-navba-width;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
-.gf-navbar__close-btn{
-    text-align:right;
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    padding:@def-pad;
-    font-size:15px;
-}
-.gf-navbar__close-btn > .fa{
-    cursor:pointer;
+.gf-navbar__close-btn {
+    text-align: right;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: @def-pad;
+    font-size: 15px;
 }
 
-.gf-menu, .gf-menu ul{
-    list-style:none;
-    padding:0;
-    margin:0;
+.gf-navbar__close-btn > .fa {
+    cursor: pointer;
 }
 
-.gf-menu ul{
-    padding-left:@def-pad*2;
-} 
-
-.gf-menu a{
-    color:@color-accent;
-    text-transform:uppercase;
-    border-bottom:1px solid @color-gray;
-    display:block;
-    line-height:40px;
-    padding:10px 0;
-    text-decoration:none;
-    transition:all .4s;
-    font-size:15px;
-}
-.gf-menu a > .fa-bars{
-    margin-right:10px;
+.gf-menu, .gf-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
+.gf-menu ul {
+    padding-left: @def-pad*2;
+}
 
-.gf-menu a:hover{
-    color:@color-black;
-    padding-left:@def-pad*2;
+.gf-menu a {
+    color: @color-accent;
+    text-transform: uppercase;
+    border-bottom: 1px solid @color-gray;
+    display: block;
+    line-height: 40px;
+    padding: 10px 0;
+    text-decoration: none;
+    transition: all .4s;
+    font-size: 15px;
+}
+
+.gf-menu a > .fa-bars {
+    margin-right: 10px;
+}
+
+
+.gf-menu a:hover {
+    color: @color-black;
+    padding-left: @def-pad*2;
 }
 
 //slider
@@ -136,7 +145,7 @@ a, a:visited, a:link, a:visited, a:focus {
 header {
     color: @color-white;
     position: relative;
-    z-index: 1000;
+    z-index: 1001;
     padding: 0 @def-pad*2;
     display: table;
     width: 100%;
@@ -148,7 +157,7 @@ header a {
     text-decoration: none !important;
 }
 
-header .logo, header nav {
+header .logo, header .auth, header nav {
     display: table-cell;
     vertical-align: middle;
     height: 90px;
@@ -177,6 +186,15 @@ header .logo__before {
     font-weight: 700;
 }
 
+header .auth {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+header .auth > a, header .auth > span {
+    margin-right: @def-pad;
+}
+
 header nav {
     text-align: right;
 
@@ -196,7 +214,6 @@ header nav {
 
 //slider__content
 .slider__content {
-    padding: @def-pad*4 0 @def-pad*20;
     position: relative;
     z-index: 1000;
     text-align: center;
@@ -204,6 +221,7 @@ header nav {
 }
 
 .slider__item {
+    padding: @def-pad*10 0 @def-pad*12;
     max-width: 70%;
     margin: 0 auto;
 }
@@ -1155,8 +1173,9 @@ header nav {
 .prices-box {
     margin: 0 auto;
     max-width: 70%;
+
     @media (max-width: @screen-xs-max) {
-        max-width:unset;
+        max-width: unset;
     }
 
     @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
@@ -1172,8 +1191,9 @@ header nav {
 .price__item {
     text-align: center;
     position: relative;
+
     @media (max-width: @screen-xs-max) {
-        padding-bottom:@def-pad*2;
+        padding-bottom: @def-pad*2;
     }
 
     @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
@@ -1190,15 +1210,15 @@ header nav {
     border: 1px solid @color-gray;
     border-radius: @def-radius;
     transition: all .4s;
-    position:relative;
+    position: relative;
 }
 
-.price__link{
-    position:absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
+.price__link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 .price__item:hover .price__item-content, .price__item.active .price__item-content {
@@ -1252,30 +1272,31 @@ header nav {
     border-radius: @def-radius;
     margin-top: @def-pad;
     visibility: hidden;
-    display:block;
+    display: block;
 }
 
 .price__item:hover .price__footer > .btn, .price__item.active .price__footer > .btn {
-    visibility:visible;
+    visibility: visible;
 }
 
 //downloads
-.downloads{
-    background-color:@color-black;
-    color:@color-white;
-    margin-left:-@def-pad*2;
-    margin-right:-@def-pad*2;
-    padding-bottom:@def-pad*2;
+.downloads {
+    background-color: @color-black;
+    color: @color-white;
+    margin-left: -@def-pad*2;
+    margin-right: -@def-pad*2;
+    padding-bottom: @def-pad*2;
 }
 
-.downloads .block-header__subtitle::before{
-    background-color:@color-black;
+.downloads .block-header__subtitle::before {
+    background-color: @color-black;
 }
 
-.downloads__btns{
-    text-align:center;
+.downloads__btns {
+    text-align: center;
+
     @media (max-width: @screen-xs-max) {
-        padding:@def-pad*2;
+        padding: @def-pad*2;
     }
 
     @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
@@ -1288,16 +1309,17 @@ header nav {
     }
 }
 
-.downloads__btns .btn{
-    padding:@def-pad @def-pad*2;
-    border:1px solid @color-white;
-    color:@color-white;
-    text-transform:uppercase;
-    margin-right:@def-pad;
-    margin-bottom:@def-pad*2;
+.downloads__btns .btn {
+    padding: @def-pad @def-pad*2;
+    border: 1px solid @color-white;
+    color: @color-white;
+    text-transform: uppercase;
+    margin-right: @def-pad;
+    margin-bottom: @def-pad*2;
+
     @media (max-width: @screen-xs-max) {
-        width:100%;
-        margin-right:0;
+        width: 100%;
+        margin-right: 0;
     }
 
     @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
@@ -1310,47 +1332,75 @@ header nav {
     }
 }
 
-.downloads__btns .btn:last-child{
-    margin-right:0;
+.downloads__btns .btn:last-child {
+    margin-right: 0;
 }
 
-.downloads__btns .btn > .fa{
-    font-size:20px;
-    margin-right:@def-pad;
+.downloads__btns .btn > .fa {
+    font-size: 20px;
+    margin-right: @def-pad;
 }
 
 //contacts
-.contacts{
-    background-color:@color-accent;
-    color:@color-white;
-    margin-left:-@def-pad*2;
-    margin-right:-@def-pad*2;
+.contacts {
+    background-color: @color-accent;
+    color: @color-white;
+    margin-left: -@def-pad*2;
+    margin-right: -@def-pad*2;
 }
 
-.contacts .block-header__subtitle::before{
-    background-color:@color-accent;
+.contacts .block-header__subtitle::before {
+    background-color: @color-accent;
 }
 
-.contacts .txt{
-    color:@color-white;
+.contacts .txt {
+    color: @color-white;
 }
 
-.contacts-box{
-    padding-right:@def-pad*2;
-    padding-left:@def-pad*2;
+.contacts-box {
+    padding-right: @def-pad*2;
+    padding-left: @def-pad*2;
 }
 
-.contact__item{
-    text-align:center;
-    padding-bottom:@def-pad*4;
+.contact__item {
+    text-align: center;
+    padding-bottom: @def-pad*4;
 }
 
-.contact__img > .fa{
-    width:67px;
-    height:67px;
-    line-height:67px;
-    border:1px solid @color-white;
-    border-radius:100%;
-    text-align:center;
+.contact__img > .fa {
+    width: 67px;
+    height: 67px;
+    line-height: 67px;
+    border: 1px solid @color-white;
+    border-radius: 100%;
+    text-align: center;
     font-size: 250%;
+}
+
+//form-login
+.form-login {
+    display: table;
+    width: 100%;
+    height: 100%;
+    width: 400px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.form-login > form {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.form-login .btn {
+    width: 100%;
+    background: none;
+    color: @color-white;
+    border: 1px solid #fff;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.form-login .form-group {
+    margin-bottom: @def-pad*2;
 }
