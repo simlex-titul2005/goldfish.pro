@@ -169,7 +169,9 @@
     <None Include="Properties\PublishProfiles\goldfishpro - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <None Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <None Include="Properties\PublishProfiles\PROD.pubxml" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -220,10 +222,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SX.WebCore\SX.WebCore.Static\SX.WebCore.Static.csproj">
-      <Project>{743adb7f-3413-4789-8d46-b7c902da7a35}</Project>
-      <Name>SX.WebCore.Static</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\SX.WebCore\SX.WebCore\SX.WebCore.csproj">
       <Project>{daf1a092-ded8-4c43-b08d-20e55c6f03a2}</Project>
       <Name>SX.WebCore</Name>
