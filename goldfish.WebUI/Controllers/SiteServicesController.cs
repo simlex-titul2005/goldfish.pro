@@ -7,7 +7,7 @@ using static SX.WebCore.HtmlHelpers.SxExtantions;
 
 namespace goldfish.WebUI.Controllers
 {
-    public sealed class SiteServicesController : SxSiteServicesController
+    public sealed class SiteServicesController : SxSiteServicesController<VMSiteService>
     {
         private static RepoSiteService _repo = new RepoSiteService();
         public SiteServicesController()
@@ -31,7 +31,7 @@ namespace goldfish.WebUI.Controllers
         [HttpGet]
         public ActionResult Details(string titleUrl)
         {
-            var viewModel = (Repo as RepoSiteService).GetByTitleUrl<VMSiteService>(titleUrl);
+            var viewModel = (Repo as RepoSiteService).GetByTitleUrl(titleUrl);
             if (viewModel == null) return new HttpNotFoundResult();
 
             return View(viewModel);

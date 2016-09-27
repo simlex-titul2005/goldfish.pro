@@ -13,58 +13,9 @@
                     <a href="@item.GetUrl(Url)" class="service__link"></a>
                     <h4 class="service__title">@item.Title</h4>
                     <p class="service__desc">@item.Foreword</p>
-                    <span class="service__img fa fa-star"></span>
+                    <i class="service__img @(string.IsNullOrEmpty(item.MainPageIconCssClass)?"fa fa-star":item.MainPageIconCssClass)" aria-hidden="true"></i>
                 </div>
             </li>
         }
-
-        @*<li>
-                <div class="service__item">
-                    <a href="#" class="service__link"></a>
-                    <h4 class="service__title">Duis placerat lacinia odio</h4>
-                    <p class="service__desc">Vestibulum bibendum pharetra lorem non feugiat. Cras porttitor consequat neque, eu blandit odio accumsan.</p>
-                    <span class="service__img fa fa-star"></span>
-                </div>
-            </li>
-            <li>
-                <div class="service__item">
-                    <a href="#" class="service__link"></a>
-                    <h4 class="service__title">Duis placerat lacinia odio</h4>
-                    <p class="service__desc">Vestibulum bibendum pharetra lorem non feugiat. Cras porttitor consequat neque, eu blandit odio accumsan.</p>
-                    <span class="service__img fa fa-star"></span>
-                </div>
-            </li>
-            <li>
-                <div class="service__item">
-                    <a href="#" class="service__link"></a>
-                    <h4 class="service__title">Duis placerat lacinia odio</h4>
-                    <p class="service__desc">Vestibulum bibendum pharetra lorem non feugiat. Cras porttitor consequat neque, eu blandit odio accumsan.</p>
-                    <span class="service__img fa fa-star"></span>
-                </div>
-            </li>
-            <li>
-                <div class="service__item">
-                    <a href="#" class="service__link"></a>
-                    <h4 class="service__title">Duis placerat lacinia odio</h4>
-                    <p class="service__desc">Vestibulum bibendum pharetra lorem non feugiat. Cras porttitor consequat neque, eu blandit odio accumsan.</p>
-                    <span class="service__img fa fa-star"></span>
-                </div>
-            </li>
-            <li>
-                <div class="service__item">
-                    <a href="#" class="service__link"></a>
-                    <h4 class="service__title">Duis placerat lacinia odio</h4>
-                    <p class="service__desc">Vestibulum bibendum pharetra lorem non feugiat. Cras porttitor consequat neque, eu blandit odio accumsan.</p>
-                    <span class="service__img fa fa-star"></span>
-                </div>
-            </li>
-            <li>
-                <div class="service__item">
-                    <a href="#" class="service__link"></a>
-                    <h4 class="service__title">Duis placerat lacinia odio</h4>
-                    <p class="service__desc">Vestibulum bibendum pharetra lorem non feugiat. Cras porttitor consequat neque, eu blandit odio accumsan.</p>
-                    <span class="service__img fa fa-star"></span>
-                </div>
-            </li>*@
     </ul>
 }
