@@ -1,4 +1,6 @@
-﻿using SX.WebCore;
+﻿using goldfish.WebUI.Models;
+using SX.WebCore;
+using System.Data.Entity;
 
 namespace goldfish.WebUI.Infrastructure
 {
@@ -12,5 +14,10 @@ namespace goldfish.WebUI.Infrastructure
         /// В последствии можно убрать, т.к. для одного проекта всегда используется только одна строка подключения
         /// </summary>
         public DbContext() : base("DbContext") { }
+
+        /// <summary>
+        /// Сервисы сайта
+        /// </summary>
+        public new DbSet<SiteService> SiteServices { get; set; }
     }
 }

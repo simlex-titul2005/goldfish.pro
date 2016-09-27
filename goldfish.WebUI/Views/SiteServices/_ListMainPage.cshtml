@@ -1,0 +1,70 @@
+﻿@model VMSiteService[]
+
+@if (Model.Any())
+{
+    VMSiteService item = null;
+
+    <ul class="services">
+        @for (int i = 0; i < Model.Length; i++)
+        {
+            item = Model[i];
+            <li>
+                <div class="service__item">
+                    <a href="@item.GetUrl(Url)" class="service__link"></a>
+                    <h4 class="service__title">@item.Title</h4>
+                    <p class="service__desc">@item.Foreword</p>
+                    <span class="service__img fa fa-star"></span>
+                </div>
+            </li>
+        }
+
+        @*<li>
+                <div class="service__item">
+                    <a href="#" class="service__link"></a>
+                    <h4 class="service__title">Duis placerat lacinia odio</h4>
+                    <p class="service__desc">Vestibulum bibendum pharetra lorem non feugiat. Cras porttitor consequat neque, eu blandit odio accumsan.</p>
+                    <span class="service__img fa fa-star"></span>
+                </div>
+            </li>
+            <li>
+                <div class="service__item">
+                    <a href="#" class="service__link"></a>
+                    <h4 class="service__title">Duis placerat lacinia odio</h4>
+                    <p class="service__desc">Vestibulum bibendum pharetra lorem non feugiat. Cras porttitor consequat neque, eu blandit odio accumsan.</p>
+                    <span class="service__img fa fa-star"></span>
+                </div>
+            </li>
+            <li>
+                <div class="service__item">
+                    <a href="#" class="service__link"></a>
+                    <h4 class="service__title">Duis placerat lacinia odio</h4>
+                    <p class="service__desc">Vestibulum bibendum pharetra lorem non feugiat. Cras porttitor consequat neque, eu blandit odio accumsan.</p>
+                    <span class="service__img fa fa-star"></span>
+                </div>
+            </li>
+            <li>
+                <div class="service__item">
+                    <a href="#" class="service__link"></a>
+                    <h4 class="service__title">Duis placerat lacinia odio</h4>
+                    <p class="service__desc">Vestibulum bibendum pharetra lorem non feugiat. Cras porttitor consequat neque, eu blandit odio accumsan.</p>
+                    <span class="service__img fa fa-star"></span>
+                </div>
+            </li>
+            <li>
+                <div class="service__item">
+                    <a href="#" class="service__link"></a>
+                    <h4 class="service__title">Duis placerat lacinia odio</h4>
+                    <p class="service__desc">Vestibulum bibendum pharetra lorem non feugiat. Cras porttitor consequat neque, eu blandit odio accumsan.</p>
+                    <span class="service__img fa fa-star"></span>
+                </div>
+            </li>
+            <li>
+                <div class="service__item">
+                    <a href="#" class="service__link"></a>
+                    <h4 class="service__title">Duis placerat lacinia odio</h4>
+                    <p class="service__desc">Vestibulum bibendum pharetra lorem non feugiat. Cras porttitor consequat neque, eu blandit odio accumsan.</p>
+                    <span class="service__img fa fa-star"></span>
+                </div>
+            </li>*@
+    </ul>
+}
