@@ -1,0 +1,18 @@
+﻿@model SxVMMenuItem[]
+@{ 
+    ViewBag.Title = "Пункты меню панели управления";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div id="grid-menu">
+    @Html.Partial("_GridView", Model)
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('#grid-menu').sx_gv();
+        });
+    </script>
+    }

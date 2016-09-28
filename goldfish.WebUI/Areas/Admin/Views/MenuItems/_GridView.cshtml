@@ -1,0 +1,9 @@
+﻿@model SxVMMenuItem[]
+
+@Html.SxTreeView(Model, new SxExtantions.SxTreeViewTreeViewSettings<SxVMMenuItem> {
+    FuncCreateUrl = () => { return Url.Action("Edit", "MenuItems", new { menuName = "admin-panel" }); },
+    EnableEditing=true,
+    FuncEditUrl=x=> { return Url.Action("Edit", "MenuItems", new { id=x.Id, menuName = x.MenuName, menuItemId=x.ParentId }); },
+    FuncEditSubNodeUrl = x => { return Url.Action("Edit", "MenuItems", new { menuName = x.MenuName, menuItemId = x.Id }); },
+    FuncContent = x => { return x.Title; }
+}, new { @class= "sx-tv table table-condensed table-bordered table-responsive" })
