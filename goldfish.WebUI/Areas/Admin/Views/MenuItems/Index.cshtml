@@ -4,6 +4,11 @@
 }
 
 <h2>@ViewBag.Title</h2>
+<br />
+
+<div class="alert alert-warning">
+    <p><b>Внимание</b>! Без создания пунктов меню панель управления будет недоступна</p>
+</div>
 
 <div id="grid-menu">
     @Html.Partial("_GridView", Model)

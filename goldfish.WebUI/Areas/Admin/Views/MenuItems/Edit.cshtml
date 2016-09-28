@@ -1,12 +1,9 @@
 ﻿@model SxVMMenuItem
-
 @{
-    var isNew = Model.Id==null;
+    var isNew = Equals(Model.Id, 0);
     ViewBag.Title = isNew ? "Добавить пункт меню" : "Редактировать пункт меню \"" + Model.Title + "\"";
 }
-
 <h2>@ViewBag.Title</h2>
-
 @if (!isNew)
 {
     <div class="form-group">
@@ -14,15 +11,15 @@
             <form method="post" action="@Url.Action("Delete", "MenuItems")">
                 @Html.AntiForgeryToken()
                 @Html.HiddenFor(x => x.Id)
+                @Html.HiddenFor(x => x.MenuName)
                 <button type="submit" class="btn btn-danger" onclick="if (!confirm('Удалить запись?')) { return false; }">Удалить</button>
             </form>
         </div>
     </div>
 }
-
 <form method="post" action="@Url.Action("Edit", "MenuItems")">
     @Html.HiddenFor(x => x.MenuName)
-    @Html.HiddenFor(x=>x.ParentId)
+    @Html.HiddenFor(x => x.ParentId)
     @Html.AntiForgeryToken()
     @Html.HiddenFor(x => x.Id)
     @if (!isNew)
@@ -30,13 +27,23 @@
         @Html.HiddenFor(x => x.DateCreate)
         @Html.HiddenFor(x => x.DateUpdate)
     }
-
     <div class="form-group">
-        @Html.LabelFor(x => x.Title)
-        @Html.EditorFor(x => x.Title, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(x => x.Title)
-    </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-8">
+                    @Html.LabelFor(x => x.Title)
+                    @Html.EditorFor(x => x.Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(x => x.Title)
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(x => x.IconCssClass)
+                    @Html.EditorFor(x => x.IconCssClass, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(x => x.IconCssClass)
+                </div>
+            </div>
+        </div>
 
+    </div>
     <div class="form-group">
         <div class="row">
             <div class="col-md-3">
@@ -61,20 +68,21 @@
             </div>
         </div>
     </div>
-
     <div class="form-group">
         @Html.LabelFor(x => x.Description)
         @Html.EditorFor(x => x.Description, new { htmlAttributes = new { @class = "form-control" } })
         @Html.ValidationMessageFor(x => x.Description)
     </div>
-
+    <div class="form-group">
+        @Html.LabelFor(x => x.Roles)
+        @Html.EditorFor(x => x.Roles, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(x => x.Roles)
+    </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">@(isNew ? "Добавить" : "Сохранить")</button>
         <a href="@Url.Action("Index", "MenuItems", new { menuName=Model.MenuName})" class="btn btn-default">Назад</a>
     </div>
-
 </form>
-
 @section scripts{
     <script src="@Url.Action("Js", "StaticContent", new { name="jquery.validate", area=""})"></script>
     <script src="@Url.Action("Js", "StaticContent", new { name="jquery.validate.unobtrusive", area=""})"></script>

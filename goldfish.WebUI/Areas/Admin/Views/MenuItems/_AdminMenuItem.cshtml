@@ -1,0 +1,25 @@
+﻿@model SxVMMenuItem
+
+<li>
+    <a href="@(string.IsNullOrEmpty(Model.Controller)?"#": Url.Action(Model.Action, Model.Controller, new { area=Model.Area}))">
+        @if (!string.IsNullOrEmpty(Model.IconCssClass))
+        {
+            <i class="@Model.IconCssClass fa-fw"></i>
+        }
+        @Model.Title
+        @if (Model.Childs.Any())
+        {
+            <span class="fa arrow"></span>
+        }
+    </a>
+    @if(Model.Childs.Any())
+    {
+        <ul class="nav nav-second-level collapse" aria-expanded="false">
+            @for (int i = 0; i < Model.Childs.Length; i++)
+            {
+                @Html.Partial("_AdminMenuItem", Model.Childs[i])
+            }
+        </ul>
+    }
+</li>
+

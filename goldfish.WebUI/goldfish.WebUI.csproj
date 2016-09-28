@@ -181,6 +181,7 @@
     <Content Include="Areas\Admin\Views\MenuItems\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MenuItems\_GridView.cshtml" />
     <Content Include="Areas\Admin\Views\MenuItems\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\MenuItems\_AdminMenuItem.cshtml" />
     <None Include="Properties\PublishProfiles\goldfishpro - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
