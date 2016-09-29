@@ -13,8 +13,7 @@
     @RenderSection("head", false)
     <title>@(ViewBag.Title == null ? MvcApplication.DefaultSiteName : ViewBag.Title + " | " + MvcApplication.DefaultSiteName)</title>
 
-    <link href="@Url.Action("Css", "StaticContent", new { name = "bootstrap" })" rel="stylesheet" />
-    <link href="@Url.Action("Css", "StaticContent", new { name = "font-awesome" })" rel="stylesheet" />
+    <link href="@Url.Action("Css", "StaticContent", new { name = "[bootstrap][font-awesome]" })" rel="stylesheet" />
     <link href="~/content/dist/css/site.min.css" rel="stylesheet" />
     @RenderSection("styles", false)
 </head>
@@ -63,8 +62,7 @@
         </div>
         @RenderBody()
     </div>
-    <script src="@Url.Action("Js", "StaticContent", new { name = "jquery" })"></script>
-    <script src="@Url.Action("Js", "StaticContent", new { name = "bootstrap" })"></script>
+    <script src="@Url.Action("Js", "StaticContent", new { name = "[jquery][bootstrap]" })"></script>
     <script src="/content/dist/js/site.min.js"></script>
     <script>
         $(function () {
