@@ -171,17 +171,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>_Layout.generated.cs</LastGenOutput>
-    </Content>
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuItems\_AdminMenu.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuItems\View.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuItems\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuItems\_GridView.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuItems\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\MenuItems\_AdminMenuItem.cshtml" />
     <None Include="Properties\PublishProfiles\goldfishpro - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -219,11 +209,6 @@
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\ValutesController.cs" />
     <Compile Include="Areas\Admin\Controllers\VideosController.cs" />
-    <Compile Include="Areas\Admin\Views\Shared\_Layout.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_Layout.cshtml</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
