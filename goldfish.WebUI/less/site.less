@@ -647,6 +647,7 @@ header nav {
     right: 0;
     bottom: 0;
     left: 0;
+    z-index:1;
 }
 
 .employe__avatar {
@@ -710,6 +711,8 @@ header nav {
     width: 100%;
     text-align: center;
     margin-top: @def-pad*2;
+    position:relative;
+    z-index:2;
 }
 
 .employe__icons > li {
@@ -728,6 +731,10 @@ header nav {
     color: inherit;
     margin: 0 5px;
     transition: all .4s;
+}
+
+.employe__icons > li > a:hover{
+    color:@color-accent !important;
 }
 
 .employe__item:hover .employe__icons > li > a {

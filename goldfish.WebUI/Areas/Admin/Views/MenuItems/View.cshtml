@@ -85,7 +85,7 @@
                         @if (User.IsInRole("admin"))
                         {
                             <li>
-                                <a href="@Url.Action("Index", "MaterialCategories", new { mct = SX.WebCore.Enums.ModelCoreType.Article })">Категории статей</a>
+                                <a href="@Url.Action("Index", "MaterialCategories", new { mct = Enums.ModelCoreType.Article })">Категории статей</a>
                             </li>
                         }
                     </ul>
@@ -163,7 +163,7 @@
         @if (User.IsInRole("architect"))
             {
             <li>
-                <a href="@Url.Action("Index", "MaterialCategories", new { mct=SX.WebCore.Enums.ModelCoreType.Manual})">Справочные категории</a>
+                <a href="@Url.Action("Index", "MaterialCategories", new { mct=Enums.ModelCoreType.Manual})">Справочные категории</a>
             </li>
                 <li>
                     <a href="@Url.Action("Index", "Manuals")">Справочные материалы</a>

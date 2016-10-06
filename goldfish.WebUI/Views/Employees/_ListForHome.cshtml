@@ -1,0 +1,50 @@
+﻿@model SxVMEmployee[]
+@{
+    SxVMEmployee item = null;
+    var descLettersCount = 120;
+}
+
+@if (Model.Any())
+{
+    <div class="block-header">
+        <h2 class="block-header__title">
+            <span>Наша команда</span>
+            <span class="block-header__subtitle">Наш супер-пупер лозунг!</span>
+        </h2>
+    </div>
+
+    <div class="employees">
+        <div class="row">
+            @for (int i = 0; i < Model.Length; i++)
+            {
+                item = Model[i];
+                <div class="col-md-3 col-sm-6">
+                    <div class="employe__item">
+                        <a href="#" class="employe__link"></a>
+                        @if (item.AvatarId.HasValue)
+                        {
+                            <span class="employe__avatar" style="background-image:url('@Url.Action("Picture", "Pictures", new { id=item.AvatarId })')"></span>
+                        }
+                        <div class="employe__title">@item.Name @item.Surname</div>
+                        <div class="employe__post">@item.Post</div>
+                        <div class="employe__desc">
+                            @(item.Description==null || item.Description.Length<=descLettersCount ? item.Description : item.Description.Substring(0, descLettersCount)+"...")
+                        </div>
+                        <ul class="employe__icons">
+                            <li>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+
