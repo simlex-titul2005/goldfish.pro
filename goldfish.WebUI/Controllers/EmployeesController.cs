@@ -4,6 +4,7 @@ using System.Web.Mvc;
 
 namespace goldfish.WebUI.Controllers
 {
+    [AllowAnonymous]
     public sealed class EmployeesController : SxEmployeesController
     {
         public PartialViewResult ListForHome(int amount)

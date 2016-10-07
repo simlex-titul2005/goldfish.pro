@@ -7,6 +7,7 @@ using static SX.WebCore.HtmlHelpers.SxExtantions;
 
 namespace goldfish.WebUI.Controllers
 {
+    [AllowAnonymous]
     public sealed class SiteServicesController : SxSiteServicesController<VMSiteService>
     {
         private static RepoSiteService _repo = new RepoSiteService();
