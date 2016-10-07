@@ -204,6 +204,7 @@
     <Compile Include="Areas\Admin\Controllers\SeoTagsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ShareButtonsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SiteNetsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SiteProjectsController.cs" />
     <Compile Include="Areas\Admin\Controllers\StatisticsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SiteSettingsController.cs" />
     <Compile Include="Areas\Admin\Controllers\RequestsController.cs" />
@@ -215,16 +216,23 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
+    <Compile Include="Controllers\MaterialsController.cs" />
+    <Compile Include="Controllers\SiteProjectsController.cs" />
     <Compile Include="Controllers\SiteServicesController.cs" />
     <Compile Include="Controllers\StaticContentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\DbContext.cs" />
+    <Compile Include="Infrastructure\Repositories\RepoMaterial.cs" />
+    <Compile Include="Infrastructure\Repositories\RepoSiteProject.cs" />
     <Compile Include="Infrastructure\Repositories\RepoSiteService.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\SiteProject.cs" />
     <Compile Include="Models\SiteService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\VMMaterial.cs" />
+    <Compile Include="ViewModels\VMSiteProject.cs" />
     <Compile Include="ViewModels\VMSiteService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +258,9 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Employees\" />
     <Folder Include="Areas\Admin\Views\Photoes\" />
+    <Folder Include="Areas\Admin\Views\SiteProject\" />
+    <Folder Include="Views\Materials\" />
+    <Folder Include="Views\SiteProjects\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

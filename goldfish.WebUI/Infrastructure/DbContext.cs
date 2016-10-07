@@ -16,6 +16,11 @@ namespace goldfish.WebUI.Infrastructure
         public DbContext() : base("DbContext") { }
 
         /// <summary>
+        /// Проекты сайта
+        /// </summary>
+        public DbSet<SiteProject> SiteProjects { get; set; }
+
+        /// <summary>
         /// Сервисы сайта
         /// </summary>
         public new DbSet<SiteService> SiteServices { get; set; }

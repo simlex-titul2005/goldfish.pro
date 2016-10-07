@@ -1,6 +1,8 @@
 ﻿using goldfish.WebUI.Infrastructure;
+using goldfish.WebUI.Models;
 using SX.WebCore.MvcApplication;
 using System;
+using System.Collections.Generic;
 
 namespace goldfish.WebUI
 {
@@ -22,7 +24,10 @@ namespace goldfish.WebUI
                 DefaultControllerNamespaces=new string[] { "goldfish.WebUI.Controllers"},
                 PreRouteAction=RouteConfig.PreRouteAction,
                 PostRouteAction=RouteConfig.PostRouteAction,
-                DefaultSiteName="goldfish.pro"
+                DefaultSiteName="goldfish.pro",
+                CustomModelCoreTypes=new Dictionary<string, byte> {
+                    [nameof(SiteProject)]=100
+                }
             };
 
             base.Application_Start(sender, args);
