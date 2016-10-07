@@ -2,6 +2,7 @@
 @{
     SxVMEmployee item = null;
     var descLettersCount = 120;
+    var title = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider.Get("home-page-team-title");
 }
 
 @if (Model.Any())
@@ -9,7 +10,7 @@
     <div class="block-header">
         <h2 class="block-header__title">
             <span>Наша команда</span>
-            <span class="block-header__subtitle">Наш супер-пупер лозунг!</span>
+            <span class="block-header__subtitle">@(title == null ? "Наша команда" : title.Value)</span>
         </h2>
     </div>
 
@@ -28,7 +29,7 @@
                         <div class="employe__title">@item.Name @item.Surname</div>
                         <div class="employe__post">@item.Post</div>
                         <div class="employe__desc">
-                            @(item.Description==null || item.Description.Length<=descLettersCount ? item.Description : item.Description.Substring(0, descLettersCount)+"...")
+                            @(item.Description == null || item.Description.Length <= descLettersCount ? item.Description : item.Description.Substring(0, descLettersCount) + "...")
                         </div>
                         <ul class="employe__icons">
                             <li>
