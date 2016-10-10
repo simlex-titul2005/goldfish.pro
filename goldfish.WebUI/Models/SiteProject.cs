@@ -6,6 +6,6 @@ namespace goldfish.WebUI.Models
     [Table("D_SITE_PROJECT")]
     public class SiteProject : SxMaterial
     {
-
+        
     }
 }

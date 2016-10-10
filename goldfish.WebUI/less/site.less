@@ -800,6 +800,8 @@ header nav {
     font-size: 0;
     position: relative;
     z-index: 1;
+    margin-left:-@def-pad;
+    margin-right:-@def-pad;
 }
 
 .project__item {
@@ -826,33 +828,13 @@ header nav {
 
 .project__item > a {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: @def-pad;
+    right: @def-pad;
+    bottom: @def-pad;
+    left: @def-pad;
     background-position: center center;
     background-size: cover;
 }
-
-/*@keyframes project_aminate {
-    0% {
-        background-size: 100%;
-    }
-
-    50% {
-        background-size: 110%;
-    }
-
-    100% {
-        background-size: 100%;
-    }
-}
-
-.project__item > a:hover {
-    animation: project_aminate .5s 1 ease-out;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-}*/
 
 .project__item > a::before, .project__item > a::after {
     content: '';

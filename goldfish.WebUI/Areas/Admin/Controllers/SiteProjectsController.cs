@@ -10,7 +10,7 @@ namespace goldfish.WebUI.Areas.Admin.Controllers
     public sealed class SiteProjectsController : SxMaterialsController<SiteProject, VMSiteProject>
     {
         private static RepoSiteProject _repo = new RepoSiteProject();
-        public SiteProjectsController() : base(MvcApplication.SxModelCoreTypeProvider[nameof(SiteProject)]) { }
+        public SiteProjectsController() : base(MvcApplication.ModelCoreTypeProvider[nameof(SiteProject)]) { }
         public sealed override SxRepoMaterial<SiteProject, VMSiteProject> Repo
         {
             get

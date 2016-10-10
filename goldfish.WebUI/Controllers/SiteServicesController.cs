@@ -1,20 +1,26 @@
 ﻿using goldfish.WebUI.Infrastructure.Repositories;
+using goldfish.WebUI.Models;
 using goldfish.WebUI.ViewModels;
 using SX.WebCore;
 using SX.WebCore.MvcControllers;
 using System.Web.Mvc;
 using static SX.WebCore.HtmlHelpers.SxExtantions;
+using SX.WebCore.Repositories;
+using System;
 
 namespace goldfish.WebUI.Controllers
 {
     [AllowAnonymous]
-    public sealed class SiteServicesController : SxSiteServicesController<VMSiteService>
+    public sealed class SiteServicesController : MaterialsController<SiteService, VMSiteService>
     {
         private static RepoSiteService _repo = new RepoSiteService();
-        public SiteServicesController()
+        public SiteServicesController() : base(MvcApplication.ModelCoreTypeProvider[nameof(SiteService)]) { }
+        public override SxRepoMaterial<SiteService, VMSiteService> Repo
         {
-            if (Repo == null || !(Repo is RepoSiteService))
-                Repo = _repo;
+            get
+            {
+                return _repo;
+            }
         }
 
         [ChildActionOnly]

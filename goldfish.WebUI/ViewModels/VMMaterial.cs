@@ -9,6 +9,7 @@ namespace goldfish.WebUI.ViewModels
     [MetadataType(typeof(VMMaterialMetadata))]
     public class VMMaterial : SxVMMaterial
     {
+
     }
 
     public class VMMaterialMetadata : SxVMMaterialMetadata

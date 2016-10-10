@@ -26,7 +26,8 @@ namespace goldfish.WebUI
                 PostRouteAction=RouteConfig.PostRouteAction,
                 DefaultSiteName="goldfish.pro",
                 CustomModelCoreTypes=new Dictionary<string, byte> {
-                    [nameof(SiteProject)]=100
+                    [nameof(SiteProject)]=100,
+                    [nameof(SiteService)]=101
                 }
             };
 

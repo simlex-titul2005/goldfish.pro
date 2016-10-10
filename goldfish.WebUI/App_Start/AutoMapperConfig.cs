@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using goldfish.WebUI.Models;
 using goldfish.WebUI.ViewModels;
-using SX.WebCore.ViewModels;
 
 namespace goldfish.WebUI
 {
@@ -12,7 +11,6 @@ namespace goldfish.WebUI
             //site service
             cfg.CreateMap<SiteService, VMSiteService>();
             cfg.CreateMap<VMSiteService, SiteService>();
-            cfg.CreateMap<SxVMSiteService, VMSiteService>();
 
             //site project
             cfg.CreateMap<SiteProject, VMSiteProject>();

@@ -1,0 +1,65 @@
+﻿@model VMSiteService
+@{
+    var isNew = Model.Id == 0;
+}
+
+<form method="post" action="@Url.Action("Edit")">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.Id)
+    @if (!isNew)
+    {
+        @Html.HiddenFor(x => x.DateCreate)
+        @Html.HiddenFor(x => x.DateUpdate)
+        @Html.HiddenFor(x => x.DateOfPublication)
+    }
+
+    <div class="row">
+        <div class="col-md-9">
+            <div class="form-group">
+                @Html.LabelFor(x => x.Title)
+                @Html.EditorFor(x => x.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.Title)
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.LabelFor(x => x.MainPageIconCssClass)
+                @Html.EditorFor(x => x.MainPageIconCssClass, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.MainPageIconCssClass)
+            </div>
+        </div>
+    </div>
+
+    @if (User.IsInRole("seo") && !isNew)
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.TitleUrl)
+            <div class="alert alert-warning">
+                <p><b>Внимание!</b> Изменение строкового ключа приведет к изменению канонического адреса страницы</p>
+            </div>
+            @Html.EditorFor(x => x.TitleUrl, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(x => x.TitleUrl)
+        </div>
+    }
+    else
+    {
+        @Html.HiddenFor(x => x.TitleUrl)
+    }
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Foreword)
+        @Html.EditorFor(x => x.Foreword, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(x => x.Foreword)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Html)
+        @Html.EditorFor(x => x.Html, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(x => x.Html)
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">@(isNew ? "Добавить" : "Сохранить")</button>
+        <a href="@Url.Action("Index")" class="btn btn-default">Назад</a>
+    </div>
+</form>
