@@ -13,6 +13,10 @@ namespace goldfish.WebUI
             cfg.CreateMap<SiteService, VMSiteService>();
             cfg.CreateMap<VMSiteService, SiteService>();
             cfg.CreateMap<SxVMSiteService, VMSiteService>();
+
+            //site project
+            cfg.CreateMap<SiteProject, VMSiteProject>();
+            cfg.CreateMap<VMSiteProject, SiteProject>();
         }
     }
 }

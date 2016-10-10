@@ -1,5 +1,6 @@
 ﻿using goldfish.WebUI.Models;
 using SX.WebCore;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
 namespace goldfish.WebUI.Infrastructure
@@ -24,5 +25,10 @@ namespace goldfish.WebUI.Infrastructure
         /// Сервисы сайта
         /// </summary>
         public new DbSet<SiteService> SiteServices { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

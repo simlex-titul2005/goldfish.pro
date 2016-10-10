@@ -1,0 +1,36 @@
+﻿@model VMSiteProject[]
+
+<div class="projects">
+    <div class="block-header">
+        <h2 class="block-header__title">
+            <span>Наши проекты</span>
+            <span class="block-header__subtitle">Наш супер-пупер лозунг!</span>
+        </h2>
+    </div>
+    <p class="txt" style="text-align:center; max-width:50%; margin:0 auto; padding-bottom:45px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ornare neque lectus, sed volutpat libero efficitur finibus. Nullam pulvinar urna et mollis bibendum.</p>
+    <div class="projects__btns">
+        <a href="#" class="btn">Show All</a>
+        <a href="#" class="btn">Praesent placerat</a>
+        <a href="#" class="btn">Scelerisque ultricies</a>
+        <a href="#" class="btn">Nullam accumsan</a>
+    </div>
+
+    @if (Model.Any())
+    {
+        <ul class="projects__box">
+            @{
+                VMSiteProject item = null;
+                for (int i = 0; i < Model.Length; i++)
+                {
+                    item = Model[i];
+                    <li class="project__item">
+                        <a href="#" style="background-image:url('@Url.Action("Picture", "Pictures", new { id=item.FrontPictureId })')"></a>
+                    </li>
+                }
+            }
+        </ul>
+        <div class="projects__btns btn-box">
+            <a href="#" class="btn">Show All</a>
+        </div>
+                }
+</div>

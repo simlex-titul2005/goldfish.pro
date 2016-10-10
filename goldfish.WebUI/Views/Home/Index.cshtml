@@ -70,46 +70,10 @@
     @Html.Action("ListMainPage", "SiteServices", new { amount=6 } )
 </div>
 
-@Html.Action("ListForhome", "Employees", new { amount=4 })
+@Html.Action("ListForHome", "Employees", new { amount=4 })
 
-<div class="projects">
-    <div class="block-header">
-        <h2 class="block-header__title">
-            <span>Наши проекты</span>
-            <span class="block-header__subtitle">Наш супер-пупер лозунг!</span>
-        </h2>
-    </div>
-    <p class="txt" style="text-align:center; max-width:50%; margin:0 auto; padding-bottom:45px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ornare neque lectus, sed volutpat libero efficitur finibus. Nullam pulvinar urna et mollis bibendum.</p>
-    <div class="projects__btns">
-        <a href="#" class="btn">Show All</a>
-        <a href="#" class="btn">Praesent placerat</a>
-        <a href="#" class="btn">Scelerisque ultricies</a>
-        <a href="#" class="btn">Nullam accumsan</a>
-    </div>
-    <ul class="projects__box">
-        <li class="project__item">
-            <a href="#" style="background-image:url('/content/dist/temp/p1.jpg')"></a>
-        </li>
-        <li class="project__item">
-            <a href="#" style="background-image:url('/content/dist/temp/p2.jpg')"></a>
-        </li>
-        <li class="project__item">
-            <a href="#" style="background-image:url('/content/dist/temp/p3.jpg')"></a>
-        </li>
-        <li class="project__item">
-            <a href="#" style="background-image:url('/content/dist/temp/p4.jpg')"></a>
-        </li>
-        <li class="project__item">
-            <a href="#" style="background-image:url('/content/dist/temp/p5.jpg')"></a>
-        </li>
-        <li class="project__item">
-            <a href="#" style="background-image:url('/content/dist/temp/p6.jpg')"></a>
-        </li>
-    </ul>
-    <div class="projects__btns btn-box">
-        <a href="#" class="btn">Show All</a>
-    </div>
-</div>
+@Html.Action("ListForHome", "SiteProjects", new { amount = 12 })
+
 <div class="partners">
     <div class="block-header">
         <h2 class="block-header__title">

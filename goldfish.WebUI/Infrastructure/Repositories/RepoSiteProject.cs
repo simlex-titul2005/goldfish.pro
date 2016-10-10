@@ -1,11 +1,11 @@
 ﻿using goldfish.WebUI.Models;
 using goldfish.WebUI.ViewModels;
-using SX.WebCore.MvcApplication;
+using SX.WebCore.Repositories;
 
 namespace goldfish.WebUI.Infrastructure.Repositories
 {
-    public sealed class RepoSiteProject : RepoMaterial<SiteProject, VMSiteProject>
+    public sealed class RepoSiteProject : SxRepoMaterial<SiteProject, VMSiteProject>
     {
-        public RepoSiteProject() : base(SxMvcApplication.SxModelCoreTypeProvider[nameof(SiteProject)]) { }
+        public RepoSiteProject() : base(MvcApplication.SxModelCoreTypeProvider[nameof(SiteProject)]) { }
     }
 }
