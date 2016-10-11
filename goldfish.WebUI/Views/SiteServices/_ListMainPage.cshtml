@@ -1,21 +1,33 @@
 ﻿@model VMSiteService[]
 
-@if (Model.Any())
-{
-    VMSiteService item = null;
+<div class="content">
+    <div class="block-header">
+        <h2 class="block-header__title">
+            <span>Что Вы получаете</span>
+            <span class="block-header__subtitle">@(MvcApplication.SiteSettingsProvider["home-page-services-title"]?.Value)</span>
+        </h2>
+    </div>
+    <p class="txt" style="max-width:70%; margin:0 auto; text-align:center; padding-bottom:60px;">
+        @(MvcApplication.SiteSettingsProvider["home-page-services-desc"]?.Value)
+    </p>
 
-    <ul class="services">
-        @for (int i = 0; i < Model.Length; i++)
-        {
-            item = Model[i];
-            <li>
-                <div class="service__item">
-                    <a href="@item.GetUrl(Url)" class="service__link"></a>
-                    <h4 class="service__title">@item.Title</h4>
-                    <p class="service__desc">@item.Foreword</p>
-                    <i class="service__img @(string.IsNullOrEmpty(item.MainPageIconCssClass)?"fa fa-star":item.MainPageIconCssClass)" aria-hidden="true"></i>
-                </div>
-            </li>
-        }
-    </ul>
-}
+    @if (Model.Any())
+    {
+        VMSiteService item = null;
+
+        <ul class="services">
+            @for (int i = 0; i < Model.Length; i++)
+            {
+                item = Model[i];
+                <li>
+                    <div class="service__item">
+                        <a href="@item.GetUrl(Url)" class="service__link"></a>
+                        <h4 class="service__title">@item.Title</h4>
+                        <p class="service__desc">@item.Foreword</p>
+                        <i class="service__img @(string.IsNullOrEmpty(item.MainPageIconCssClass)?"fa fa-star":item.MainPageIconCssClass)" aria-hidden="true"></i>
+                    </div>
+                </li>
+            }
+        </ul>
+    }
+</div>

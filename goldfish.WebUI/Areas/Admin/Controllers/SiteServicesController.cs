@@ -4,6 +4,7 @@ using goldfish.WebUI.ViewModels;
 using SX.WebCore.MvcControllers;
 using goldfish.WebUI.Models;
 using SX.WebCore.Repositories;
+using System.Linq;
 
 namespace goldfish.WebUI.Areas.Admin.Controllers
 {
@@ -24,6 +25,14 @@ namespace goldfish.WebUI.Areas.Admin.Controllers
         {
             ViewBag.Title = "Услуги сайта";
             return base.Index(page);
+        }
+
+        protected sealed override string[] PropsForUpdate
+        {
+            get
+            {
+                return base.PropsForUpdate.Union(new string[] { nameof(SiteService.MainPageIconCssClass)}).ToArray();
+            }
         }
     }
 }

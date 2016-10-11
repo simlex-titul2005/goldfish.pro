@@ -1,0 +1,22 @@
+﻿@{
+    var picIdSetting = MvcApplication.SiteSettingsProvider["home-page-about-us-pic-id"];
+}
+<div class="block-header">
+    <h2 class="block-header__title">
+        <span>@MvcApplication.DefaultSiteName</span>
+        <span class="block-header__subtitle">@(MvcApplication.SiteSettingsProvider["home-page-about-us-title"]?.Value)</span>
+    </h2>
+</div>
+<p class="txt" style="max-width:70%; margin:0 auto; text-align:center; padding-bottom:60px;">
+    @(MvcApplication.SiteSettingsProvider["home-page-about-us-desc"]?.Value)
+</p>
+<div class="btn-box">
+    <a class="btn">Подробнее о нас</a>
+</div>
+
+@if (picIdSetting != null)
+{
+    <div class="text-center">
+        <img style="max-width:100%;" src="@Url.Action("Picture", "Pictures", new { id=picIdSetting.Value})" />
+    </div>
+}
