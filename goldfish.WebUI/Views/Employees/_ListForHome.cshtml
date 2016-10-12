@@ -2,7 +2,7 @@
 @{
     SxVMEmployee item = null;
     var descLettersCount = 120;
-    var title = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider.Get("home-page-team-title");
+    var title = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider["home-page-team-title"]?.Value;
 }
 
 @if (Model.Any())
@@ -10,7 +10,7 @@
     <div class="block-header">
         <h2 class="block-header__title">
             <span>Наша команда</span>
-            <span class="block-header__subtitle">@(title == null ? "Наша команда" : title.Value)</span>
+            <span class="block-header__subtitle">@title</span>
         </h2>
     </div>
 
