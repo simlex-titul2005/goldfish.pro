@@ -1,4 +1,4 @@
-﻿using SX.WebCore.Abstract;
+﻿using SX.WebCore.DbModels.Abstract;
 using SX.WebCore.MvcControllers;
 using SX.WebCore.ViewModels;
 
