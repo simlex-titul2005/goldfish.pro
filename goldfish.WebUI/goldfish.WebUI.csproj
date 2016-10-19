@@ -169,8 +169,6 @@
     <Content Include="Areas\Admin\Views\SiteProjects\EditorTemplates\VMSiteProject.cshtml" />
     <Content Include="Areas\Admin\Views\SiteServices\EditorTemplates\VMSiteService.cshtml" />
     <Content Include="packages.config" />
-    <Content Include="Areas\Admin\Views\SitePartners\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\SitePartners\_GridView.cshtml" />
     <None Include="Properties\PublishProfiles\goldfishpro - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -226,6 +224,7 @@
     </Compile>
     <Compile Include="Infrastructure\DbContext.cs" />
     <Compile Include="Infrastructure\Repositories\RepoMaterial.cs" />
+    <Compile Include="Infrastructure\Repositories\RepoPicture.cs" />
     <Compile Include="Infrastructure\Repositories\RepoSiteProject.cs" />
     <Compile Include="Infrastructure\Repositories\RepoSiteService.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -258,7 +257,6 @@
       <Name>SX.WebCore</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
