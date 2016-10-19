@@ -169,6 +169,8 @@
     <Content Include="Areas\Admin\Views\SiteProjects\EditorTemplates\VMSiteProject.cshtml" />
     <Content Include="Areas\Admin\Views\SiteServices\EditorTemplates\VMSiteService.cshtml" />
     <Content Include="packages.config" />
+    <Content Include="Areas\Admin\Views\SitePartners\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SitePartners\_GridView.cshtml" />
     <None Include="Properties\PublishProfiles\goldfishpro - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -201,6 +203,7 @@
     <Compile Include="Areas\Admin\Controllers\SeoTagsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ShareButtonsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SiteNetsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SitePartnersController.cs" />
     <Compile Include="Areas\Admin\Controllers\SiteProjectsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SiteServicesController.cs" />
     <Compile Include="Areas\Admin\Controllers\StatisticsController.cs" />
@@ -255,6 +258,7 @@
       <Name>SX.WebCore</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

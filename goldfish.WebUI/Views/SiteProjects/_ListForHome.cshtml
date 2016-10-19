@@ -1,13 +1,25 @@
 ﻿@model VMSiteProject[]
+    @{ 
+        var title = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider["home-page-our-project-title"]?.Value;
+        var desc= SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider["home-page-our-project-desc"]?.Value;
+    }
 
 <div class="projects">
     <div class="block-header">
         <h2 class="block-header__title">
             <span>Наши проекты</span>
-            <span class="block-header__subtitle">Наш супер-пупер лозунг!</span>
+            @if (!string.IsNullOrEmpty(title))
+            {
+                <span class="block-header__subtitle">Наш супер-пупер лозунг!</span>
+            }
         </h2>
     </div>
-    <p class="txt" style="text-align:center; max-width:50%; margin:0 auto; padding-bottom:45px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ornare neque lectus, sed volutpat libero efficitur finibus. Nullam pulvinar urna et mollis bibendum.</p>
+    @if (!string.IsNullOrEmpty(desc))
+    {
+        <p class="txt" style="text-align:center; max-width:50%; margin:0 auto; padding-bottom:45px;">
+            @desc
+        </p>
+    }
     <div class="projects__btns">
         <a href="#" class="btn">Show All</a>
         <a href="#" class="btn">Praesent placerat</a>
@@ -30,7 +42,7 @@
             }
         </ul>
         <div class="projects__btns btn-box">
-            <a href="#" class="btn">Show All</a>
+            <a href="#" class="btn">Все проекты</a>
         </div>
                 }
 </div>
