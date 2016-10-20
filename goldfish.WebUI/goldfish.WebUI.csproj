@@ -190,14 +190,18 @@
     <Compile Include="Areas\Admin\Controllers\BannerGroupsController.cs" />
     <Compile Include="Areas\Admin\Controllers\BannersController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\EmployeesController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LogsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MaterialTagsController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuItemsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NetsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PictureLinksController.cs" />
     <Compile Include="Areas\Admin\Controllers\PicturesController.cs" />
     <Compile Include="Areas\Admin\Controllers\RedirectsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SeoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SeoKeywordsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SeoTagsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ShareButtonsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SiteNetsController.cs" />
@@ -209,6 +213,7 @@
     <Compile Include="Areas\Admin\Controllers\RequestsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\ValutesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VideoLinksController.cs" />
     <Compile Include="Areas\Admin\Controllers\VideosController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -257,6 +262,7 @@
       <Name>SX.WebCore</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

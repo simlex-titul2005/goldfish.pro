@@ -28,10 +28,28 @@ namespace goldfish.WebUI
                 CustomModelCoreTypes=new Dictionary<string, byte> {
                     [nameof(SiteProject)]=100,
                     [nameof(SiteService)]=101
-                }
+                },
+                ModelCoreTypeNameFunc = getModelCoreTypeName
             };
 
             base.Application_Start(sender, args);
+        }
+
+        private static string getModelCoreTypeName(byte key)
+        {
+            switch(key)
+            {
+                case 1:
+                    return "Статья";
+                case 2:
+                    return "Новость";
+                case 100:
+                    return "Проекты";
+                case 101:
+                    return "Услуги";
+                default:
+                    return null;
+            }
         }
     }
 }
