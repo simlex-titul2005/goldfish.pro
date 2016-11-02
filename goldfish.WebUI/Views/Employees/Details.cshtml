@@ -1,0 +1,35 @@
+﻿@model SxVMEmployee
+@{
+    ViewBag.Title = ViewBag.Title ?? Model.NikName + " | Сотрудники сайта ";
+}
+
+<div class="employee-page page">
+    <div class="employee" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="worksfor" content="@(SiteSettingsProvider["sitename"]?.Value ?? SX.WebCore.MvcApplication.SxMvcApplication.DefaultSiteName)" />
+        <h1 class="employee__name page__header" itemprop="name">@Model.Name @Model.Surname</h1>
+        <div class="employee__nikname" itemprop="additionalName">@Model.NikName</div>
+        <h2></h2>
+        @if (Model.AvatarId.HasValue)
+        {
+            <img itemprop="image" class="employee__avatar" alt="@Model.NikName" src="@Url.Action("Picture", "Pictures", new { id = Model.AvatarId })" />
+        }
+        <div itemprop="jobTitle" class="employee__post">@Model.Post</div>
+        <p class="employee__desc">@Model.Description</p>
+        
+        <ul class="employee__icons">
+            <li>
+                <a href="#"><i class="fa fa-google-plus"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+

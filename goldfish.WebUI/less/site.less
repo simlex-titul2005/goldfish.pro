@@ -31,11 +31,20 @@ body > .wrapper {
     background-color: @color-white;
     padding: 0 @def-pad*2;
     position: relative;
-    padding-bottom:@def-pad*2;
 }
 
 a, a:visited, a:link, a:visited, a:focus {
     outline: none;
+}
+
+.page {
+    padding: @def-pad*2 0;
+}
+
+.page .page__header{
+    color:@color-accent;
+    margin:0;
+    font-size:23px;
 }
 
 //navbar
@@ -609,15 +618,15 @@ header nav {
     padding: @def-pad*4 0 0;
 }
 
-@employe-avatar-size: 126px;
+@employee-avatar-size: 126px;
 
-.employe__item {
+.employees .employee__item {
     text-align: center;
     position: relative;
     border: 1px solid @color-gray;
     border-radius: @def-radius;
     padding: @def-pad @def-pad @def-pad*2;
-    padding-top: @employe-avatar-size/2 + @def-pad*2;
+    padding-top: @employee-avatar-size/2 + @def-pad*2;
     transition: all .4s;
     margin-bottom: @def-pad*4;
 
@@ -636,41 +645,41 @@ header nav {
     }
 }
 
-.employe__item:hover {
+.employees .employee__item:hover {
     background-color: @color-accent;
     color: @color-white;
 }
 
-.employe__link {
+.employees .employee__link {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index:1;
+    z-index: 1;
 }
 
-.employe__avatar {
-    width: @employe-avatar-size;
-    height: @employe-avatar-size;
+.employees .employee__avatar {
+    width: @employee-avatar-size;
+    height: @employee-avatar-size;
     background-position: center center;
     background-size: cover;
     display: inline-block;
     border-radius: 100%;
     position: absolute;
     left: 50%;
-    margin-left: -@employe-avatar-size/2;
-    top: -@employe-avatar-size/2;
+    margin-left: -@employee-avatar-size/2;
+    top: -@employee-avatar-size/2;
     border: 5px solid @color-white;
     box-sizing: border-box;
     transition: all .4s;
 }
 
-.employe__avatar::after {
+.employees .employee__avatar::after {
     content: '';
     position: absolute;
-    width: @employe-avatar-size;
-    height: @employe-avatar-size;
+    width: @employee-avatar-size;
+    height: @employee-avatar-size;
     top: -5px;
     right: 0;
     bottom: 0;
@@ -679,11 +688,11 @@ header nav {
     border-radius: 100%;
 }
 
-.employe__item:hover .employe__avatar::after {
+.employees .employee__item:hover .employee__avatar::after {
     border: none;
 }
 
-.employe__title {
+.employees .employee__title {
     text-transform: uppercase;
     font-size: @header-font-size;
     color: @color-accent;
@@ -691,7 +700,7 @@ header nav {
     transition: all .4s;
 }
 
-.employe__desc {
+.employees .employee__desc {
     .txt;
     padding: @def-pad 0;
     font-size: 15px;
@@ -699,11 +708,12 @@ header nav {
     transition: all .4s;
 }
 
-.employe__item:hover .employe__desc, .employe__item:hover .employe__title {
+.employees .employee__item:hover .employee__desc, .employee__item:hover .employee__title {
     color: @color-white;
 }
 
-.employe__icons {
+//employee__icons
+.employee__icons {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -711,15 +721,15 @@ header nav {
     width: 100%;
     text-align: center;
     margin-top: @def-pad*2;
-    position:relative;
-    z-index:2;
+    position: relative;
+    z-index: 2;
 }
 
-.employe__icons > li {
+.employee__icons > li {
     display: inline-block;
 }
 
-.employe__icons > li > a {
+.employee__icons > li > a {
     border: 1px solid @color-gray;
     border-radius: 100%;
     width: 30px;
@@ -733,15 +743,16 @@ header nav {
     transition: all .4s;
 }
 
-.employe__icons > li > a:hover{
-    color:@color-accent !important;
+.employee__icons > li > a:hover {
+    color: @color-accent !important;
 }
 
-.employe__item:hover .employe__icons > li > a {
+.employee__item:hover .employee__icons > li > a {
     background-color: @color-white;
     border-color: @color-white;
     color: @color-black;
 }
+
 
 //projects
 .projects {
@@ -800,8 +811,8 @@ header nav {
     font-size: 0;
     position: relative;
     z-index: 1;
-    margin-left:-@def-pad;
-    margin-right:-@def-pad;
+    margin-left: -@def-pad;
+    margin-right: -@def-pad;
 }
 
 .project__item {
@@ -1394,4 +1405,96 @@ header nav {
 
 .form-login .form-group {
     margin-bottom: @def-pad*2;
+}
+
+
+//employee-page
+.employee-page {
+    .page;
+    display: inline-block;
+    width: 100%;
+}
+
+.employee-page .employee__name {
+    margin: 0;
+    font-size: 170%;
+    color: @color-accent;
+}
+
+.employee-page .employee__nikname{
+    margin-bottom:@def-pad*2;
+    color: @color-accent;
+}
+
+.employee-page .employee__nikname > span:last-child{
+    font-size:16px;
+}
+
+@employee-page__avatar-size: 137px;
+
+.employee-page .employee__avatar {
+    border-radius: 100%;
+    width: @employee-page__avatar-size;
+    height: @employee-page__avatar-size;
+    padding: 5px;
+    border: 1px solid @color-gray;
+    float: left;
+    margin-right: @def-pad*3;
+    margin-bottom: @def-pad;
+}
+
+.employee-page .employee__post {
+    text-transform: uppercase;
+    margin-bottom: @def-pad;
+}
+
+.employee-page .employee__desc{
+    margin-bottom:@def-pad*2;
+}
+
+.employee-page .employee__icons {
+    display: inline;
+    margin-left:-5px;
+}
+
+//service-page
+.service-page .service__name{
+    margin-bottom:@def-pad*2;
+}
+
+//project-page
+.project-page{
+    display:inline-block;
+    width:100%;
+}
+.project-page .project__name{
+    margin-bottom:@def-pad*2;
+}
+
+@project-page-project__image-size:137px;
+.project-page .project__image{
+    width:@project-page-project__image-size;
+    height:@project-page-project__image-size;
+    border-radius:100%;
+    background-position: center center;
+    background-size: cover;
+    position:relative;
+    float:left;
+    margin-right:@def-pad*3;
+    margin-bottom:@def-pad;
+}
+
+.project-page .project__image::after{
+    content:'';
+    border:1px solid @color-gray;
+    width:@project-page-project__image-size+10px;
+    height:@project-page-project__image-size+10px;
+    border-radius:100%;
+    position:absolute;
+    top: -5px;
+    left: -5px;
+}
+
+.project-page .project__link{
+    margin-bottom:@def-pad;
 }

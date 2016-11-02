@@ -1,0 +1,16 @@
+﻿@model VMSiteProject
+
+@{ 
+    ViewBag.Title = ViewBag.Title ?? Model.Title + " | Проекты";
+}
+
+<div class="project-page page">
+    <h1 class="project__name page__header">@Model.Title</h1>
+    <div class="project__image" style="background-image:url('@Url.Action("Picture", "Pictures", new { id=Model.FrontPictureId})')"></div>
+    <div class="project__link">
+        <a href="@Model.SourceUrl">@Model.SourceUrl</a>
+    </div>
+    <div class="project__desc">
+        @Html.Raw(Model.Html)
+    </div>
+</div>

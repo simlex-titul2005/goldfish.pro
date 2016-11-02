@@ -6,6 +6,8 @@ using Dapper;
 using System.Linq;
 using System;
 using System.Text;
+using SX.WebCore.ViewModels;
+using System.Threading.Tasks;
 
 namespace goldfish.WebUI.Infrastructure.Repositories
 {
@@ -17,18 +19,37 @@ namespace goldfish.WebUI.Infrastructure.Repositories
         {
             using (var connection = new SqlConnection(ConnectionString))
             {
-                var data = connection.Query<VMSiteService>("dbo.get_site_service_by_title_url @titleUrl", new { titleUrl = titleUrl });
+                var data = connection.Query<VMSiteService, SxVMMaterialCategory, SxVMAppUser, SxVMPicture, SxVMSeoTags, VMSiteService>("dbo.get_material_by_url NULL, NULL, NULL, @titleUrl, @mct", (s, c, u, p, st) =>
+                {
+                    s.Category = c;
+                    s.User = u;
+                    s.FrontPicture = p;
+                    s.SeoTags = st;
+                    return s;
+                }, new
+                {
+                    titleUrl = titleUrl,
+                    mct = MvcApplication.ModelCoreTypeProvider[nameof(SiteService)]
+                }, splitOn:"Id");
+
                 return data.SingleOrDefault();
             }
+        }
+        public async Task<VMSiteService> GetByTitleUrlAsync(string titleUrl)
+        {
+            return await Task.Run(() => {
+                return GetByTitleUrl(titleUrl);
+            });
         }
 
         protected sealed override Action<SqlConnection, SiteService> ChangeMaterialBeforeSelect
         {
             get
             {
-                return (connection, model) => {
+                return (connection, model) =>
+                {
                     var existModel = connection.Query<SiteService>("dbo.enrich_site_services @ids", new { ids = model.Id.ToString() }).SingleOrDefault();
-                    if(existModel!=null && Equals(model.Id, existModel.Id))
+                    if (existModel != null && Equals(model.Id, existModel.Id))
                     {
                         model.MainPageIconCssClass = existModel.MainPageIconCssClass;
                     }

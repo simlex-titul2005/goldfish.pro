@@ -3,6 +3,7 @@ using goldfish.WebUI.Models;
 using goldfish.WebUI.ViewModels;
 using SX.WebCore;
 using SX.WebCore.Repositories;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace goldfish.WebUI.Controllers
@@ -26,10 +27,19 @@ namespace goldfish.WebUI.Controllers
         /// <returns></returns>
         public ActionResult ListForHome(byte amount)
         {
-            var filter = new SxFilter(1, amount);
+            var filter = new SxFilter(1, amount) { OnlyShow=true };
             var viewModel = Repo.Read(filter);
 
             return PartialView("_ListForHome", viewModel);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Details(string titleUrl)
+        {
+            var viewModel = await (Repo as RepoSiteProject).GetByTitleUrlAsync(titleUrl);
+            if (viewModel == null) return new HttpNotFoundResult();
+
+            return View(viewModel);
         }
     }
 }

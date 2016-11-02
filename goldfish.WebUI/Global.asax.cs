@@ -8,6 +8,11 @@ namespace goldfish.WebUI
 {
     public class MvcApplication : SxMvcApplication
     {
+        private static readonly Dictionary<string, byte> _customModelCoreTypes = new Dictionary<string, byte> {
+            [nameof(SiteProject)] = 100,
+            [nameof(SiteService)] = 101
+        };
+
         /// <summary>
         /// "Точка входа" в приложение.
         /// Запускается самым первым при старте приложения.
@@ -17,19 +22,19 @@ namespace goldfish.WebUI
         /// <param name="e"></param>
         protected override void Application_Start(object sender, EventArgs e)
         {
-            var args = new SxApplicationEventArgs() {
-                GetDbContextInstance = () => { return new DbContext(); },
-                WebApiConfigRegister=WebApiConfig.Register,
-                MapperConfigurationExpression=AutoMapperConfig.Register,
-                DefaultControllerNamespaces=new string[] { "goldfish.WebUI.Controllers"},
-                PreRouteAction=RouteConfig.PreRouteAction,
-                PostRouteAction=RouteConfig.PostRouteAction,
-                DefaultSiteName="goldfish.pro",
-                CustomModelCoreTypes=new Dictionary<string, byte> {
-                    [nameof(SiteProject)]=100,
-                    [nameof(SiteService)]=101
-                },
-                ModelCoreTypeNameFunc = getModelCoreTypeName
+            var args = new SxApplicationEventArgs(
+                    defaultSiteName: "goldfish.pro",
+                    getDbContextInstance: () => new DbContext(),
+                    customModelCoreTypes: _customModelCoreTypes,
+                    getModelCoreTypeName: getModelCoreTypeName
+                )
+            {
+                WebApiConfigRegister = WebApiConfig.Register,
+                MapperConfigurationExpression = AutoMapperConfig.Register,
+                DefaultControllerNamespaces = new string[] { "goldfish.WebUI.Controllers" },
+                PreRouteAction = RouteConfig.PreRouteAction,
+                PostRouteAction = RouteConfig.PostRouteAction,
+
             };
 
             base.Application_Start(sender, args);

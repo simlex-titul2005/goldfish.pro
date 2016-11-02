@@ -4,6 +4,7 @@ using goldfish.WebUI.Models;
 using goldfish.WebUI.ViewModels;
 using SX.WebCore.MvcControllers;
 using SX.WebCore.Repositories;
+using System.Linq;
 
 namespace goldfish.WebUI.Areas.Admin.Controllers
 {
@@ -29,6 +30,15 @@ namespace goldfish.WebUI.Areas.Admin.Controllers
         {
             ViewBag.Title = !id.HasValue ? "Добавить проект сайта" : "Редактировать проект сайта";
             return base.Edit(id);
+        }
+
+        protected override string[] PropsForUpdate
+        {
+            get
+            {
+                var additionalProps = new string[] { "SourceUrl" };
+                return base.PropsForUpdate.Union(additionalProps).ToArray();
+            }
         }
     }
 }

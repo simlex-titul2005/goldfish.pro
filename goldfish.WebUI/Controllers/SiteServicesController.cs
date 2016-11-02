@@ -5,6 +5,7 @@ using SX.WebCore;
 using System.Web.Mvc;
 using static SX.WebCore.HtmlHelpers.SxExtantions;
 using SX.WebCore.Repositories;
+using System.Threading.Tasks;
 
 namespace goldfish.WebUI.Controllers
 {
@@ -25,18 +26,18 @@ namespace goldfish.WebUI.Controllers
         public ActionResult ListMainPage(int amount = 6)
         {
             var order = new SxOrder { FieldName = "DateCreate", Direction = SortDirection.Desc };
-            var filter = new SxFilter(1, amount) { Order=order };
+            var filter = new SxFilter(1, amount) { Order=order, OnlyShow=true };
 
-            var viewModel = (Repo as RepoSiteService).Read(filter);
+            var viewModel = Repo.Read(filter);
 
             ViewBag.Filter = filter;
             return PartialView("_ListMainPage", viewModel);
         }
 
         [HttpGet]
-        public ActionResult Details(string titleUrl)
+        public async Task<ActionResult> Details(string titleUrl)
         {
-            var viewModel = (Repo as RepoSiteService).GetByTitleUrl(titleUrl);
+            var viewModel = await (Repo as RepoSiteService).GetByTitleUrlAsync(titleUrl);
             if (viewModel == null) return new HttpNotFoundResult();
 
             return View(viewModel);

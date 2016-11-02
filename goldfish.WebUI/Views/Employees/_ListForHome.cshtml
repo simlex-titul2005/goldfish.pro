@@ -20,18 +20,18 @@
             {
                 item = Model[i];
                 <div class="col-md-3 col-sm-6">
-                    <div class="employe__item">
-                        <a href="#" class="employe__link"></a>
+                    <div class="employee__item">
+                        <a href="@Url.Action("Details", "Employees", new { nikname=item.NikName })" class="employee__link"></a>
                         @if (item.AvatarId.HasValue)
                         {
-                            <span class="employe__avatar" style="background-image:url('@Url.Action("Picture", "Pictures", new { id=item.AvatarId })')"></span>
+                            <span class="employee__avatar" style="background-image:url('@Url.Action("Picture", "Pictures", new { id=item.AvatarId })')"></span>
                         }
-                        <div class="employe__title">@item.Name @item.Surname</div>
-                        <div class="employe__post">@item.Post</div>
-                        <div class="employe__desc">
+                        <div class="employee__title">@item.Name @item.Surname</div>
+                        <div class="employee__post">@item.Post</div>
+                        <div class="employee__desc">
                             @(item.Description == null || item.Description.Length <= descLettersCount ? item.Description : item.Description.Substring(0, descLettersCount) + "...")
                         </div>
-                        <ul class="employe__icons">
+                        <ul class="employee__icons">
                             <li>
                                 <a href="#"><i class="fa fa-google-plus"></i></a>
                             </li>

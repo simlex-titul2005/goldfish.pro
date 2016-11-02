@@ -1,9 +1,8 @@
 ﻿@model VMSiteProject[]
-    @{ 
-        var title = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider["home-page-our-project-title"]?.Value;
-        var desc= SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider["home-page-our-project-desc"]?.Value;
-    }
-
+@{
+    var title = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider["home-page-our-project-title"]?.Value;
+    var desc = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider["home-page-our-project-desc"]?.Value;
+}
 <div class="projects">
     <div class="block-header">
         <h2 class="block-header__title">
@@ -26,7 +25,6 @@
         <a href="#" class="btn">Scelerisque ultricies</a>
         <a href="#" class="btn">Nullam accumsan</a>
     </div>
-
     @if (Model.Any())
     {
         <ul class="projects__box">
@@ -36,7 +34,7 @@
                 {
                     item = Model[i];
                     <li class="project__item">
-                        <a href="#" style="background-image:url('@Url.Action("Picture", "Pictures", new { id=item.FrontPictureId })')"></a>
+                        <a href="@Url.Action("Details", "SiteProjects", new { titleUrl = item.TitleUrl })" style="background-image:url('@Url.Action("Picture", "Pictures", new { id = item.FrontPictureId })')"></a>
                     </li>
                 }
             }
