@@ -1,0 +1,36 @@
+﻿@model SxExtantions.SxPagedCollection<VMSiteProject>
+
+@{
+    ViewBag.Title = ViewBag.Title ?? "Проекты";
+    VMSiteProject item = null;
+}
+
+<div class="projects-page page">
+    <h1 class="page__header">@ViewBag.Title</h1>
+
+    @if (Model.Collection.Any())
+    {
+        <ul class="list list-unstyled">
+            @for (int i = 0; i < Model.Collection.Length; i++)
+            {
+                item = Model.Collection[i];
+                <li>
+                    <div class="project-item">
+                        <a class="project-item__link" href="@Url.Action("Details", "SiteProjects", new { titleUrl = item.TitleUrl })"></a>
+                        <div class="project-item__img" style="background-image:url('@Url.Action("Picture", "Pictures", new { id=item.FrontPictureId })')"></div>
+                        
+                        <div class="project-item__title">
+                            <h2>@item.Title</h2>
+                        </div>
+                        
+                        <div class="project-item__fwd">
+                            @item.Foreword
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+
+        @Html.SxPager(Model.PagerInfo, x => Url.Action("List", "SiteProjects", new { page = x }), false)
+    }
+</div>

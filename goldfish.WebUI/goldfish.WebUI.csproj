@@ -252,6 +252,8 @@
     <Content Include="Views\Home\_AboutSiteForHome.cshtml" />
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\SiteProjects\Details.cshtml" />
+    <Content Include="Views\SiteServices\List.cshtml" />
+    <Content Include="Views\SiteProjects\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -168,7 +168,7 @@ header a {
     text-decoration: none !important;
 }
 
-header .logo, header .auth, header nav {
+header .logo, header nav {
     display: table-cell;
     vertical-align: middle;
     height: 90px;
@@ -195,15 +195,6 @@ header .logo {
 
 header .logo__before {
     font-weight: 700;
-}
-
-header .auth {
-    font-size: 14px;
-    text-transform: uppercase;
-}
-
-header .auth > a, header .auth > span {
-    margin-right: @def-pad;
 }
 
 header nav {
@@ -1497,4 +1488,89 @@ header nav {
 
 .project-page .project__link{
     margin-bottom:@def-pad;
+}
+
+//services-page
+.services-page .page__header{
+    margin-bottom:@def-pad*2;
+}
+
+.service-item{
+    margin-bottom:@def-pad*3;
+    position:relative;
+}
+
+.service-item .service-item__link{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:1;
+}
+
+.service-item .service-item__title{
+    
+}
+
+.service-item .service-item__title h2{
+    margin:0;
+    font-size:inherit;
+    font-weight:inherit;
+}
+
+.service-item .service-item__icon{
+    display:inline-block;
+    width:30px;
+}
+
+//projects-page
+.projects-page .page__header{
+    margin-bottom:@def-pad*2;
+}
+
+.project-item{
+    position:relative;
+    margin-bottom:@def-pad*3;
+    display:inline-block;
+    width:100%;
+}
+
+.project-item .project-item__link
+{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:1;
+}
+
+.project-item .project-item__title h2{
+    margin:0;
+    font-size:inherit;
+}
+
+@project-item__img-h:137px;
+.project-item .project-item__img{
+    width:@project-item__img-h;
+    height:@project-item__img-h;
+    border-radius:100%;
+    background-position:center center;
+    background-size:cover;
+    position:relative;
+    float:left;
+    margin-right:@def-pad*3;
+    margin-bottom:@def-pad;
+}
+
+.project-item .project-item__img::after{
+    content:'';
+    position:absolute;
+    border-radius:100%;
+    border:1px solid @color-gray;
+    top:-5px;
+    right:-5px;
+    bottom:-5px;
+    left:-5px;
 }

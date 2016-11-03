@@ -4,58 +4,24 @@
             <div class="gf-navbar__close-btn"><i class="fa fa-times"></i></div>
             <ul class="gf-menu" id="gf-menu">
                 <li>
-                    <a href="#s-menu-1" data-toggle="collapse" data-parent="gf-menu"><i class="fa fa-bars" aria-hidden="true"></i> Menu1</a>
+                    <a href="#s-menu-1" data-toggle="collapse"><i class="fa fa-bars" aria-hidden="true"></i> Сайт</a>
                     <ul class="collapse in" id="s-menu-1">
-                        <li>
-                            <a href="#s-menu-1-1" data-toggle="collapse" data-parent="gf-menu"><i class="fa fa-bars" aria-hidden="true"></i> Menu2</a>
-                            <ul class="collapse" id="s-menu-1-1">
-                                <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu3</a></li>
-                                <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu3</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu2</a></li>
+                        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-bars" aria-hidden="true"></i> Главная</a></li>
+                        <li><a href="@Url.Action("Login", "Account")"><i class="fa fa-bars" aria-hidden="true"></i> Вход в аккаунт</a></li>
+                        <li><a href="@Url.Action("Register", "Account")"><i class="fa fa-bars" aria-hidden="true"></i> Регистрация</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#s-menu-2" data-toggle="collapse" data-parent="gf-menu"><i class="fa fa-bars" aria-hidden="true"></i> Menu1</a>
+                    <a href="@Url.Action("List", "SiteServices")"><i class="fa fa-bars" aria-hidden="true"></i> Услуги</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("List", "SiteProjects")"><i class="fa fa-bars" aria-hidden="true"></i> Проекты</a>
+                </li>
+                <li>
+                    <a href="#s-menu-2" data-toggle="collapse"><i class="fa fa-bars" aria-hidden="true"></i> Материалы</a>
                     <ul class="collapse" id="s-menu-2">
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu2</a></li>
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu2</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#s-menu-3" data-toggle="collapse" data-parent="gf-menu"><i class="fa fa-bars" aria-hidden="true"></i> Menu1</a>
-                    <ul class="collapse" id="s-menu-3">
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu2</a></li>
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu2</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#s-menu-4" data-toggle="collapse" data-parent="gf-menu"><i class="fa fa-bars" aria-hidden="true"></i> Menu1</a>
-                    <ul class="collapse" id="s-menu-4">
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu2</a></li>
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu2</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#s-menu-5" data-toggle="collapse" data-parent="gf-menu"><i class="fa fa-bars" aria-hidden="true"></i> Menu1</a>
-                    <ul class="collapse" id="s-menu-5">
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu2</a></li>
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu2</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#s-menu-6" data-toggle="collapse" data-parent="gf-menu"><i class="fa fa-bars" aria-hidden="true"></i> Menu1</a>
-                    <ul class="collapse" id="s-menu-6">
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu2</a></li>
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu2</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#s-menu-7" data-toggle="collapse" data-parent="gf-menu"><i class="fa fa-bars" aria-hidden="true"></i> Menu1</a>
-                    <ul class="collapse" id="s-menu-7">
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu2</a></li>
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Menu2</a></li>
+                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Услуги</a></li>
+                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Проекты</a></li>
                     </ul>
                 </li>
             </ul>
