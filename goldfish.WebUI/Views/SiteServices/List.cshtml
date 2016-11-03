@@ -5,6 +5,15 @@
     VMSiteService item = null;
 }
 
+@section slider{
+    <div class="block-header">
+        <h2 class="block-header__title">
+            <span>Наши услуги</span>
+            <span class="block-header__subtitle">Страница @Model.PagerInfo.Page</span>
+        </h2>
+    </div>
+}
+
 <div class="services-page page">
     <h1 class="page__header">@ViewBag.Title</h1>
 
@@ -30,6 +39,6 @@
             }
         </ul>
 
-        @Html.SxPager(Model.PagerInfo, x => Url.Action("List", "SiteServices", new { page = x }), false)
+        @Html.SxPager(Model.PagerInfo, x => Url.Action("List", "SiteServices", new { page = x }), false, new { @class= "page-pagination" })
     }
 </div>

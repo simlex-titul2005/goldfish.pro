@@ -1,7 +1,16 @@
 ﻿@model VMSiteProject
 
-@{ 
+@{
     ViewBag.Title = ViewBag.Title ?? Model.Title + " | Проекты";
+}
+
+@section slider{
+    <div class="block-header">
+        <h2 class="block-header__title">
+            <span>Наши проекты</span>
+            <span class="block-header__subtitle">Подробнее</span>
+        </h2>
+    </div>
 }
 
 <div class="project-page page">

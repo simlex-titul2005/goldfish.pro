@@ -254,6 +254,7 @@
     <Content Include="Views\SiteProjects\Details.cshtml" />
     <Content Include="Views\SiteServices\List.cshtml" />
     <Content Include="Views\SiteProjects\List.cshtml" />
+    <Content Include="Views\Shared\_SubscribeBox.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
