@@ -1,7 +1,7 @@
 ﻿@model VMSiteProject[]
 @{
-    var title = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider["home-page-our-project-title"]?.Value;
-    var desc = SX.WebCore.MvcApplication.SxMvcApplication.SiteSettingsProvider["home-page-our-project-desc"]?.Value;
+    var title = SiteSettingsProvider["home-page-our-project-title"]?.Value;
+    var desc = SiteSettingsProvider["home-page-our-project-desc"]?.Value;
 }
 <div class="projects">
     <div class="block-header">
@@ -19,12 +19,12 @@
             @desc
         </p>
     }
-    <div class="projects__btns">
+    @*<div class="projects__btns">
         <a href="#" class="btn">Show All</a>
         <a href="#" class="btn">Praesent placerat</a>
         <a href="#" class="btn">Scelerisque ultricies</a>
         <a href="#" class="btn">Nullam accumsan</a>
-    </div>
+    </div>*@
     @if (Model.Any())
     {
         <ul class="projects__box">

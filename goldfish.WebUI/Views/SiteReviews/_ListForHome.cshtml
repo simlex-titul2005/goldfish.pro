@@ -1,0 +1,62 @@
+﻿@model SxVMSiteReview[]
+
+@{ 
+    Layout = null;
+    var subTitle = SiteSettingsProvider["home-page-reviews-sub-title"]?.Value;
+    var desc = SiteSettingsProvider["home-page-reviews-desc"]?.Value;
+    var btnName= SiteSettingsProvider["home-page-reviews-btn-name"]?.Value;
+}
+
+<div class="testemonials">
+    <div class="block-header">
+        <h2 class="block-header__title">
+            <span>Отзывы клиентов</span>
+            @if (!string.IsNullOrEmpty(subTitle))
+            {
+                <span class="block-header__subtitle">@subTitle</span>
+            }
+        </h2>
+    </div>
+
+    @if (!string.IsNullOrEmpty(desc))
+    {
+        <p class="txt" style="text-align:center; max-width:50%; margin:0 auto; padding-bottom:45px;">@desc</p>
+    }
+    
+    <div class="testemonials-wrapper">
+        <ul class="testemonials-box">
+            <li class="testemonial__item">
+                <span class="testemonial__avatar" style="background-image:url('/content/dist/temp/testemonial3.jpg')"></span>
+                <div class="testemonial__content">
+                    <div class="testemonial__title">Caitlin Carter</div>
+                    <div class="testemonial__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tempus placerat lacus sagittis bibendum. Nulla facilisi. Sed luctus nec mi sed lacinia. Curabitur arcu purus, congue eu massa non.</div>
+                </div>
+            </li>
+            <li class="testemonial__item">
+                <span class="testemonial__avatar" style="background-image:url('/content/dist/temp/testemonial4.jpg')"></span>
+                <div class="testemonial__content">
+                    <div class="testemonial__title">Caitlin Carter</div>
+                    <div class="testemonial__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tempus placerat lacus sagittis bibendum. Nulla facilisi. Sed luctus nec mi sed lacinia. Curabitur arcu purus, congue eu massa non.</div>
+                </div>
+            </li>
+            <li class="testemonial__item">
+                <span class="testemonial__avatar" style="background-image:url('/content/dist/temp/testemonial3.jpg')"></span>
+                <div class="testemonial__content">
+                    <div class="testemonial__title">Caitlin Carter</div>
+                    <div class="testemonial__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tempus placerat lacus sagittis bibendum. Nulla facilisi. Sed luctus nec mi sed lacinia. Curabitur arcu purus, congue eu massa non.</div>
+                </div>
+            </li>
+            <li class="testemonial__item">
+                <span class="testemonial__avatar" style="background-image:url('/content/dist/temp/testemonial4.jpg')"></span>
+                <div class="testemonial__content">
+                    <div class="testemonial__title">Caitlin Carter</div>
+                    <div class="testemonial__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tempus placerat lacus sagittis bibendum. Nulla facilisi. Sed luctus nec mi sed lacinia. Curabitur arcu purus, congue eu massa non.</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="btn-box">
+        <a href="@Url.Action("Add", "SiteReviews")" class="btn orange">@(btnName ?? "Добавить отзыв")</a>
+    </div>
+</div>

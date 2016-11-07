@@ -1,0 +1,37 @@
+﻿@model SxVMSitePartner[]
+@{
+    Layout = null;
+    var subTitle = SiteSettingsProvider["home-page-partners-sub-title"]?.Value;
+    var desc = SiteSettingsProvider["home-page-partners-desc"]?.Value;
+    SxVMSitePartner item = null;
+}
+
+@if (Model.Any())
+{
+    <div class="partners">
+        <div class="block-header">
+            <h2 class="block-header__title">
+                <span>Наши партнеры</span>
+                @if (!string.IsNullOrEmpty(subTitle))
+                {
+                    <span class="block-header__subtitle">@subTitle</span>
+                }
+            </h2>
+        </div>
+
+        @if (!string.IsNullOrEmpty(desc))
+        {
+            <p class="txt" style="text-align:center; max-width:50%; margin:0 auto; padding-bottom:45px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ornare neque lectus, sed volutpat libero efficitur finibus. Nullam pulvinar urna et mollis bibendum.</p>
+        }
+
+        <ul class="partners__box">
+            @for (int i = 0; i < Model.Length; i++)
+            {
+                item = Model[i];
+                <li>
+                    <a href="@item.Url" style="background-image:url('/content/dist/temp/partner1.png')" target="_blank" title="@item.Title" data-toggle="tooltip"></a>
+                </li>
+            }
+        </ul>
+    </div>
+}

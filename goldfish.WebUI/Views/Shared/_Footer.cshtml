@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+    var startYear = 2016;
+    var year = DateTime.Now.Year;
+    var contactsSubTitle = SiteSettingsProvider["contacts-sub-title"]?.Value;
+    var contactsDesc = SiteSettingsProvider["contacts-desc"]?.Value;
+}
+<div class="footer">
+    <div class="contacts">
+        <div class="block-header">
+            <h2 class="block-header__title">
+                <span>Контакты</span>
+                @if (!string.IsNullOrEmpty(contactsSubTitle))
+                {
+                    <span class="block-header__subtitle">@contactsSubTitle</span>
+                }
+            </h2>
+        </div>
+        
+        @if (!string.IsNullOrEmpty(contactsDesc))
+        {
+            <p class="txt" style="text-align:center; max-width:50%; margin:0 auto; padding-bottom:45px;">@contactsDesc</p>
+        }
+        
+        <div class="contacts-box">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="contact__item">
+                        <div class="contact__img"><i class="fa fa-skype" aria-hidden="true"></i></div>
+                        <div class="contact__header">Разработка</div>
+                        <div class="contact__desc">simlex777</div>
+                        <div class="contact__desc">kikozavr</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact__item">
+                        <div class="contact__img"><i class="fa fa-skype" aria-hidden="true"></i></div>
+                        <div class="contact__header">Дизайн</div>
+                        <div class="contact__desc">live:ivandenisovich</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact__item">
+                        <div class="contact__img"><i class="fa fa-skype" aria-hidden="true"></i></div>
+                        <div class="contact__header">Продвижение</div>
+                        <div class="contact__desc">eugene.kormin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rights">
+        @MvcApplication.DefaultSiteName. © Все права защищены, @startYear @(year > startYear ? "- " + year : null) год<br />
+        Любое использование или копирование материалов сайта - только с разрешения правообладателя и только с указанием ссылки на сайт
+    </div>
+</div>

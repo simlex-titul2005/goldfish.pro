@@ -1201,6 +1201,7 @@ header nav {
 .testemonials-wrapper {
     height: @testemonial__content-height;
     overflow: hidden;
+    margin-bottom:@def-pad*3;
 
     @media (max-width: @screen-xs-max) {
         height: auto;
@@ -1546,41 +1547,6 @@ header nav {
     margin-right: @def-pad;
 }
 
-//contacts
-.contacts {
-    .home-block;
-    background-color: @color-accent;
-    color: @color-white;
-}
-
-.contacts .block-header__subtitle::before {
-    background-color: @color-accent;
-}
-
-.contacts .txt {
-    color: @color-white;
-}
-
-.contacts-box {
-    padding-right: @def-pad*2;
-    padding-left: @def-pad*2;
-}
-
-.contact__item {
-    text-align: center;
-    padding-bottom: @def-pad*4;
-}
-
-.contact__img > .fa {
-    width: 67px;
-    height: 67px;
-    line-height: 67px;
-    border: 1px solid @color-white;
-    border-radius: 100%;
-    text-align: center;
-    font-size: 250%;
-}
-
 //form-login
 .form-login {
     display: table;
@@ -1789,4 +1755,56 @@ header nav {
     right: -5px;
     bottom: -5px;
     left: -5px;
+}
+
+//page-add-review
+.page-add-review{
+    width:600px;
+    max-width:100%;
+}
+
+//footer
+.footer {
+    .home-block;
+    background-color: @color-accent;
+    color: @color-white;
+}
+//footer contacts
+
+.contacts .block-header__subtitle::before {
+    background-color: @color-accent;
+}
+
+.contacts .txt {
+    color: @color-white;
+}
+
+.contacts-box {
+    padding-right: @def-pad*2;
+    padding-left: @def-pad*2;
+}
+
+.contact__item {
+    text-align: center;
+    padding-bottom: @def-pad*4;
+}
+
+.contact__item .contact__header{
+    font-size:14px;
+    text-transform:uppercase;
+}
+
+.contact__img > .fa {
+    width: 67px;
+    height: 67px;
+    line-height: 67px;
+    border: 1px solid @color-white;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 250%;
+}
+
+//footer rights
+.footer .rights{
+    text-align:center;
 }

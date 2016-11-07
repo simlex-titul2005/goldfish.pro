@@ -1,0 +1,48 @@
+﻿@model SxVMSiteReview
+
+@{
+    ViewBag.Title = "Добавить отзыв о сайте";
+    var message = (SxVMResultMessage)ViewBag.Message;
+}
+
+@section slider{
+    <div class="block-header">
+        <h2 class="block-header__title">
+            <span>Добавить отзыв</span>
+        </h2>
+    </div>
+}
+
+<div class="page page-add-review">
+
+    @if(message!=null && Equals(message.MessageType, SxVMResultMessage.ResultMessageType.Ok))
+    {
+        <p>
+            @message.Message
+        </p>
+    }
+
+    <form method="post" action="@Url.Action("Add", "SiteReviews")" autocomplete="off">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.EditorFor(x => x.ReviewerName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Представьтесь пожалуйста" } })
+            @Html.ValidationMessageFor(x => x.ReviewerName)
+        </div>
+
+        <div class="form-group">
+            @Html.EditorFor(x => x.Review, new { htmlAttributes = new { @class = "form-control", @placeholder = "Отзыв" } })
+            @Html.ValidationMessageFor(x => x.Review)
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn">Отправить</button>
+            <a href="@Url.Action("Index", "Home")" class="btn">На сайт</a>
+        </div>
+    </form>
+</div>
+
+@section scripts{
+    <script src="@Url.Action("Js", "StaticContent", new { name = "jquery.validate" })"></script>
+    <script src="@Url.Action("Js", "StaticContent", new { name = "jquery.validate.unobtrusive" })"></script>
+}
