@@ -169,6 +169,8 @@
     <Content Include="Areas\Admin\Views\SiteProjects\EditorTemplates\VMSiteProject.cshtml" />
     <Content Include="Areas\Admin\Views\SiteServices\EditorTemplates\VMSiteService.cshtml" />
     <Content Include="packages.config" />
+    <Content Include="Areas\Admin\Views\Orders\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\_GridView.cshtml" />
     <None Include="Properties\PublishProfiles\goldfishpro - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -198,6 +200,7 @@
     <Compile Include="Areas\Admin\Controllers\MaterialTagsController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuItemsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NetsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrdersController.cs" />
     <Compile Include="Areas\Admin\Controllers\PictureLinksController.cs" />
     <Compile Include="Areas\Admin\Controllers\PicturesController.cs" />
     <Compile Include="Areas\Admin\Controllers\RedirectsController.cs" />
@@ -223,6 +226,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
     <Compile Include="Controllers\MaterialsController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\SitePartnersController.cs" />
     <Compile Include="Controllers\SiteProjectsController.cs" />
     <Compile Include="Controllers\SiteReviewsController.cs" />
@@ -262,6 +266,8 @@
     <Content Include="Views\SiteReviews\_ListForHome.cshtml" />
     <Content Include="Views\SiteReviews\Add.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
+    <Content Include="Views\Orders\Add.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

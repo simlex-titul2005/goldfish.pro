@@ -9,5 +9,11 @@ namespace goldfish.WebUI.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
     }
 }

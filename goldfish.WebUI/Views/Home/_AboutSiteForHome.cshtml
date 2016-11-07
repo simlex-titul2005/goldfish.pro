@@ -1,5 +1,5 @@
 ﻿@{
-    var picIdSetting = MvcApplication.SiteSettingsProvider["home-page-about-us-pic-id"];
+    var picIdSetting = SiteSettingsProvider["home-page-about-us-pic-id"];
 }
 <div class="home-about">
     <div class="block-header">
@@ -12,7 +12,7 @@
         @(SiteSettingsProvider["home-page-about-us-desc"]?.Value)
     </p>
     <div class="btn-box">
-        <a class="btn">Подробнее о нас</a>
+        <a class="btn" href="@Url.Action("AboutUs", "Home")">Подробнее о нас</a>
     </div>
 
     @if (picIdSetting != null)

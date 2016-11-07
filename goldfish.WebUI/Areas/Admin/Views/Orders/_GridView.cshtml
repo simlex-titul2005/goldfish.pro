@@ -1,0 +1,11 @@
+﻿@model SxVMOrder[]
+
+@Html.SxGridView(Model, new SxExtantions.SxGridViewSettings<SxVMOrder> {
+    Columns=new SxExtantions.SxGridViewColumn<SxVMOrder>[] {
+        new SxExtantions.SxGridViewColumn<SxVMOrder> { Caption="Дата заказа", FieldName="DateCreate"},
+        new SxExtantions.SxGridViewColumn<SxVMOrder> { Caption="Имя клиента", FieldName="ClientName"},
+        new SxExtantions.SxGridViewColumn<SxVMOrder> { Caption="Email клиента", FieldName="ClientEmail"},
+        new SxExtantions.SxGridViewColumn<SxVMOrder> { Caption="Телефон клиента", FieldName="ClientPhone"}
+    },
+    DataAjaxUrl=Url.Action("Index")
+})

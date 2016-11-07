@@ -1,0 +1,55 @@
+﻿@model SxVMOrder
+@{ 
+    ViewBag.Title = ViewBag.Title ?? "Сделать заказ";
+    var message = (SxVMResultMessage)ViewBag.Message;
+}
+
+@section slider{
+    <div class="block-header">
+        <h1 class="block-header__title">
+            <span>Сделать заказ</span>
+        </h1>
+    </div>
+}
+
+<div class="page page-add-order">
+    
+    @if (message != null && Equals(message.MessageType, SxVMResultMessage.ResultMessageType.Ok))
+    {
+        <p>@message.Message</p>
+    }
+
+    <form method="post" action="@Url.Action("Add", "Orders")">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.EditorFor(x=>x.ClientName, new { htmlAttributes=new { @class="form-control", @placeholder="Как к Вам обращаться?" } })
+            @Html.ValidationMessageFor(x=>x.ClientName)
+        </div>
+
+        <div class="form-group">
+            @Html.EditorFor(x => x.ClientEmail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ваш адрес электронной почты" } })
+            @Html.ValidationMessageFor(x => x.ClientEmail)
+        </div>
+
+        <div class="form-group">
+            @Html.EditorFor(x => x.ClientPhone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ваш телефон (необязательно)" } })
+            @Html.ValidationMessageFor(x => x.ClientPhone)
+        </div>
+
+        <div class="form-group">
+            @Html.EditorFor(x => x.Text, new { htmlAttributes = new { @class = "form-control", @placeholder = "Краткое описание (не более 400 символов)" } })
+            @Html.ValidationMessageFor(x => x.Text)
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Сделать заказ</button>
+            <a href="@Url.Action("Index", "Home")" class="btn">На сайт</a>
+        </div>
+    </form>
+</div>
+
+@section scripts{
+    <script src="@Url.Action("Js", "StaticContent", new { name = "jquery.validate" })"></script>
+    <script src="@Url.Action("Js", "StaticContent", new { name = "jquery.validate.unobtrusive" })"></script>
+}
