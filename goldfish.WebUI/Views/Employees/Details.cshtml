@@ -23,8 +23,10 @@
             <img itemprop="image" class="employee__avatar" alt="@Model.NikName" src="@Url.Action("Picture", "Pictures", new { id = Model.AvatarId })" />
         }
         <div itemprop="jobTitle" class="employee__post">@Model.Post</div>
-        <p class="employee__desc">@Model.Description</p>
-        
+        <p class="employee__desc html">
+            @Model.Description
+        </p>
+
         <ul class="employee__icons">
             <li>
                 <a href="#"><i class="fa fa-google-plus"></i></a>
