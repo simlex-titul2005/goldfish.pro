@@ -48,10 +48,12 @@ namespace goldfish.WebUI
                     return "Статья";
                 case 2:
                     return "Новость";
+                case 4:
+                    return "Мануал";
                 case 100:
-                    return "Проекты";
+                    return "Проект";
                 case 101:
-                    return "Услуги";
+                    return "Услуга";
                 default:
                     return null;
             }

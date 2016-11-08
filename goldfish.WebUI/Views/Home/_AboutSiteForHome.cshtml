@@ -18,7 +18,7 @@
     @if (picIdSetting != null)
     {
         <div class="text-center">
-            <img style="max-width:100%;" src="@Url.Action("Picture", "Pictures", new { id=picIdSetting.Value})" />
+            <img alt="@MvcApplication.DefaultSiteName" style="max-width:100%;" src="@Url.Action("Picture", "Pictures", new { id=picIdSetting.Value})" />
         </div>
     }
 </div>
