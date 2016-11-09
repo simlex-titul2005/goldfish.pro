@@ -228,6 +228,7 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\RolesController.cs" />
+    <Compile Include="Controllers\ManualsController.cs" />
     <Compile Include="Controllers\MaterialsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\SitePartnersController.cs" />
@@ -271,6 +272,10 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Home\AboutUs.cshtml" />
     <Content Include="Views\Orders\Add.cshtml" />
+    <Content Include="Views\Manuals\List.cshtml" />
+    <Content Include="Views\Manuals\Details.cshtml" />
+    <Content Include="Views\Employees\_Contacts.cshtml" />
+    <Content Include="Views\Employees\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -286,6 +291,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\MaterialCategories\" />
+    <Folder Include="Views\UserContacts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

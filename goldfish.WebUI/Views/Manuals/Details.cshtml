@@ -1,0 +1,32 @@
+﻿@model SxVMManual
+@{ 
+    ViewBag.Title = ViewBag.Title ?? Model.Title;
+    var breadcrumbs = (SxVMBreadcrumb[])ViewBag.Breadcrumbs;
+}
+
+@section slider{
+    <div class="block-header">
+        <h2 class="block-header__title">
+            <span>@(Model.Title)</span>
+            <span class="block-header__subtitle">Подробнее</span>
+        </h2>
+    </div>
+}
+
+<div class="page page-manual">
+
+    @Html.SxBreadcrumbs(breadcrumbs)
+
+    <h1 class="page__header">@Model.Title</h1>
+
+    @if (!string.IsNullOrEmpty(Model.Foreword))
+    {
+        <div class="manual__fwd">
+            @Model.Foreword
+        </div>
+    }
+
+    <div class="manual__html html">
+        @Html.Raw(Model.Html)
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model SxExtantions.SxPagedCollection<SxVMEmployee>
+@{
+    ViewBag.Title = ViewBag.Title ?? "Сотрудники сайта";
+    var breadcrumbs = (SxVMBreadcrumb[])ViewBag.Breadcrumbs;
+}
+
+@section slider{
+    <div class="block-header">
+        <h1 class="block-header__title">
+            <span>Сотрудники сайта</span>
+            <span class="block-header__subtitle">Страница @Model.PagerInfo.Page</span>
+        </h1>
+    </div>
+}
+
+<div class="page">
+
+    @Html.SxBreadcrumbs(breadcrumbs)
+
+    <h2 class="page__header">@ViewBag.Title</h2>
+
+    @if (Model.Collection.Any())
+    {
+        SxVMEmployee item = null;
+        <div class="employees-list">
+            @for (int i = 0; i < Model.Collection.Length; i++)
+            {
+                item = Model.Collection[i];
+                <div class="employees-list__item">
+                    
+                    <h2 class="employees-list__nikname">@item.NikName</h2>
+                    
+                    <div class="employees-list__name">@item.Name @item.Surname</div>
+
+                    <a href="@Url.Action("Details", "Employees", new { nikname=item.NikName})">Подробнее</a>
+
+                    @Html.Partial("_Contacts", item.User.Contacts)
+                
+                </div>
+            }
+        </div>
+    }
+</div>

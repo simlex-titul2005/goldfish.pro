@@ -900,7 +900,6 @@ header nav {
     line-height: 30px;
     display: inline-block;
     text-align: center;
-    font-size: 14px;
     color: inherit;
     margin: 0 5px;
     transition: all .4s;
@@ -908,6 +907,11 @@ header nav {
 
 .employee__icons > li > a:hover {
     color: @color-accent !important;
+}
+
+.employee__icons > li > a > i{
+    position:relative;
+    top:-2px;
 }
 
 .employee__item:hover .employee__icons > li > a {
@@ -1809,4 +1813,26 @@ header nav {
 .page-add-order {
     width: 600px;
     max-width: 100%;
+}
+
+
+//manual
+.manual__fwd{
+    margin-top:@def-pad;
+    margin-bottom:@def-pad*2;
+}
+
+//employees-list
+.employees-list{
+    margin-top:@def-pad*2;
+}
+
+.employees-list__item{
+    margin-bottom:@def-pad*4;
+}
+
+.employees-list__nikname{
+    font-size:16px;
+    margin:0;
+    margin-bottom:@def-pad;
 }

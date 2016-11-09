@@ -13,6 +13,10 @@ namespace goldfish.WebUI
             routes.MapRoute(name: null, url: "Employees/{nikname}", defaults: new { controller = "Employees", action = "Details" }, namespaces: _dafaultNamespaces);
             routes.MapRoute(name: null, url: "Employees", defaults: new { controller = "Employees", action = "List" }, namespaces: _dafaultNamespaces);
 
+            //manuals
+            routes.MapRoute(name: null, url: "Manuals", defaults: new { controller = "Manuals", action = "List", page = 1 }, namespaces: _dafaultNamespaces);
+            routes.MapRoute(name: null, url: "Manuals/{cat}/{titleUrl}", defaults: new { controller = "Manuals", action = "Details" }, namespaces: _dafaultNamespaces);
+
             //site projects
             routes.MapRoute(name: null, url: "SiteProjects", defaults: new { controller = "SiteProjects", action = "List", page = 1 }, namespaces: _dafaultNamespaces);
             routes.MapRoute(name: null, url: "SiteProjects/page{page}", defaults: new { controller = "SiteProjects", action = "List", page = 1 }, namespaces: _dafaultNamespaces);

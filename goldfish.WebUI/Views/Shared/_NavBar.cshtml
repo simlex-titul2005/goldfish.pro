@@ -11,6 +11,7 @@
                     <a href="#s-menu-1" data-toggle="collapse"><i class="fa fa-bars" aria-hidden="true"></i> Сайт</a>
                     <ul class="collapse in" id="s-menu-1">
                         <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-bars" aria-hidden="true"></i> Главная</a></li>
+                        <li><a href="@Url.Action("List", "Employees")"><i class="fa fa-bars" aria-hidden="true"></i> Сотрудники</a></li>
                         @if (!isAuth)
                         {
                             <li><a href="@Url.Action("Login", "Account")"><i class="fa fa-bars" aria-hidden="true"></i> Вход в аккаунт</a></li>
@@ -31,8 +32,8 @@
                 <li>
                     <a href="#s-menu-2" data-toggle="collapse"><i class="fa fa-bars" aria-hidden="true"></i> Материалы</a>
                     <ul class="collapse" id="s-menu-2">
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Услуги</a></li>
-                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Проекты</a></li>
+                        <li><a href="@Url.Action("List", "Manuals")"><i class="fa fa-bars" aria-hidden="true"></i> Руководства</a></li>
+                        <li><a href="#"><i class="fa fa-bars" aria-hidden="true"></i> Статьи</a></li>
                     </ul>
                 </li>
             </ul>

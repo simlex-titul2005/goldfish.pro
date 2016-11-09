@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNet.Identity;
+@model SxVMUserContact[]
+@{
+    var userId = (string)ViewBag.UserId;
+    var isCurrentUser = User.Identity.IsAuthenticated && User.Identity.GetUserId() == userId;
+}
+
+@if (Model.Any())
+{
+    SxVMUserContact item = null;
+    <ul class="employee__icons">
+        @for (int i = 0; i < Model.Length; i++)
+        {
+            item = Model[i];
+            switch (item.ContactType)
+            {
+                case SX.WebCore.DbModels.SxUserContact.UserContactType.Email:
+                    <li>
+                        <a href="mailto:@item.Value" data-toggle="tooltip" data-placement="bottom" title="Почта"><i class="fa fa-envelope" aria-hidden="false"></i></a>
+                    </li>
+                    break;
+                case SX.WebCore.DbModels.SxUserContact.UserContactType.Phone:
+                    <li>
+                        <a href="#" data-toggle="tooltip" data-placement="bottom" title="@item.Value"><i class="fa fa-phone" aria-hidden="false"></i></a>
+                    </li>
+                    break;
+                case SX.WebCore.DbModels.SxUserContact.UserContactType.Site:
+                    <li>
+                        <a href="@item.Value" data-toggle="tooltip" data-placement="bottom" title="Сайт"><i class="fa fa-globe" aria-hidden="false"></i></a>
+                    </li>
+                    break;
+                case SX.WebCore.DbModels.SxUserContact.UserContactType.Skype:
+                    break;
+                case SX.WebCore.DbModels.SxUserContact.UserContactType.SocialNetLink:
+                    break;
+                default: break;
+            }
+
+
+        }
+
+        @if (isCurrentUser)
+        {
+            <li>
+                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Редактировать"><i class="fa fa-pencil" aria-hidden="false"></i></a>
+            </li>
+        }
+    </ul>
+
+}

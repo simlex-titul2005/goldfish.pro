@@ -1,8 +1,12 @@
 ﻿@{ 
     ViewBag.Title = ViewBag.Title ?? "О нас";
+    var breadcrumbs = (SxVMBreadcrumb[])ViewBag.Breadcrumbs;
 }
 
 <div class="page">
+
+    @Html.SxBreadcrumbs(breadcrumbs)
+
     <h1 class="page__header">@ViewBag.Title</h1>
     Страница в разработке
 </div>
