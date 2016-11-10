@@ -8,6 +8,11 @@ namespace goldfish.WebUI.Controllers
 {
     public sealed class OrdersController : SxOrdersController<SX.WebCore.DbModels.SxOrder, SxVMOrder>
     {
+        public OrdersController()
+        {
+            FillBreadcrumbs = BreadcrumbsConfig.FillBreadcrumbs;
+        }
+
         [HttpPost, AllowAnonymous]
         public override async Task<ActionResult> Add(SxVMOrder model)
         {

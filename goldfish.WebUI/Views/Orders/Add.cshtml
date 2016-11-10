@@ -13,6 +13,8 @@
 }
 
 <div class="page page-add-order">
+
+    @Html.SxBreadcrumbs(Breadcrumbs)
     
     @if (message != null && Equals(message.MessageType, SxVMResultMessage.ResultMessageType.Ok))
     {

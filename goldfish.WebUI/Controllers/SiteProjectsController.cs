@@ -11,7 +11,9 @@ namespace goldfish.WebUI.Controllers
     public sealed class SiteProjectsController : MaterialsController<SiteProject, VMSiteProject>
     {
         private static RepoSiteProject _repo = new RepoSiteProject();
-        public SiteProjectsController() : base(MvcApplication.ModelCoreTypeProvider[nameof(SiteProject)]) { }
+        public SiteProjectsController() : base(MvcApplication.ModelCoreTypeProvider[nameof(SiteProject)]) {
+            FillBreadcrumbs = BreadcrumbsConfig.FillBreadcrumbs;
+        }
         public override SxRepoMaterial<SiteProject, VMSiteProject> Repo
         {
             get

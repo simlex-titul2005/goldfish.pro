@@ -1,7 +1,6 @@
 ﻿@model SxExtantions.SxPagedCollection<SxVMEmployee>
 @{
     ViewBag.Title = ViewBag.Title ?? "Сотрудники сайта";
-    var breadcrumbs = (SxVMBreadcrumb[])ViewBag.Breadcrumbs;
 }
 
 @section slider{
@@ -15,7 +14,7 @@
 
 <div class="page">
 
-    @Html.SxBreadcrumbs(breadcrumbs)
+    @Html.SxBreadcrumbs(Breadcrumbs)
 
     <h2 class="page__header">@ViewBag.Title</h2>
 

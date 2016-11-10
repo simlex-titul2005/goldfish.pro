@@ -1,6 +1,4 @@
-﻿using SX.WebCore.ViewModels;
-using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace goldfish.WebUI.Controllers
 {
@@ -15,11 +13,6 @@ namespace goldfish.WebUI.Controllers
         [HttpGet]
         public ActionResult AboutUs()
         {
-            var breadcrumbs = new List<SxVMBreadcrumb>();
-            breadcrumbs.Add(new SxVMBreadcrumb { Title = "Главная", Url = Url.Action("Index", "Home") });
-            breadcrumbs.Add(new SxVMBreadcrumb { Title = "О нас", Url = Url.Action("AboutUs", "Home") });
-            ViewBag.Breadcrumbs = breadcrumbs.ToArray();
-
             return View();
         }
     }

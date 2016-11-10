@@ -8,6 +8,11 @@ namespace goldfish.WebUI.Controllers
 {
     public sealed class SiteReviewsController : SxSiteReviewsController<SxSiteReview, SxVMSiteReview>
     {
+        public SiteReviewsController()
+        {
+            FillBreadcrumbs = BreadcrumbsConfig.FillBreadcrumbs;
+        }
+
         [AllowAnonymous, ChildActionOnly]
         public ActionResult ListForHome(int amount)
         {

@@ -15,6 +15,9 @@
 }
 
 <div class="projects-page page">
+
+    @Html.SxBreadcrumbs(Breadcrumbs)
+
     <h1 class="page__header">@ViewBag.Title</h1>
 
     @if (Model.Collection.Any())

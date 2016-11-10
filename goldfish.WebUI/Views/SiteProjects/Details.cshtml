@@ -14,6 +14,9 @@
 }
 
 <div class="project-page page">
+
+    @Html.SxBreadcrumbs(Breadcrumbs)
+
     <h1 class="project__name page__header">@Model.Title</h1>
     <div class="project__image" style="background-image:url('@Url.Action("Picture", "Pictures", new { id=Model.FrontPictureId})')"></div>
     <div class="project__link">

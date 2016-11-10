@@ -1,6 +1,7 @@
 ﻿using goldfish.WebUI.Infrastructure;
 using goldfish.WebUI.Models;
 using SX.WebCore.MvcApplication;
+using SX.WebCore.Providers;
 using System;
 using System.Collections.Generic;
 
@@ -33,8 +34,7 @@ namespace goldfish.WebUI
                 MapperConfigurationExpression = AutoMapperConfig.Register,
                 DefaultControllerNamespaces = new string[] { "goldfish.WebUI.Controllers" },
                 PreRouteAction = RouteConfig.PreRouteAction,
-                PostRouteAction = RouteConfig.PostRouteAction,
-
+                PostRouteAction = RouteConfig.PostRouteAction
             };
 
             base.Application_Start(sender, args);

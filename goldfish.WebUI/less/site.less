@@ -909,9 +909,9 @@ header nav {
     color: @color-accent !important;
 }
 
-.employee__icons > li > a > i{
-    position:relative;
-    top:-2px;
+.employee__icons > li > a > i {
+    position: relative;
+    top: -2px;
 }
 
 .employee__item:hover .employee__icons > li > a {
@@ -1817,22 +1817,69 @@ header nav {
 
 
 //manual
-.manual__fwd{
-    margin-top:@def-pad;
-    margin-bottom:@def-pad*2;
+.manual__fwd {
+    margin-top: @def-pad;
+    margin-bottom: @def-pad*2;
 }
 
 //employees-list
-.employees-list{
-    margin-top:@def-pad*2;
+.employees-list {
+    margin-top: @def-pad*2;
 }
 
-.employees-list__item{
-    margin-bottom:@def-pad*4;
+.employees-list__item {
+    margin-bottom: @def-pad*4;
 }
 
-.employees-list__nikname{
-    font-size:16px;
+.employees-list__nikname {
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: @def-pad;
+}
+
+//breadcrumb
+.breadcrumb {
+    background: none;
+    padding: 0;
     margin:0;
-    margin-bottom:@def-pad;
+}
+
+.breadcrumb > li {
+    position: relative;
+    margin-bottom:@def-pad*2;
+}
+
+.breadcrumb > li + li::before {
+    content: "";
+    padding: 8px 10px;
+}
+
+.breadcrumb > li + li::after {
+    content: "";
+    transform: rotate(-45deg);
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    margin-top: -2px;
+    border-top: 1px solid #FFC8A6;
+    border-left: 1px solid #FFC8A6;
+    background-color: #FFC8A6;
+}
+
+.breadcrumb > li:last-child::after{
+    background-color:@color-accent;
+}
+
+.breadcrumb > li > a, .breadcrumb > li > span {
+    padding: 5px 10px;
+    font-size:12px;
+    background-color: #FFC8A6;
+    color: @color-white;
+    text-decoration: none;
+}
+
+.breadcrumb > li:last-child > a, .breadcrumb > li:last-child > span {
+    background-color:@color-accent;
 }

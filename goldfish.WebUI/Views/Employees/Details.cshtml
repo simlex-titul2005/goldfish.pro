@@ -1,7 +1,6 @@
 ﻿@model SxVMEmployee
 @{
     ViewBag.Title = ViewBag.Title ?? Model.NikName + " | Сотрудники сайта ";
-    var breadcrumbs = (SxVMBreadcrumb[])ViewBag.Breadcrumbs;
 }
 
 @section slider{
@@ -15,7 +14,7 @@
 
 <div class="employee-page page">
 
-    @Html.SxBreadcrumbs(breadcrumbs)
+    @Html.SxBreadcrumbs(Breadcrumbs)
 
     <div class="employee" itemscope itemtype="http://schema.org/Person">
         <meta itemprop="worksfor" content="@(SiteSettingsProvider["sitename"]?.Value ?? SX.WebCore.MvcApplication.SxMvcApplication.DefaultSiteName)" />
