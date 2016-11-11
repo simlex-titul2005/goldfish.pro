@@ -1,15 +1,16 @@
 ﻿@using Microsoft.AspNet.Identity;
 @model SxVMUserContact[]
 @{
-    var userId = (string)ViewBag.UserId;
-    var isCurrentUser = User.Identity.IsAuthenticated && User.Identity.GetUserId() == userId;
+    var nikname = (string)ViewBag.NikName;
+    var isCurren = Convert.ToBoolean(ViewBag.IsCurrent);
 }
 
-@if (Model.Any())
-{
-    SxVMUserContact item = null;
-    <ul class="employee__icons">
-        @for (int i = 0; i < Model.Length; i++)
+
+<ul class="employee__icons">
+    @if (Model.Any())
+    {
+        SxVMUserContact item = null;
+        for (int i = 0; i < Model.Length; i++)
         {
             item = Model[i];
             switch (item.ContactType)
@@ -35,16 +36,13 @@
                     break;
                 default: break;
             }
-
-
         }
+    }
 
-        @if (isCurrentUser)
-        {
-            <li>
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Редактировать"><i class="fa fa-pencil" aria-hidden="false"></i></a>
-            </li>
-        }
-    </ul>
-
-}
+    @if (isCurren)
+    {
+        <li>
+            <a href="@Url.Action("UserProfile", "Users", new { nikname = nikname })" data-toggle="tooltip" data-placement="bottom" title="Редактировать"><i class="fa fa-pencil" aria-hidden="false"></i></a>
+        </li>
+    }
+</ul>

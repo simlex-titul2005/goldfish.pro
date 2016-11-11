@@ -26,6 +26,9 @@ namespace goldfish.WebUI
             routes.MapRoute(name: null, url: "SiteServices", defaults: new { controller = "SiteServices", action = "List", page = 1 }, namespaces: _dafaultNamespaces);
             routes.MapRoute(name: null, url: "SiteServices/page{page}", defaults: new { controller = "SiteServices", action = "List", page = 1 }, namespaces: _dafaultNamespaces);
             routes.MapRoute(name: null, url: "SiteServices/{titleUrl}", defaults: new { controller = "SiteServices", action = "Details" }, namespaces: _dafaultNamespaces);
+
+            //users
+            routes.MapRoute(name: null, url: "Users/UserProfile/{nikname}", defaults: new { controller = "Users", action = "UserProfile" }, namespaces: _dafaultNamespaces);
         }
 
         public static void PostRouteAction(RouteCollection routes)

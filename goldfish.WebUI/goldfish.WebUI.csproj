@@ -237,6 +237,7 @@
     <Compile Include="Controllers\SiteReviewsController.cs" />
     <Compile Include="Controllers\SiteServicesController.cs" />
     <Compile Include="Controllers\StaticContentController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -277,6 +278,7 @@
     <Content Include="Views\Manuals\Details.cshtml" />
     <Content Include="Views\Employees\_Contacts.cshtml" />
     <Content Include="Views\Employees\List.cshtml" />
+    <Content Include="Views\Users\UserProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -292,7 +294,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\MaterialCategories\" />
-    <Folder Include="Views\UserContacts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

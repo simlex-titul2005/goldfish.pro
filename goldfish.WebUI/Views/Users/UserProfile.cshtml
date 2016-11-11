@@ -1,0 +1,105 @@
+﻿@model SxVMAppUser
+
+@{
+    ViewBag.Title = ViewBag.Title ?? "Профиль пользователя " + Model.NikName;
+}
+
+@section slider{
+    <div class="block-header">
+        <h1 class="block-header__title">
+            <span>Профиль пользователя</span>
+            <span class="block-header__subtitle">@Model.NikName</span>
+        </h1>
+    </div>
+}
+
+<div class="page">
+
+    @Html.SxBreadcrumbs(Breadcrumbs)
+
+    <h2 class="page__header page-user_profile">Профиль пользователя @Model.NikName</h2>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Аватар</div>
+        <div class="panel-body">
+            <img class="page-user_profile__avatar" alt="@Model.NikName" src="@(Model.AvatarId.HasValue ? Url.Action("Picture", "Pictures", new { id=Model.AvatarId}):"")" />
+            <div class="page-user_profile__avatar-info">
+                <dl>
+                    <dt>Название:</dt>
+                    <dd>@Model.Avatar.Caption</dd>
+
+                    <dt>Дата создания:</dt>
+                    <dd>@Model.Avatar.DateCreate</dd>
+
+                    <dt>Описание:</dt>
+                    <dd>@Model.Avatar.Description</dd>
+
+                    <dt>Ширина:</dt>
+                    <dd>@Model.Avatar.Width px</dd>
+
+                    <dt>Высота:</dt>
+                    <dd>@Model.Avatar.Height px</dd>
+
+                    <dt>Размер:</dt>
+                    <dd>@(Math.Round((double)Model.Avatar.Size / 1024, 2)) Kb</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    @if (Model.Employee != null)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">Информация о сотруднике</div>
+            <div class="panel-body">
+                <form>
+                    <div class="page-user_profile__employee">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(x => x.Employee.Surname, new { @class = "control-label" })
+                                    @Html.EditorFor(x => x.Employee.Surname, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(x => x.Employee.Surname)
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.LabelFor(x => x.Employee.Name, new { @class = "control-label" })
+                                    @Html.EditorFor(x => x.Employee.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(x => x.Employee.Name)
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.LabelFor(x => x.Employee.Patronymic, new { @class = "control-label" })
+                                    @Html.EditorFor(x => x.Employee.Patronymic, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(x => x.Employee.Patronymic)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Employee.Post, new { @class = "control-label" })
+                            @Html.EditorFor(x => x.Employee.Post, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(x => x.Employee.Post)
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Employee.Description, new { @class = "control-label" })
+                            @Html.EditorFor(x => x.Employee.Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(x => x.Description)
+                        </div>
+
+                        <div class="form-group">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Сохранить</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+
+</div>
+
+@section scripts{
+    <script src="@Url.Action("Js", "StaticContent", new { name = "jquery.validate" })"></script>
+    <script src="@Url.Action("Js", "StaticContent", new { name = "jquery.validate.unobtrusive" })"></script>
+}

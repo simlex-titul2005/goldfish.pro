@@ -3,6 +3,7 @@
 
 /*@color-accent: #22a7f0;*/
 @color-accent: #F9690E;
+@color-accent-light: #f08441;
 /*@color-accent:#7bbfe1;*/
 @color-white: #fff;
 @color-gray: #d5d5d5;
@@ -64,7 +65,7 @@ a, a:visited, a:link, a:visited, a:focus {
 .page .page__header {
     color: @color-accent;
     margin: 0;
-    /*font-size: 30px;*/
+    margin-bottom:@def-pad*2;
 }
 
 //navbar
@@ -197,6 +198,7 @@ a, a:visited, a:link, a:visited, a:focus {
     position: absolute;
     left: 0;
     right: 0;
+    width:100%;
     max-width: 60%;
     margin: 0 auto;
     height: 100%;
@@ -421,6 +423,7 @@ header nav {
 
 .block-header__subtitle::before {
     content: "";
+    width:100%;
     max-width: 60%;
     background-color: @color-white;
     height: 100%;
@@ -724,21 +727,19 @@ header nav {
     transition: all .4s;
 
     @media (max-width: @screen-xs-max) {
-        top: auto;
-        right: auto;
-        bottom: -30px;
-        margin-top: auto;
-        left: auto;
-        margin-left: -30px;
+        left: 0;
+        right: 0;
+        margin:0 auto;
+        top:auto;
+        bottom:-@def-pad*2;
     }
 
     @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-        top: auto;
-        right: auto;
-        bottom: -30px;
-        margin-top: auto;
-        left: auto;
-        margin-left: -30px;
+        left: 0;
+        right: 0;
+        margin:0 auto;
+        top:auto;
+        bottom:-@def-pad*2;
     }
 
     @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
@@ -757,11 +758,11 @@ header nav {
     left: -@def-pad*2;
 
     @media (max-width: @screen-xs-max) {
-        left: auto;
+        
     }
 
     @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-        left: auto;
+        
     }
 
     @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
@@ -1863,9 +1864,9 @@ header nav {
     width: 8px;
     height: 8px;
     margin-top: -2px;
-    border-top: 1px solid #FFC8A6;
-    border-left: 1px solid #FFC8A6;
-    background-color: #FFC8A6;
+    border-top: 1px solid @color-accent-light;
+    border-left: 1px solid @color-accent-light;
+    background-color: @color-accent-light;
 }
 
 .breadcrumb > li:last-child::after{
@@ -1875,11 +1876,54 @@ header nav {
 .breadcrumb > li > a, .breadcrumb > li > span {
     padding: 5px 10px;
     font-size:12px;
-    background-color: #FFC8A6;
+    background-color: @color-accent-light;
     color: @color-white;
     text-decoration: none;
 }
 
 .breadcrumb > li:last-child > a, .breadcrumb > li:last-child > span {
     background-color:@color-accent;
+}
+
+
+//page-user_profile
+@page-user_profile__avatar-size:137px;
+.page-user_profile__avatar{
+    width:@page-user_profile__avatar-size;
+    height:@page-user_profile__avatar-size;
+    border-radius:100%;
+    border:1px solid @color-gray;
+    padding:5px;
+    float:left;
+    margin:0 @def-pad*2 @def-pad 0;
+    @media (max-width: @screen-xs-max) {
+        float:none;
+        margin:0;
+        margin-bottom:@def-pad;
+    }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    }
+
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    }
+
+    @media (min-width: @screen-lg-min) {
+    }
+}
+
+.page-user_profile__avatar-info{
+    margin-left:@page-user_profile__avatar-size+@def-pad*2;
+    @media (max-width: @screen-xs-max) {
+        margin-left:0;
+    }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    }
+
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    }
+
+    @media (min-width: @screen-lg-min) {
+    }
 }
