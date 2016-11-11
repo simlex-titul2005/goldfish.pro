@@ -33,6 +33,19 @@
         </div>
     </div>
 
+    @if (User.IsInRole("seo"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(x => x.TitleUrl, new { @class = "control-label" })
+            @Html.EditorFor(x => x.TitleUrl, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(x => x.TitleUrl)
+        </div>
+    }
+    else
+    {
+        @Html.HiddenFor(x=>x.TitleUrl)
+    }
+
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">

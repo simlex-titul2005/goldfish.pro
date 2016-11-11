@@ -1,7 +1,11 @@
 ﻿@model SxVMManual
-@{ 
+@{
     ViewBag.Title = ViewBag.Title ?? Model.Title;
     var breadcrumbs = (SxVMBreadcrumb[])ViewBag.Breadcrumbs;
+}
+
+@section styles{
+    <link rel="stylesheet" href="@Url.Action("Css", "StaticContent", new { name="prettify", area=""})" />
 }
 
 @section slider{
@@ -30,3 +34,12 @@
         @Html.Raw(Model.Html)
     </div>
 </div>
+
+@section scripts{
+    <script src="@Url.Action("Js", "StaticContent", new { name="prettify", area=""})"></script>
+    <script>
+        $(function () {
+            prettyPrint();
+        });
+    </script>
+}
