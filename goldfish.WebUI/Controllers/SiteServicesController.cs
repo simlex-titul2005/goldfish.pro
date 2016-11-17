@@ -27,7 +27,7 @@ namespace goldfish.WebUI.Controllers
         [ChildActionOnly]
         public ActionResult ListMainPage(int amount = 6)
         {
-            var order = new SxOrder { FieldName = "DateCreate", Direction = SortDirection.Desc };
+            var order = new SxOrderItem { FieldName = "DateCreate", Direction = SortDirection.Desc };
             var filter = new SxFilter(1, amount) { Order=order, OnlyShow=true };
 
             var viewModel = Repo.Read(filter);
