@@ -162,6 +162,8 @@
     <Content Include="content\dist\temp\testemonial3.jpg" />
     <Content Include="content\dist\temp\testemonial4.jpg" />
     <Content Include="Global.asax" />
+    <Content Include="scripts\gf-navbar.js" />
+    <Content Include="scripts\site.js" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -172,6 +174,9 @@
     <Content Include="Areas\Admin\Views\Orders\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Orders\_GridView.cshtml" />
     <Content Include="Areas\Admin\Views\Manuals\EditorTemplates\SxVMManual.cshtml" />
+    <Content Include="Areas\Admin\Views\GitHubIssues\_GridView.cshtml" />
+    <Content Include="Areas\Admin\Views\GitHub\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GitHubIssues\_Labels.cshtml" />
     <None Include="Properties\PublishProfiles\goldfishpro - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -198,7 +203,8 @@
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Admin\Controllers\EmployeesController.cs" />
-    <Compile Include="Areas\Admin\Controllers\GithubController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GitHubController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GitHubIssuesController.cs" />
     <Compile Include="Areas\Admin\Controllers\GraphicsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LogsController.cs" />
@@ -295,9 +301,7 @@
       <Name>SX.WebCore</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Views\Github\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,0 +1,22 @@
+﻿@using SX.WebCore.ViewModels.GitHub
+@{
+    var filter = (SxFilter)ViewBag.Filter;
+    var repositoryId = filter.AddintionalInfo[0];
+}
+
+@model  SxVMGitHubIssue[]
+
+@Html.SxGridView(Model, new SxExtantions.SxGridViewSettings<SxVMGitHubIssue>
+{
+    Columns = new SxExtantions.SxGridViewColumn<SxVMGitHubIssue>[] {
+            new SxExtantions.SxGridViewColumn<SxVMGitHubIssue> { Caption="#", FieldName="State", ColumnCssClass=x=>"column-zero", Template=x=> {
+                return x.State==Octokit.ItemState.Open?"<i class=\"fa fa-exclamation-circle green\" aria-hidden=\"true\"></i>":null;
+            }},
+        new SxExtantions.SxGridViewColumn<SxVMGitHubIssue> { Caption="Заголовок", FieldName="Title"},
+        new SxExtantions.SxGridViewColumn<SxVMGitHubIssue> { Caption="Метки", FieldName="Labels", Template=x=> {
+            return Html.Partial("_Labels", x.Labels).ToString();
+        }, EnableSorting=false }
+},
+    DataAjaxUrl = Url.Action("Index", new { repositoryId = repositoryId }),
+    ShowDetails = true
+})

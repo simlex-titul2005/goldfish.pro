@@ -2,7 +2,7 @@
 
 namespace goldfish.WebUI.Areas.Admin.Controllers
 {
-    public sealed class GitHubController : SxGitHubController
+    public sealed class GitHubIssuesController : SxGitHubIssuesController
     {
         
     }

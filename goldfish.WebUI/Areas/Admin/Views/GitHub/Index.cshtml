@@ -1,0 +1,77 @@
+﻿@model Octokit.Repository
+@{
+    ViewBag.Title = "GitHub";
+}
+
+@section styles{
+    <style type="text/css">
+        .fa-spinner {
+            margin-right: 5px;
+        }
+        .column-zero{
+            width:0;
+        }
+        .green{
+            color:#B5E3A1;
+        }
+        .list-unstyled{
+            margin-bottom:0;
+        }
+        .gh-label{
+            padding:0 7px;
+            color:#fff;
+            font-size:11px;
+        }
+    </style>
+}
+
+<h2>@ViewBag.Title</h2>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Репозиторий</a></li>
+    <li role="presentation"><a href="#issues" aria-controls="issues" role="tab" data-toggle="tab">Задачи</a></li>
+</ul>
+<br />
+<div class="tab-content">
+    @*info*@
+    <div role="tabpanel" class="tab-pane active" id="info">
+        @Html.DisplayForModel()
+    </div>
+    @*issues*@
+    <div role="tabpanel" class="tab-pane" id="issues">
+        <div id="grid-issues"></div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var $spinner = $('<i class="fa fa-spinner fa-spin"></i>')
+
+        $(function () {
+            $('#grid-issues').sx_gv();
+
+            $('a[href="#issues"]').on('shown.bs.tab', function (e) {
+                getIssue();
+            })
+        });
+
+        function getIssue()
+        {
+            $.ajax({
+                method: 'get',
+                url: '@Url.Action("Index", "GitHubIssues")',
+                data:{repositoryId:@Model.Id},
+                beforeSend:function(){
+                    $('a[role="tab"]').find('.fa-spinner').remove();
+                    $('a[href="#issues"]').prepend($spinner);
+                    $('#grid-issues').html('');
+                },
+                success:function(result)
+                {
+                    $('#grid-issues').html(result);
+                    $('a[role="tab"]').find('.fa-spinner').remove();
+                }
+            });
+        }
+    </script>
+}
