@@ -177,6 +177,8 @@
     <Content Include="Areas\Admin\Views\GitHubIssues\_GridView.cshtml" />
     <Content Include="Areas\Admin\Views\GitHub\Index.cshtml" />
     <Content Include="Areas\Admin\Views\GitHubIssues\_Labels.cshtml" />
+    <Content Include="Areas\Admin\Views\GitHub\DisplayTemplates\SxVMGitHubRepository.cshtml" />
+    <Content Include="Areas\Admin\Views\GitHubIssues\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\goldfishpro - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -301,7 +303,9 @@
       <Name>SX.WebCore</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\Admin\less\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

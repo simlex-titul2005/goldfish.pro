@@ -1,0 +1,8 @@
+﻿@model SX.WebCore.ViewModels.GitHub.SxVMGitHubIssue
+@{
+    var isNew = Equals(0, Model.Id);
+    ViewBag.Title = isNew ? "Добавить issue": "Редактировать issue \"" + Model.Id + "\"";
+}
+
+<h2>@ViewBag.Title</h2>
+<br />
