@@ -164,6 +164,7 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\gf-navbar.js" />
     <Content Include="scripts\site.js" />
+    <Content Include="scripts\sxshare.js" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -247,6 +248,7 @@
     <Compile Include="Controllers\SiteProjectsController.cs" />
     <Compile Include="Controllers\SiteReviewsController.cs" />
     <Compile Include="Controllers\SiteServicesController.cs" />
+    <Compile Include="Controllers\SiteSettingsController.cs" />
     <Compile Include="Controllers\StaticContentController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -305,6 +307,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\less\" />
+    <Folder Include="Views\SiteSettings\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -3,6 +3,8 @@
     var routeDataValues = Request.RequestContext.RouteData.Values;
     var controller = routeDataValues["controller"].ToString().ToUpper();
     var action = routeDataValues["action"].ToString().ToUpper();
+    var title = ViewBag.Title == null ? MvcApplication.DefaultSiteName : ViewBag.Title + " | " + MvcApplication.DefaultSiteName;
+    var isLocalRequest = Request.IsLocal;
 }
 <!DOCTYPE html>
 <html lang="ru">
@@ -10,10 +12,29 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-site-verification" content="UeS3ESGmEFd7YYEp414-T3BuSAHbycyDiS_H_V2cl6o" />
-    <meta name="yandex-verification" content="9d47be8e3331c8bb" />
+    @if (!isLocalRequest)
+    {
+        <meta name="google-site-verification" content="UeS3ESGmEFd7YYEp414-T3BuSAHbycyDiS_H_V2cl6o" />
+        <meta name="yandex-verification" content="9d47be8e3331c8bb" />
+    }
+
     @RenderSection("head", false)
-    <title>@(ViewBag.Title == null ? MvcApplication.DefaultSiteName : ViewBag.Title + " | " + MvcApplication.DefaultSiteName)</title>
+
+    <title>@title</title>
+    <meta property="og:title" content="@title" />
+    <meta property="og:url" content="@Request.Url" />
+    <meta property="og:image" content="@(ViewBag.PageImage ?? SX.WebCore.UrlHelperExtensions.ContentAbsUrl(Url, "/favicon.ico"))" />
+
+    @if (!string.IsNullOrEmpty(ViewBag.Description))
+    {
+        <meta name="description" content="@ViewBag.Description" />
+        <meta property="og:description" content="@ViewBag.Description" />
+    }
+    @if (!string.IsNullOrEmpty(ViewBag.Keywords))
+    {
+        <meta name="keywords" content="@ViewBag.Keywords" />
+    }
+
     <link href="@Url.Action("Css", "StaticContent", new { name = "bootstrap" })" rel="stylesheet" />
     <link href="@Url.Action("Css", "StaticContent", new { name = "font-awesome" })" rel="stylesheet" />
     <link href="~/content/dist/css/site.min.css" rel="stylesheet" />
@@ -42,18 +63,22 @@
         </div>
         @RenderBody()
     </div>
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-52276782-4', 'auto');
-        ga('send', 'pageview');
+    @if (!isLocalRequest)
+    {
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    </script>
+            ga('create', 'UA-52276782-4', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    }
     <script src="@Url.Action("Js", "StaticContent", new { name = "jquery" })"></script>
     <script src="@Url.Action("Js", "StaticContent", new { name = "bootstrap" })"></script>
     <script src="@Url.Action("Js", "StaticContent", new { name = "jquery.validate" })"></script>

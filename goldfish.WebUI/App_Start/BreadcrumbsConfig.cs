@@ -23,6 +23,10 @@ namespace goldfish.WebUI
                     fillHomeControllerBreadcrumbs(controller, ref breadcrumbs);
                     break;
 
+                case "manuals":
+                    fillManualsControllerBreadcrumbs(controller, ref breadcrumbs);
+                    break;
+
                 case "orders":
                     fillOrdersControllerBreadcrumbs(controller, ref breadcrumbs);
                     break;
@@ -59,6 +63,21 @@ namespace goldfish.WebUI
             {
                 case "aboutus":
                     breadcrumbs.Add(new SxVMBreadcrumb { Title = "О нас", Url = controller.Url.Action("AboutUs", "Home") });
+                    break;
+            }
+        }
+
+        private static void fillManualsControllerBreadcrumbs(SxBaseController controller, ref HashSet<SxVMBreadcrumb> breadcrumbs)
+        {
+            breadcrumbs.Add(new SxVMBreadcrumb { Title="Руководства", Url=controller.Url.Action("List", "Manuals")});
+            switch (controller.SxActionName)
+            {
+                case "details":
+                    var model = (SxVMManual)controller.SxModel;
+                    var category = model.Category;
+                    if(category!=null)
+                        breadcrumbs.Add(new SxVMBreadcrumb { Title = category.Title, Url = controller.Url.Action("List", "Manuals", new { cat=category.Id }) });
+                    breadcrumbs.Add(new SxVMBreadcrumb { Title = category.Title, Url = model.GetUrl(controller.Url) });
                     break;
             }
         }

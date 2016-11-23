@@ -6,6 +6,9 @@ namespace goldfish.WebUI.Controllers
 {
     public sealed class ManualsController : SxManualsController<SxManual, SxVMManual>
     {
-        
+        public ManualsController()
+        {
+            FillBreadcrumbs = BreadcrumbsConfig.FillBreadcrumbs;
+        }
     }
 }

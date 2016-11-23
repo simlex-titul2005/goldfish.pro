@@ -1,6 +1,8 @@
 ﻿@model SxVMManual
 @{
     ViewBag.Title = ViewBag.Title ?? Model.Title;
+    ViewBag.Description = ViewBag.Description ?? Model.Foreword;
+    ViewBag.Keywords = ViewBag.Keywords ?? Model.SeoTags?.KeywordsString;
     var breadcrumbs = (SxVMBreadcrumb[])ViewBag.Breadcrumbs;
 }
 
@@ -21,22 +23,43 @@
 
     @Html.SxBreadcrumbs(breadcrumbs)
 
-    <h1 class="page__header">@Model.Title</h1>
+    <div class="row">
+        <div class="col-md-9">
+            <h1 class="page__header">@Model.Title</h1>
 
-    @if (!string.IsNullOrEmpty(Model.Foreword))
-    {
-        <div class="manual__fwd">
-            @Model.Foreword
+            @if (!string.IsNullOrEmpty(Model.Foreword))
+            {
+                <div class="manual__fwd">
+                    @Model.Foreword
+                </div>
+            }
+
+            <div class="material-info">
+                <ul>
+                    <li>Просмотров: @Model.ViewsCount</li>
+                    <li>Комментов: @Model.CommentsCount</li>
+                    <li>Лайков: @Model.LikeUpCount</li>
+                    <li>Дизлайков: @Model.LikeDownCount</li>
+                </ul>
+            </div>
+
+            <div class="manual__html html">
+                @Html.Raw(Model.Html)
+            </div>
         </div>
-    }
+        <div class="col-md-3">
+            <h4>Облако тегов</h4>
+            @Html.SxTagsCloud(Model.MaterialTags, x=> Url.Action("List", "Manuals", new { tag=x.Id }))
 
-    <div class="manual__html html">
-        @Html.Raw(Model.Html)
+            <h4>Поделиться в соцсетях</h4>
+            @Html.SxShareButtons()
+        </div>
     </div>
 </div>
 
 @section scripts{
     <script src="@Url.Action("Js", "StaticContent", new { name="prettify", area=""})"></script>
+    <script src="~/scripts/sxshare.js"></script>
     <script>
         $(function () {
             prettyPrint();

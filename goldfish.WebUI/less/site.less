@@ -1927,3 +1927,48 @@ header nav {
     @media (min-width: @screen-lg-min) {
     }
 }
+
+//share-buttons
+@share-buttons-btn-size:30px;
+.share-buttons{
+    list-style:none;
+    padding:0;
+    margin:0;
+    color:@color-white;
+    margin-left:-@def-pad;
+}
+
+.share-buttons button{
+    border-radius:100%;
+    width:@share-buttons-btn-size;
+    height:@share-buttons-btn-size;
+}
+
+.share-buttons li{
+    display:inline;
+    margin-left:@def-pad;
+}
+
+.share-buttons .share-buttons__icon{
+    //margin-right:5px;
+}
+
+.share-buttons .share-buttons__title{
+    display:none;
+}
+
+//tags-cloud
+.tags-cloud{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.tags-cloud li{
+    font-size:1em !important;
+}
+
+.tags-cloud li.current{
+    font-size:120% !important;
+    font-weight:700;
+}
