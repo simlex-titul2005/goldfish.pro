@@ -77,7 +77,7 @@ namespace goldfish.WebUI
                     var category = model.Category;
                     if(category!=null)
                         breadcrumbs.Add(new SxVMBreadcrumb { Title = category.Title, Url = controller.Url.Action("List", "Manuals", new { cat=category.Id }) });
-                    breadcrumbs.Add(new SxVMBreadcrumb { Title = category.Title, Url = model.GetUrl(controller.Url) });
+                    breadcrumbs.Add(new SxVMBreadcrumb { Title = model.Title, Url= model.GetUrl(controller.Url) });
                     break;
             }
         }

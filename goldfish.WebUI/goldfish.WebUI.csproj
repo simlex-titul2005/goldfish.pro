@@ -263,6 +263,7 @@
     <Compile Include="Models\SiteProject.cs" />
     <Compile Include="Models\SiteService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\VMManual.cs" />
     <Compile Include="ViewModels\VMMaterial.cs" />
     <Compile Include="ViewModels\VMSiteProject.cs" />
     <Compile Include="ViewModels\VMSiteService.cs" />
@@ -292,6 +293,12 @@
     <Content Include="Views\Employees\_Contacts.cshtml" />
     <Content Include="Views\Employees\List.cshtml" />
     <Content Include="Views\Users\UserProfile.cshtml" />
+    <Content Include="Views\Shared\_SimilarMaterials.cshtml" />
+    <Content Include="Views\Shared\_LastMaterials.cshtml" />
+    <Content Include="Views\Shared\_BoxTagsCloud.cshtml" />
+    <Content Include="Views\Shared\_BoxShareButtons.cshtml" />
+    <Content Include="Views\Shared\_BoxSimilarMaterials.cshtml" />
+    <Content Include="Views\Shared\_BoxLastMaterials.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -307,7 +314,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\less\" />
-    <Folder Include="Views\SiteSettings\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

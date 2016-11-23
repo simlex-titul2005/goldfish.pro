@@ -48,11 +48,13 @@
             </div>
         </div>
         <div class="col-md-3">
-            <h4>Облако тегов</h4>
-            @Html.SxTagsCloud(Model.MaterialTags, x=> Url.Action("List", "Manuals", new { tag=x.Id }))
+            @Html.Partial("_BoxTagsCloud", new ViewDataDictionary { { "Tags", Model.MaterialTags }, { "ActionName", "List" }, { "ControllerName", "Manuals" } })
 
-            <h4>Поделиться в соцсетях</h4>
-            @Html.SxShareButtons()
+            @Html.Partial("_BoxShareButtons")
+
+            @Html.Partial("_BoxSimilarMaterials", Model, new ViewDataDictionary { { "ControllerName", "Manuals" }, { "Amount", 10 }, { "BoxHeader", "Похожие руководства" } })
+
+            @Html.Partial("_BoxLastMaterials", Model, new ViewDataDictionary { { "ControllerName", "Manuals" }, { "Amount", 10 }, { "BoxHeader", "Последние руководства" } })
         </div>
     </div>
 </div>

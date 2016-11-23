@@ -5,6 +5,7 @@
     var action = routeDataValues["action"].ToString().ToUpper();
     var title = ViewBag.Title == null ? MvcApplication.DefaultSiteName : ViewBag.Title + " | " + MvcApplication.DefaultSiteName;
     var isLocalRequest = Request.IsLocal;
+    var faviconVersion = SiteSettingsProvider["favicon-version"]?.Value ?? "1";
 }
 <!DOCTYPE html>
 <html lang="ru">
@@ -12,6 +13,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/favicon.ico?v=@faviconVersion" />
     @if (!isLocalRequest)
     {
         <meta name="google-site-verification" content="UeS3ESGmEFd7YYEp414-T3BuSAHbycyDiS_H_V2cl6o" />

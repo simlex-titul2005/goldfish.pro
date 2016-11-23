@@ -1,0 +1,9 @@
+﻿@model SxVMMaterial
+@{
+    var controllerName = (string)ViewData["ControllerName"];
+    var amount = ViewData["Amount"];
+}
+
+<div class="partial-box">
+    @Html.Action("SimilarMaterials", controllerName, new { MaterialId = Model.Id, ModelCoreType = Model.ModelCoreType, amount = amount })
+</div>

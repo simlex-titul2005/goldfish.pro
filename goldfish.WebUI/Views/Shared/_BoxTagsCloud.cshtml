@@ -1,0 +1,15 @@
+﻿@model dynamic
+@{
+    var tags = (SxVMMaterialTag[])ViewData["Tags"];
+    var controllerName = (string)ViewData["ControllerName"];
+    var actionName = (string)ViewData["ActionName"];
+    var boxHeader = ViewContext.ParentActionViewContext?.ViewData["BoxHeader"];
+}
+
+@if (tags != null && tags.Any())
+{
+    <div class="partial-box">
+        <h4 class="partial-box__header">@(boxHeader ?? "Облако тегов")</h4>
+        @Html.SxTagsCloud(tags, x => Url.Action(actionName, controllerName, new { tag = x.Id }))
+    </div>
+}

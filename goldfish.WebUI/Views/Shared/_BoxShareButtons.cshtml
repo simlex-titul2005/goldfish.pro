@@ -1,0 +1,7 @@
+﻿@{ 
+    var boxHeader = ViewContext.ParentActionViewContext?.ViewData["BoxHeader"];
+}
+<div class="partial-box">
+    <h4 class="partial-box__header">@(boxHeader ?? "Поделиться в соцсетях")</h4>
+    @Html.SxShareButtons()
+</div>

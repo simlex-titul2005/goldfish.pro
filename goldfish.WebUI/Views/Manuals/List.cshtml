@@ -1,5 +1,5 @@
-﻿@model SxExtantions.SxPagedCollection<SxVMManual>
-@{ 
+﻿@model SxExtantions.SxPagedCollection<VMManual>
+@{
     ViewBag.Title = ViewBag.Title ?? "Руководства";
     var breadcrumbs = (SxVMBreadcrumb[])ViewBag.Breadcrumbs;
 }
@@ -14,36 +14,43 @@
 }
 
 <div class="page page-manuals">
-    
+
     @Html.SxBreadcrumbs(breadcrumbs)
 
-    @if(Model.Collection.Any())
-    {
-        SxVMManual item = null;
-        <div class="manuals__list">
-            @for (int i = 0; i < Model.Collection.Length; i++)
+    <div class="row">
+        <div class="col-md-9">
+            @if (Model.Collection.Any())
             {
-                item = Model.Collection[i];
-                <div class="manuals__item">
-                    <h2 class="manuals__title">@item.Title</h2>
-                    
-                    <div class="manuals__category">
-                        Категория: <a href="@Url.Action("List", "Manuals", new { cat=item.CategoryId})">@item.Category.Title</a>
-                    </div>
-                    
-                    <div class="manuals__author">
-                        Автор: <a href="@Url.Action("List", "Manuals", new { auth=item.User.NikName})">@item.User.NikName</a>
-                    </div>
-                    
-                    <div class="manuals__fwd">
-                        @(item.Foreword ?? item.GetForewordFromHtml(600))
-                    </div>
+                SxVMManual item = null;
+                <div class="manuals__list">
+                    @for (int i = 0; i < Model.Collection.Length; i++)
+                    {
+                        item = Model.Collection[i];
+                        <div class="manuals__item">
+                            <h2 class="manuals__title">@item.Title</h2>
 
-                    <div class="manuals__footer">
-                        <a href="@Url.Action("Details", "Manuals", new { cat=item.CategoryId, titleUrl=item.TitleUrl })">Подробнее</a>
-                    </div>
+                            <div class="manuals__category">
+                                Категория: <a href="@Url.Action("List", "Manuals", new { cat=item.CategoryId})">@item.Category.Title</a>
+                            </div>
+
+                            <div class="manuals__author">
+                                Автор: <a href="@Url.Action("List", "Manuals", new { auth=item.User.NikName})">@item.User.NikName</a>
+                            </div>
+
+                            <div class="manuals__fwd">
+                                @(item.Foreword ?? item.GetForewordFromHtml(600))
+                            </div>
+
+                            <div class="manuals__footer">
+                                <a href="@item.GetUrl(Url)" class="btn btn-primary">Подробнее</a>
+                            </div>
+                        </div>
+                    }
                 </div>
             }
         </div>
-    }
+        <div class="col-md-3">
+
+        </div>
+    </div>
 </div>
