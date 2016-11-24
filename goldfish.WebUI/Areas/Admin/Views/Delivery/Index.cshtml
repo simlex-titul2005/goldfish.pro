@@ -27,6 +27,30 @@
 </div>
 
 @section scripts{
+ @*<script src="~/scripts/sxdelivery.js"></script>*@
+    @*<script>
+        $(function () {
+            $('#materials').sx_gv(callback);
+            var delivery = new SxDelivery('@Url.Action("Materials", "Delivery")');
+        });
+
+        function callback() {
+            var all = 0;
+            var counter = 0;
+            $('#materials .sx-gv__row input[type="checkbox"]').each(function () {
+                all++;
+                var id = $(this).closest('tr').attr('data-row-id');
+                var index = selectedList.indexOf(id);
+                if (index != -1) {
+                    $(this).prop('checked', true);
+                    counter++;
+                }
+            });
+
+            if (all == counter)
+                $('#materials .sx-gv__select-all-chbx').prop('checked', true);
+        }
+    </script>*@
     <script>
         var $spinner = '<i class="fa fa-spinner fa-spin" style="margin-right:5px;"></i>';
         var selectedList = new Array();

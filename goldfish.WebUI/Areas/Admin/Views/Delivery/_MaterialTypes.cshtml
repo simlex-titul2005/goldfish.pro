@@ -2,9 +2,9 @@
     var types = ModelCoreTypeProvider.ModelCoreTypeNames;
 }
 
-<ul class="nav nav-pills">
+<ul class="nav nav-pills" id="mcts">
     @foreach (var type in types)
     {
-        <li role="presentation" data-mct="@type.Key"><a href="#">@type.Value</a></li>
+        <li role="presentation" data-mct="@type.Key" data-title="@type.Value"><a href="#">@type.Value</a></li>
     }
 </ul>

@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "removeComments": false,
+    "target": "es5",
+    "outFile": "../../sxdelivery.js"
+  },
+  "files": [
+    "sxdelivery.ts"
+  ],
+  "compileOnSave": true
+}
