@@ -1,0 +1,17 @@
+﻿@model VMMaterial[]
+@{
+    SxFilter filter = ViewBag.Filter;
+    var mcts = filter.AddintionalInfo[0];
+}
+
+@Html.SxGridView(Model, new SxExtantions.SxGridViewSettings<VMMaterial>
+{
+    Columns = new SxExtantions.SxGridViewColumn<VMMaterial>[] {
+        new SxExtantions.SxGridViewColumn<VMMaterial>() { FieldName="DateCreate", Caption="Дата создания" },
+        new SxExtantions.SxGridViewColumn<VMMaterial>() { FieldName="ModelCoreType", Caption="Тип", Template=x=>ModelCoreTypeProvider.ModelCoreTypeNames[x.ModelCoreType] },
+        new SxExtantions.SxGridViewColumn<VMMaterial>() { FieldName="Title", Caption="Заголовок" },
+    },
+    DataAjaxUrl = Url.Action("Materials", new { mcts=mcts}),
+    ShowSelectedCheckbox=true,
+    RowId=x=>string.Format("row-{0}-{1}", x.ModelCoreType, x.Id)
+})

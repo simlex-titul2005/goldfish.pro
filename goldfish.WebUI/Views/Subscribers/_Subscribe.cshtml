@@ -1,0 +1,38 @@
+﻿@model SxVMSubscriber
+@{
+    var title = SiteSettingsProvider["home-page-subscribe-title"]?.Value ?? "Будте в курсе последних событий!";
+    var desc = SiteSettingsProvider["home-page-subscribe-desc"]?.Value ?? "Оформите подписку на новости нашего сайта";
+    SxVMResultMessage message = ViewBag.Message;
+
+    if (message != null)
+    {
+        if (message.MessageType == SxVMResultMessage.ResultMessageType.Ok)
+        {
+            title = "Поздравляем!";
+            desc = "Вы подписаны на рассылку";
+        }
+        else
+        {
+            title = "Ошибка";
+            desc = message.Message;
+        }
+    }
+}
+
+@using (Ajax.BeginForm("Subscribe", new { controller = "Subscribers" }, new AjaxOptions { HttpMethod = "post", UpdateTargetId = "subscribe-block", LoadingElementId= "subscribe-spinner" }, new { @class = "subscribe-box" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <div class="item item1">
+            <h4>@title</h4>
+            <p>@desc</p>
+        </div>
+        <div class="item item2">
+            @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Укажите адрес электронной почты" } })
+        </div>
+        <div class="item item3">
+            <button type="submit" class="btn" style="position:relative;"><i class="fa fa-spinner fa-spin" id="subscribe-spinner" style="display:none; position:absolute; left:0; right:0;"></i>Подписаться</button>
+        </div>
+    </div>
+}

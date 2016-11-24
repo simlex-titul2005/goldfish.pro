@@ -1,0 +1,183 @@
+﻿<h2>Рассылка</h2>
+<br />
+
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#types" aria-controls="types" role="tab" data-toggle="tab"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> Типы материалов</a></li>
+    <li role="presentation" class="disabled"><a href="#materials-tab" aria-controls="materials-tab" role="tab"><i class="fa fa-list" aria-hidden="true"></i> Список материалов</a></li>
+    <li role="presentation" class="disabled"><a href="#delivery" aria-controls="delivery" role="tab"><i class="fa fa-paper-plane" aria-hidden="true"></i> Разослать</a></li>
+</ul>
+<br />
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="types">
+        <h4>Выберите типы материалов для рассылки</h4>
+        @Html.Partial("_MaterialTypes")
+    </div>
+    <div role="tabpanel" class="tab-pane" id="materials-tab">
+        <h4>Выберите материалы для рассылки</h4>
+        <div id="materials"></div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="delivery">
+        <h4>Выберите получателей рассылки из подписчиков</h4>
+        <div id="subscribers"></div>
+        <br />
+        <div class="text-right">
+            <button class="btn btn-primary">Отправить всем</button>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var $spinner = '<i class="fa fa-spinner fa-spin" style="margin-right:5px;"></i>';
+        var selectedList = new Array();
+
+        function callback()
+        {
+            var all = 0;
+            var counter = 0;
+            $('#materials .sx-gv__row input[type="checkbox"]').each(function () {
+                all++;
+                var id = $(this).closest('tr').attr('data-row-id');
+                var index = selectedList.indexOf(id);
+                if (index != -1) {
+                    $(this).prop('checked', true);
+                    counter++;
+                }
+            });
+
+            if(all==counter)
+                $('#materials .sx-gv__select-all-chbx').prop('checked', true);
+        }
+
+        function checkMaterialsTab()
+        {
+            var $tab = $('.nav-tabs a[href="#materials-tab"]');
+            var selectedTypesCount = $('.nav-pills li.active').length;
+            
+            if (selectedTypesCount >= 1)
+            {
+                $tab.attr('data-toggle', 'tab');
+                $tab.parent('li').removeClass('disabled');
+            }
+            else {
+                $tab.removeAttr('data-toggle');
+                $tab.parent('li').addClass('disabled');
+            }
+        }
+
+        function checkDeliveryTab()
+        {
+            var typesCount = $('.nav-pills li.active').length;
+            var $tab = $('.nav-tabs a[href="#delivery"]');
+            var selectedCount = selectedList.length;
+            if (selectedCount == 0 || typesCount==0) {
+                $tab.removeAttr('data-toggle');
+                $tab.parent('li').addClass('disabled');
+            }
+            else {
+                $tab.attr('data-toggle', 'tab');
+                $tab.parent('li').removeClass('disabled');
+            }
+        }
+
+        $(function () {
+            $('#materials').sx_gv(callback);
+            $('#subscribers').sx_gv();
+            $('#materials').on('change', '.sx-gv__select-all-chbx', function () {
+                var isChecked = $(this).is(':checked');
+                if(isChecked)
+                {
+                    $('#materials .sx-gv__row input[type="checkbox"]').each(function () {
+                        var id = $(this).closest('tr').attr('data-row-id');
+                        var index = selectedList.indexOf(id);
+                        if (index == -1)
+                            selectedList.push(id);
+                        $(this).prop('checked', isChecked);
+                    });
+                }
+                else {
+                    $('#materials .sx-gv__row input[type="checkbox"]').each(function () {
+                        var id = $(this).closest('tr').attr('data-row-id');
+                        var index = selectedList.indexOf(id);
+                        selectedList.splice(index, 1);
+                        $(this).prop('checked', isChecked);
+                    });
+                }
+                checkDeliveryTab();
+            });
+
+            $('#materials').on('change', '.sx-gv__row input[type="checkbox"]', function () {
+                var id = $(this).closest('tr').attr('data-row-id');
+                var isChecked = $(this).is(':checked');
+                if (isChecked) {
+                    var index = selectedList.indexOf(id);
+                    if(index==-1)
+                        selectedList.push(id);
+                }
+                else {
+                    var index = selectedList.indexOf(id);
+                    selectedList.splice(index, 1);
+                }
+
+                checkDeliveryTab();
+            });
+
+            $('.nav-pills a').click(function () {
+                var $li = $(this).parent('li');
+                var isActive = $li.hasClass('active');
+                if (isActive)
+                    $li.removeClass('active');
+                else
+                    $li.addClass('active');
+
+                if ($('.nav-pills li.active').length == 0)
+                    selectedList = new Array();
+
+                checkMaterialsTab();
+                checkDeliveryTab();
+
+                return false;
+            })
+
+            $('a[href="#materials-tab"]').on('shown.bs.tab', function (e) {
+                var $a = $(e.target);
+
+                var array;
+                $('.nav-pills li.active').each(function () {
+                    array += "," + $(this).attr('data-mct');
+                });
+                var mcts = array != undefined ? array.replace('undefined,', '') : null;
+
+                $.ajax({
+                    method: 'get',
+                    url: '@Url.Action("Materials", "Delivery")',
+                    data: { mcts: mcts },
+                    beforeSend: function () {
+                        $a.prepend($spinner);
+                    },
+                    success: function (result) {
+                        $('#materials').html(result);
+                        $a.find('.fa-spinner').remove();
+                        callback();
+                    }
+                });
+            })
+
+            $('a[href="#delivery"]').on('shown.bs.tab', function (e) {
+                var $a = $(e.target);
+
+                $.ajax({
+                    method: 'get',
+                    url: '@Url.Action("Subscribers")',
+                    beforeSend: function () {
+                        $a.prepend($spinner);
+                    },
+                    success: function (result) {
+                        $('#subscribers').html(result);
+                        $a.find('.fa-spinner').remove();
+                    }
+                });
+            })
+        });
+    </script>
+}

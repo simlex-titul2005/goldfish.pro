@@ -180,6 +180,12 @@
     <Content Include="Areas\Admin\Views\GitHubIssues\_Labels.cshtml" />
     <Content Include="Areas\Admin\Views\GitHub\DisplayTemplates\SxVMGitHubRepository.cshtml" />
     <Content Include="Areas\Admin\Views\GitHubIssues\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscribers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscribers\_GridView.cshtml" />
+    <Content Include="Areas\Admin\Views\Delivery\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Delivery\_MaterialTypes.cshtml" />
+    <Content Include="Areas\Admin\Views\Delivery\_GridViewMaterials.cshtml" />
+    <Content Include="Areas\Admin\Views\Delivery\_GridViewSubscribers.cshtml" />
     <None Include="Properties\PublishProfiles\goldfishpro - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -205,6 +211,7 @@
     <Compile Include="Areas\Admin\Controllers\BannersController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DeliveyController.cs" />
     <Compile Include="Areas\Admin\Controllers\EmployeesController.cs" />
     <Compile Include="Areas\Admin\Controllers\GitHubController.cs" />
     <Compile Include="Areas\Admin\Controllers\GitHubIssuesController.cs" />
@@ -232,6 +239,7 @@
     <Compile Include="Areas\Admin\Controllers\StatisticsController.cs" />
     <Compile Include="Areas\Admin\Controllers\SiteSettingsController.cs" />
     <Compile Include="Areas\Admin\Controllers\RequestsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SubscribersController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\ValutesController.cs" />
     <Compile Include="Areas\Admin\Controllers\VideoLinksController.cs" />
@@ -250,6 +258,7 @@
     <Compile Include="Controllers\SiteServicesController.cs" />
     <Compile Include="Controllers\SiteSettingsController.cs" />
     <Compile Include="Controllers\StaticContentController.cs" />
+    <Compile Include="Controllers\SubscribersController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -281,7 +290,6 @@
     <Content Include="Views\SiteProjects\Details.cshtml" />
     <Content Include="Views\SiteServices\List.cshtml" />
     <Content Include="Views\SiteProjects\List.cshtml" />
-    <Content Include="Views\Shared\_SubscribeBox.cshtml" />
     <Content Include="Views\SitePartners\_ListForHome.cshtml" />
     <Content Include="Views\SiteReviews\_ListForHome.cshtml" />
     <Content Include="Views\SiteReviews\Add.cshtml" />
@@ -299,6 +307,7 @@
     <Content Include="Views\Shared\_BoxShareButtons.cshtml" />
     <Content Include="Views\Shared\_BoxSimilarMaterials.cshtml" />
     <Content Include="Views\Shared\_BoxLastMaterials.cshtml" />
+    <Content Include="Views\Subscribers\_Subscribe.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

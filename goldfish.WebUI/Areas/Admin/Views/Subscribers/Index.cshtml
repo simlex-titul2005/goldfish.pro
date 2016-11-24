@@ -1,0 +1,16 @@
+﻿@model SxVMSubscriber[]
+
+<h2>Подписчики</h2>
+<br />
+
+<div id="grid-subscriber">
+    @Html.Partial("_GridView", Model)
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('#grid-subscriber').sx_gv();
+        });
+    </script>
+}
