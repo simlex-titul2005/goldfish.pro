@@ -70,13 +70,30 @@ namespace goldfish.WebUI
         private static void fillManualsControllerBreadcrumbs(SxBaseController controller, ref HashSet<SxVMBreadcrumb> breadcrumbs)
         {
             breadcrumbs.Add(new SxVMBreadcrumb { Title="Руководства", Url=controller.Url.Action("List", "Manuals")});
+            SxVMMaterialCategory category = null;
+            SxVMAppUser author = null;
+            SxVMMaterialTag tag = null;
             switch (controller.SxActionName)
             {
+                case "list":
+                    category = controller.ViewBag.Category;
+                    if (category != null)
+                        breadcrumbs.Add(new SxVMBreadcrumb() { Title= string.Format("Категория: {0}", category.Title), Url=controller.Url.Action("List", "Manuals", new { cat=category.Id }) });
+
+                    author = controller.ViewBag.Author;
+                    if(author!=null)
+                        breadcrumbs.Add(new SxVMBreadcrumb() { Title = string.Format("Автор: {0}", author.NikName), Url = controller.Url.Action("List", "Manuals", new { auth = author.NikName }) });
+
+                    tag = controller.ViewBag.Tag;
+                    if(tag!=null)
+                        breadcrumbs.Add(new SxVMBreadcrumb() { Title = string.Format("Тег: {0}", tag.Title), Url = controller.Url.Action("List", "Manuals", new { tag = tag.Id }) });
+
+                    break;
                 case "details":
                     var model = (SxVMManual)controller.SxModel;
-                    var category = model.Category;
+                    category = model.Category;
                     if(category!=null)
-                        breadcrumbs.Add(new SxVMBreadcrumb { Title = category.Title, Url = controller.Url.Action("List", "Manuals", new { cat=category.Id }) });
+                        breadcrumbs.Add(new SxVMBreadcrumb { Title = category.Title, Url = controller.Url.Action("List", "Manuals", new { category=category.Id }) });
                     breadcrumbs.Add(new SxVMBreadcrumb { Title = model.Title, Url= model.GetUrl(controller.Url) });
                     break;
             }

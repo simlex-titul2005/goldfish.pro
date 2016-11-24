@@ -9,6 +9,9 @@ namespace goldfish.WebUI.Controllers
         public ManualsController()
         {
             FillBreadcrumbs = BreadcrumbsConfig.FillBreadcrumbs;
+            BeforeSelectListAction = f => {
+                f.WithTags = true;
+            };
         }
     }
 }

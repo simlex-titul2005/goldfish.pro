@@ -30,19 +30,44 @@
                             <h2 class="manuals__title">@item.Title</h2>
 
                             <div class="manuals__category">
-                                Категория: <a href="@Url.Action("List", "Manuals", new { cat=item.CategoryId})">@item.Category.Title</a>
+                                Категория: <a href="@Url.Action("List", "Manuals", new { category=item.CategoryId})">@item.Category.Title</a>
                             </div>
 
+                            @if (item.MaterialTags.Any())
+                            {
+                                SxVMMaterialTag tag = null;
+                                <div class="manuals__tags">
+                                    Теги:
+                                    @for (int y = 0; y < item.MaterialTags.Length; y++)
+                                    {
+                                        tag = item.MaterialTags[y];
+                                        if (y > 0)
+                                        {
+                                            <text>&nbsp;|&nbsp;</text>
+    }
+
+                                        <a href="@Url.Action("List", "Manuals", new { tag=tag.Id})">@tag.Title</a>
+                                    }
+                                </div>
+                            }
+
                             <div class="manuals__author">
-                                Автор: <a href="@Url.Action("List", "Manuals", new { auth=item.User.NikName})">@item.User.NikName</a>
+                                Автор: <a href="@Url.Action("List", "Manuals", new { author=item.User.NikName})">@item.User.NikName</a>
                             </div>
+
+                            <ul class="manuals__info list-unstyled list-inline">
+                                <li>Просмотров: @item.ViewsCount</li>
+                                <li>Комментов: @item.CommentsCount</li>
+                                <li>Лайков: @item.LikeUpCount</li>
+                                <li>Дизлайков: @item.LikeDownCount</li>
+                            </ul>
 
                             <div class="manuals__fwd">
                                 @(item.Foreword ?? item.GetForewordFromHtml(600))
                             </div>
 
                             <div class="manuals__footer">
-                                <a href="@item.GetUrl(Url)" class="btn btn-primary">Подробнее</a>
+                                <a href="@item.GetUrl(Url)">Подробнее</a>
                             </div>
                         </div>
                     }
