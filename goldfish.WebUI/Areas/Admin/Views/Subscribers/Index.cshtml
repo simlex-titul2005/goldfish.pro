@@ -8,9 +8,15 @@
 </div>
 
 @section scripts{
-    <script>
+    @*<script>
         $(function () {
             $('#grid-subscriber').sx_gv();
+        });
+    </script>*@
+    <script src="~/scripts/sxgridview.js"></script>
+    <script>
+        $(function () {
+            var grid = new SxGridView('#grid-subscriber');
         });
     </script>
 }

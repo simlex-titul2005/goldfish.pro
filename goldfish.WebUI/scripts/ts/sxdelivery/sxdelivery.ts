@@ -1,4 +1,4 @@
-﻿/// <reference path="jquery.d.ts" />
+﻿/// <reference path="../jquery.d.ts" />
 
 class SxDelivery {
     _urlMaterials: string;
@@ -40,7 +40,7 @@ class SxDelivery {
         $("#mcts li.active").each((index: number, element: Element) => {
             result += "," + element.getAttribute("data-mct");
         });
-        if (result != null) {
+        if (result !== null) {
             result = result.substring(1);
         }
         console.log(result);

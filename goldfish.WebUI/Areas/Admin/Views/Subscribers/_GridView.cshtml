@@ -1,13 +1,14 @@
 ﻿@model SxVMSubscriber[]
 
-@Html.SxGridView(Model, new SxExtantions.SxGridViewSettings<SxVMSubscriber> {
-    Columns=new SxExtantions.SxGridViewColumn<SxVMSubscriber>[] {
+@Html.SxGridView(Model, new SxExtantions.SxGridViewSettings<SxVMSubscriber>
+{
+    Columns = new SxExtantions.SxGridViewColumn<SxVMSubscriber>[] {
         new SxExtantions.SxGridViewColumn<SxVMSubscriber> { FieldName = "DateCreate", Caption = "Дата создания" },
         new SxExtantions.SxGridViewColumn<SxVMSubscriber> { FieldName="Email", Caption="Адрес почты" },
         new SxExtantions.SxGridViewColumn<SxVMSubscriber> { FieldName="IdentityCookieValue", Caption="Идентификационный cookie"},
         new SxExtantions.SxGridViewColumn<SxVMSubscriber> { FieldName="Name", Caption="Имя"}
     },
-    DataAjaxUrl=Url.Action("Index"),
-    EnableDeleting=true,
-    DeleteRowUrl=x=>Url.Action("Delete", new { id=x.Id })
+    DataAjaxUrl = Url.Action("Index"),
+    EnableDeleting = true,
+    DeleteRowUrl = x => Url.Action("Delete", new { id = x.Id })
 })

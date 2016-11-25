@@ -167,6 +167,7 @@
     <Content Include="scripts\gf-navbar.js" />
     <Content Include="scripts\site.js" />
     <Content Include="scripts\sxdelivery.js" />
+    <Content Include="scripts\sxgridview.js" />
     <Content Include="scripts\sxshare.js" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -312,6 +313,7 @@
     <Content Include="Views\Shared\_BoxLastMaterials.cshtml" />
     <Content Include="Views\Subscribers\_Subscribe.cshtml" />
     <Content Include="scripts\ts\sxdelivery\tsconfig.json" />
+    <Content Include="scripts\ts\sxgridview\tsconfig.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -332,8 +334,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="scripts\ts\sxdelivery\jquery.d.ts" />
+    <TypeScriptCompile Include="scripts\ts\bootstrap.d.ts" />
+    <TypeScriptCompile Include="scripts\ts\jquery.d.ts" />
     <TypeScriptCompile Include="scripts\ts\sxdelivery\sxdelivery.ts" />
+    <TypeScriptCompile Include="scripts\ts\sxgridview\sxgridview.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
