@@ -1,0 +1,24 @@
+﻿@model VMSiteProjectSecurityItem
+
+@Html.AntiForgeryToken()
+<input data-val="true" data-val-number="The field Id must be a number." data-val-required="Требуется поле Id." id="Id" name="Id" value="@Model.Id" type="hidden">
+@Html.HiddenFor(x => x.MaterialId)
+@Html.HiddenFor(x => x.ModelCoreType)
+
+<div class="form-group">
+    @Html.LabelFor(x => x.Title)
+    @Html.EditorFor(x => x.Title, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(x => x.Title)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(x => x.Value)
+    @Html.EditorFor(x => x.Value, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(x => x.Value)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(x => x.Description)
+    @Html.EditorFor(x => x.Description, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(x => x.Description)
+</div>

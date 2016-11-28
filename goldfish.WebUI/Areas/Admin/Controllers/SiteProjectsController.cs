@@ -29,7 +29,11 @@ namespace goldfish.WebUI.Areas.Admin.Controllers
 
         public sealed override ActionResult Edit(int? id = default(int?))
         {
-            ViewBag.Scripts = "<script src=\"/Areas/Admin/scripts/siteprojects.js\"></script>";
+            if (id.HasValue)
+            {
+                ViewBag.Scripts = "<script src=\"/Areas/Admin/scripts/siteprojects.js\"></script>";
+                ViewBag.Scripts += "<script>$(function(){var page = new PageEditSiteProject(" + id + "); page.initialize(); });</script>";
+            }
 
             ViewBag.Title = !id.HasValue ? "Добавить проект сайта" : "Редактировать проект сайта";
             return base.Edit(id);

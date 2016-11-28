@@ -11,6 +11,9 @@ namespace goldfish.WebUI.Models
         public int MaterialId { get; set; }
         public virtual SiteProject SiteProject { get; set; }
 
+        [Required, MaxLength(100)]
+        public string Title { get; set; }
+
         [Required, MaxLength(400)]
         public string Description { get; set; }
 

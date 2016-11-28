@@ -45,19 +45,22 @@ namespace goldfish.WebUI.Infrastructure.Repositories
         {
             param = null;
             var query = new StringBuilder();
-            query.Append(" WHERE (dspsi.[Description] LIKE '%'+@desc+'%' OR @desc IS NULL)");
+            query.Append(" WHERE (dspsi.[Title] LIKE '%'+@title+'%' OR @title IS NULL)");
+            query.Append(" AND (dspsi.[Description] LIKE '%'+@desc+'%' OR @desc IS NULL)");
             query.Append(" AND (dspsi.[Value] LIKE '%'+@value+'%' OR @value IS NULL)");
             query.Append(" AND (dspsi.[MaterialId] = @projectId)");
 
+            string title = filter.WhereExpressionObject?.Title;
             string desc = filter.WhereExpressionObject?.Description;
             string value = filter.WhereExpressionObject?.Value;
             int projectId = Convert.ToInt32(filter.AddintionalInfo[0]);
 
             param = new
             {
+                title =title,
                 desc = desc,
                 value = value,
-                projectId= projectId
+                projectId= projectId,
             };
 
             return query.ToString();

@@ -15,6 +15,10 @@ namespace goldfish.WebUI
             //site project
             cfg.CreateMap<SiteProject, VMSiteProject>();
             cfg.CreateMap<VMSiteProject, SiteProject>();
+
+            //site project security item
+            cfg.CreateMap<SiteProjectSecurityItem, VMSiteProjectSecurityItem>();
+            cfg.CreateMap<VMSiteProjectSecurityItem, SiteProjectSecurityItem>();
         }
     }
 }
