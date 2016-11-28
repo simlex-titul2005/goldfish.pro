@@ -28,8 +28,8 @@
     <script src="~/scripts/sxdelivery.js"></script>
     <script>
         $(function () {
-            $('#materials').sx_gv(callback);
             var delivery = new SxDelivery('@Url.Action("Materials", "Delivery")');
+            var grid = new SxGridView('#materials');
         });
 
         function callback() {

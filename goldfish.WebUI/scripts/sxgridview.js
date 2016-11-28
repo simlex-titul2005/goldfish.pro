@@ -112,8 +112,12 @@ var SxGridView = (function () {
         this._container.on("click", ".sx-gv__delete-btn", function (e) {
             var btn = $(e.currentTarget);
             var url = btn.attr("data-url");
+            var confirmMessage = btn.attr("data-del-conf-mes");
+            var confirmCaption = btn.attr("data-del-conf-caption");
             var modal = $("#modal-del");
             var delBtn = modal.find("#modal-del-btn");
+            modal.find('.modal-body').html(confirmMessage);
+            modal.find('.modal-title').html(confirmCaption);
             delBtn.unbind();
             delBtn.on("click", function (e) {
                 modal.modal("hide");

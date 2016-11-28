@@ -10,5 +10,7 @@
     },
     DataAjaxUrl = Url.Action("Index"),
     EnableDeleting = true,
-    DeleteRowUrl = x => Url.Action("Delete", new { id = x.Id })
+    DeleteRowUrl = x => Url.Action("Delete", new { id = x.Id }),
+    DeleteConfirmCaption = x => "Удаление подписчика",
+    DeleteConfirmMessage = x => string.Format("<span>Вы действительно хотите удалить подписчика {0}?</span><br><span>После удаления подписчика адрес электронной почты не будет учавствовать ни в каких рассылках.</span>", x.Email)
 })
