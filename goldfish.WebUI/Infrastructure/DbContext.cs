@@ -28,6 +28,8 @@ namespace goldfish.WebUI.Infrastructure
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<SiteProjectSecurityItem>().HasRequired(x => x.SiteProject).WithMany(x => x.SecurityItems).HasForeignKey(x => new { x.MaterialId, x.ModelCoreType }).WillCascadeOnDelete(true);
         }
     }
 }

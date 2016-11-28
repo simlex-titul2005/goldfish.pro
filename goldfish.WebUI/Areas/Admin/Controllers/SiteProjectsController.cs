@@ -5,6 +5,7 @@ using goldfish.WebUI.ViewModels;
 using SX.WebCore.MvcControllers;
 using SX.WebCore.Repositories;
 using System.Linq;
+using System.Text;
 
 namespace goldfish.WebUI.Areas.Admin.Controllers
 {
@@ -28,6 +29,8 @@ namespace goldfish.WebUI.Areas.Admin.Controllers
 
         public sealed override ActionResult Edit(int? id = default(int?))
         {
+            ViewBag.Scripts = "<script src=\"/Areas/Admin/scripts/siteprojects.js\"></script>";
+
             ViewBag.Title = !id.HasValue ? "Добавить проект сайта" : "Редактировать проект сайта";
             return base.Edit(id);
         }

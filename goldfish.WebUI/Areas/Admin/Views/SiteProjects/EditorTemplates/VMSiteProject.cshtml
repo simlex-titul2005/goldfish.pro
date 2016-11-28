@@ -6,7 +6,7 @@
 
 <form method="post" action="@Url.Action("Edit", "SiteProjects")">
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(x=>x.Id)
+    @Html.HiddenFor(x => x.Id)
 
     @if (!isNew)
     {
@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    
+
 
     <div class="form-group">
         @Html.LabelFor(x => x.Html)
@@ -68,7 +68,7 @@
     </div>
 
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">@(isNew?"Добавить":"Сохранить")</button>
+        <button type="submit" class="btn btn-primary">@(isNew ? "Добавить" : "Сохранить")</button>
         <a href="@Url.Action("Index")" class="btn btn-default">Назад</a>
     </div>
 </form>
