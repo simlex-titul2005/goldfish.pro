@@ -11,5 +11,12 @@
         new SxExtantions.SxGridViewColumn<SxVMSubscriber>() { FieldName="Id", Caption="Функции", ColumnCssClass=x=>"col-cm", Template=x=>string.Format("<button type=\"button\" class=\"btn btn-default btn-sm\">Отправить</button>") }
     },
     DataAjaxUrl = Url.Action("Subscribers"),
-    ShowSelectedCheckbox = true
+    ShowSelectedCheckbox = true,
+    RowId = x => x.Id.ToString()
 })
+
+@if (Model.Any())
+{
+    <br />
+    <button class="btn btn-primary">Отправить выбранным</button>
+}

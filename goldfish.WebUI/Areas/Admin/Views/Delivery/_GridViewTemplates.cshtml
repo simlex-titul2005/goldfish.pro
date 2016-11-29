@@ -1,0 +1,17 @@
+﻿@model SxVMSubscribeTemplate[]
+@{
+    SxFilter filter = ViewBag.Filter;
+    var mcts = filter.AddintionalInfo[0].ToString();
+}
+
+@Html.SxGridView(Model, new SxExtantions.SxGridViewSettings<SxVMSubscribeTemplate>
+{
+    Columns = new SxExtantions.SxGridViewColumn<SxVMSubscribeTemplate>[] {
+        new SxExtantions.SxGridViewColumn<SxVMSubscribeTemplate>() { FieldName="ModelCoreType", Caption="Тип материала", Template=x=>ModelCoreTypeProvider.ModelCoreTypeNames[x.ModelCoreType] },
+        new SxExtantions.SxGridViewColumn<SxVMSubscribeTemplate>() { FieldName="ViewPath", Caption="Путь к шаблону" },
+        new SxExtantions.SxGridViewColumn<SxVMSubscribeTemplate>() { FieldName="Description", Caption="Описание" }
+    },
+    DataAjaxUrl = Url.Action("Templates", new { mcts=mcts}),
+    ShowSelectedCheckbox = true,
+    RowId = x => x.Id.ToString()
+})

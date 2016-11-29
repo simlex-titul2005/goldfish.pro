@@ -1,0 +1,57 @@
+﻿@model SxVMSubscribeTemplate
+@{
+    var isNew = Equals(0, Model.Id);
+    ViewBag.Title = isNew ? "Создание шаблона рассылки" : "Редактирование шаблона рассылки";
+    SelectListItem[] mcts = ViewBag.Mcts;
+}
+
+<h2>@ViewBag.Title</h2>
+<br />
+
+<form method="post" action="@Url.Action("Edit")">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.Id)
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(x => x.ModelCoreType, new { @class = "control-label" })
+                @Html.DropDownListFor(x => x.ModelCoreType, mcts, "Выберите тип материала", new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.ModelCoreType)
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(x => x.ViewPath, new { @class = "control-label" })
+                @Html.EditorFor(x => x.ViewPath, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(x => x.ViewPath)
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(x => x.Description, new { @class = "control-label" })
+        @Html.EditorFor(x => x.Description, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(x => x.Description)
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">@(isNew ? "Добавить" : "Сохранить")</button>
+        <a class="btn btn-default" href="@Url.Action("Index")">Отмена</a>
+    </div>
+
+</form>
+
+@section scripts{
+    <script src="~/bower_components/ckeditor/ckeditor.js"></script>
+    <script>
+        if ($('#Html').length != 0) {
+            if (CKEDITOR.instances['Html']) {
+                CKEDITOR.remove(CKEDITOR.instances['Html']);
+            }
+            CKEDITOR.replace('Html', { height: 400 });
+        }
+    </script>
+    <script src="@Url.Action("Js", "StaticContent", new { name="jquery.validate", area="" })"></script>
+    <script src="@Url.Action("Js", "StaticContent", new { name="jquery.validate.unobtrusive", area="" })"></script>
+}

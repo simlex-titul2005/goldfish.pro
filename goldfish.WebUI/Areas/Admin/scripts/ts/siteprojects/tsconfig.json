@@ -1,11 +1,11 @@
 {
+  "compileOnSave": true,
   "compilerOptions": {
-    "removeComments": false,
     "target": "es5",
-    "outFile": "../../siteprojects.js"
+    "outFile": "../../siteprojects.js",
+    "removeComments": true
   },
   "files": [
     "siteprojects.ts"
-  ],
-  "compileOnSave": true
+  ]
 }

@@ -1,0 +1,16 @@
+﻿@model SxVMSubscribeTemplate[]
+
+<h2>Шаблоны рассылки</h2>
+<br />
+
+<div id="grid-subscribe-templates">
+    @Html.Partial("_GridView", Model)
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            var grid = new SxGridView('#grid-subscribe-templates');
+        });
+    </script>
+}

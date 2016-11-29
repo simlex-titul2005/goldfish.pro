@@ -1,5 +1,3 @@
-/// <reference path="../jquery.d.ts" />
-/// <reference path="../bootstrap.d.ts" />
 var SxGridView = (function () {
     function SxGridView(element, callback) {
         var _this = this;
@@ -66,10 +64,15 @@ var SxGridView = (function () {
             });
             _this.checkSelectAllCheckbox();
         };
+        this.selectedRows = function () {
+            return _this._selectedRows;
+        };
+        this.clearSelectedRows = function () {
+            _this._selectedRows = new Array();
+        };
         this._selectedRows = new Array();
         this._element = $(element);
         this._callback = callback;
-        // pager
         this._element.on("click", ".sx-gv__pager li:not('.active')", function (e) {
             var item = $(e.target);
             var page;
@@ -81,7 +84,6 @@ var SxGridView = (function () {
             _this.fillQueryOrders(query);
             _this.getData(query);
         });
-        // click thead th
         this._element.on("click", "th", function (e) {
             var rowsCount = _this._element.find(".sx-gv__row").length;
             if (rowsCount === 0) {
@@ -107,7 +109,6 @@ var SxGridView = (function () {
                 _this.getData(query);
             }
         });
-        // delete butttons
         this._element.on("click", ".sx-gv__delete-btn", function (e) {
             var btn = $(e.currentTarget);
             var url = btn.attr("data-url");
@@ -130,7 +131,6 @@ var SxGridView = (function () {
                 });
             });
         });
-        // filter input
         this._element.on("keypress", ".sx-gv__filter-row input", function (e) {
             var key = e.key;
             if (key === "Enter") {
@@ -141,7 +141,6 @@ var SxGridView = (function () {
                 _this.getData(query);
             }
         });
-        // clear filter button
         this._element.on("click", ".sx-gv__clear-btn", function (e) {
             var icon = $(e.currentTarget).children("i").first();
             icon.removeClass("fa-repeat");
@@ -150,7 +149,6 @@ var SxGridView = (function () {
             _this.getData(query);
             return false;
         });
-        // select all checkbox
         this._element.on("change", ".sx-gv__select-all-chbx", function (e) {
             var isChecked = $(e.currentTarget).is(":checked");
             _this._element.find(".sx-gv__select-chbx").each(function (i, e) {
@@ -160,13 +158,22 @@ var SxGridView = (function () {
                 _this.modifySelectedList(rowId, isChecked);
             });
         });
-        // select checkbox
         this._element.on("change", ".sx-gv__select-chbx", function (e) {
             var input = $(e.currentTarget);
             var isChecked = input.is(":checked");
             var rowId = input.closest("tr").attr("data-row-id");
             _this.modifySelectedList(rowId, isChecked);
             _this.checkSelectAllCheckbox();
+        });
+        this._element.on("click", ".sx-gv__filter-row select option", function (e) {
+            var option = $(e.currentTarget);
+            var select = option.closest("select");
+            var value = option.val();
+            var name = select.attr("name");
+            var query = new SxGridViewQuery();
+            query.page = 1;
+            query.filterModel[name] = value;
+            _this.getData(query);
         });
     }
     SxGridView.prototype.modifySelectedList = function (rowId, isChecked) {
@@ -195,7 +202,6 @@ var SxGridViewOrderItem = (function () {
     }
     return SxGridViewOrderItem;
 }());
-/// <reference path="../../../../../../../sx.webcore/sx.webcore/scripts/ts/sxgridview/sxgridview.ts" />
 var PageEditSiteProject = (function () {
     function PageEditSiteProject(projectId) {
         var _this = this;
@@ -247,7 +253,7 @@ var PageEditSiteProject = (function () {
             });
         };
         this.initializeSecurityGridView = function (e) {
-            var grid = new SxGridView($("#grid-security"));
+            new SxGridView($("#grid-security"));
         };
         this.addSecurityBlock = function () {
             var tabDiv = $("<div></div>")

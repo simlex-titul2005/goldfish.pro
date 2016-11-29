@@ -60,7 +60,7 @@ class PageEditSiteProject {
         });
     };
     private initializeSecurityGridView = (e: JQueryEventObject) => {
-        var grid: SxGridView = new SxGridView($("#grid-security"));
+        new SxGridView($("#grid-security"));
     };
 
     private addSecurityBlock = () => {

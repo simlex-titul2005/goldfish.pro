@@ -1,0 +1,15 @@
+﻿@model SxVMSubscribeTemplate[]
+
+@Html.SxGridView(Model, new SxExtantions.SxGridViewSettings<SxVMSubscribeTemplate> {
+    Columns=new SxExtantions.SxGridViewColumn<SxVMSubscribeTemplate>[] {
+        new SxExtantions.SxGridViewColumn<SxVMSubscribeTemplate>() { Caption="Тип материала", FieldName="ModelCoreType", Template=x=>ModelCoreTypeProvider.ModelCoreTypeNames[x.ModelCoreType]},
+        new SxExtantions.SxGridViewColumn<SxVMSubscribeTemplate>() { Caption="Путь к шаблону", FieldName="ViewPath" },
+        new SxExtantions.SxGridViewColumn<SxVMSubscribeTemplate>() { Caption="Описание", FieldName="Description" }
+    },
+    DataAjaxUrl=Url.Action("Index"),
+    EnableCreating=true,
+    CreateRowUrl=Url.Action("Edit"),
+    EnableEditing=true,
+    EditRowUrl=x=>Url.Action("Edit", new { id=x.Id }),
+    RowId=x=>x.Id.ToString()
+})
