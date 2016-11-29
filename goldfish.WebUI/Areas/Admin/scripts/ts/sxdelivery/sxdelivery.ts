@@ -26,7 +26,7 @@ class SxDelivery {
         this._templatesUrl = teplatesUrl;
         this._templatesGrid = new SxGridView($("#templates"));
         this._templatesTab = $("a[href=\"#templates-tab\"]");
-        this._templatesBlock = $("#templates")
+        this._templatesBlock = $("#templates");
     }
 
     public initialize = () => {
