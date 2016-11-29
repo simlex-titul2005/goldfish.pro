@@ -11,16 +11,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/Admin/scripts/siteprojects.js">
-      <publishTime>11/29/2016 00:53:22</publishTime>
+      <publishTime>11/29/2016 22:25:27</publishTime>
+    </File>
+    <File Include="Areas/Admin/scripts/sxdelivery.js">
+      <publishTime>11/29/2016 22:25:27</publishTime>
+    </File>
+    <File Include="Areas/Admin/scripts/ts/siteprojects/siteprojects.js">
+      <publishTime>11/29/2016 22:25:06</publishTime>
+    </File>
+    <File Include="Areas/Admin/scripts/ts/siteprojects/tsconfig.json">
+      <publishTime>11/29/2016 19:33:12</publishTime>
+    </File>
+    <File Include="Areas/Admin/scripts/ts/sxdelivery/sxdelivery.js">
+      <publishTime>11/29/2016 22:24:16</publishTime>
+    </File>
+    <File Include="Areas/Admin/scripts/ts/sxdelivery/tsconfig.json">
+      <publishTime>11/29/2016 19:33:12</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Delivery/Index.cshtml">
-      <publishTime>11/28/2016 19:12:57</publishTime>
+      <publishTime>11/29/2016 19:33:12</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Delivery/_GridViewMaterials.cshtml">
       <publishTime>11/24/2016 18:49:24</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Delivery/_GridViewSubscribers.cshtml">
-      <publishTime>11/24/2016 18:49:24</publishTime>
+      <publishTime>11/29/2016 19:33:12</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Delivery/_GridViewTemplates.cshtml">
+      <publishTime>11/29/2016 19:33:12</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Delivery/_MaterialTypes.cshtml">
       <publishTime>11/24/2016 22:50:22</publishTime>
@@ -67,6 +85,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Areas/Admin/Views/Subscribers/_GridView.cshtml">
       <publishTime>11/28/2016 19:12:57</publishTime>
     </File>
+    <File Include="Areas/Admin/Views/SubscribeTemplates/Edit.cshtml">
+      <publishTime>11/29/2016 19:33:12</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/SubscribeTemplates/Index.cshtml">
+      <publishTime>11/29/2016 19:33:12</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/SubscribeTemplates/_GridView.cshtml">
+      <publishTime>11/29/2016 19:33:12</publishTime>
+    </File>
     <File Include="Areas/Admin/Views/web.config">
       <publishTime>11/24/2016 18:49:24</publishTime>
     </File>
@@ -74,43 +101,43 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/24/2016 18:49:24</publishTime>
     </File>
     <File Include="bin/AutoMapper.dll">
-      <publishTime>12/08/2016 13:21:44</publishTime>
+      <publishTime>11/23/2016 23:51:42</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
       <publishTime>07/22/2016 14:52:40</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>02/03/2015 09:32:26</publishTime>
+      <publishTime>03/02/2015 09:32:26</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>02/03/2015 09:32:26</publishTime>
+      <publishTime>03/02/2015 09:32:26</publishTime>
     </File>
     <File Include="bin/EPPlus.dll">
       <publishTime>07/14/2016 15:57:38</publishTime>
     </File>
     <File Include="bin/goldfish.WebUI.dll">
-      <publishTime>11/29/2016 00:57:12</publishTime>
+      <publishTime>11/29/2016 22:25:30</publishTime>
     </File>
     <File Include="bin/Google.Apis.Core.dll">
-      <publishTime>07/11/2016 16:41:56</publishTime>
+      <publishTime>11/07/2016 16:41:56</publishTime>
     </File>
     <File Include="bin/Google.Apis.dll">
-      <publishTime>07/11/2016 16:41:58</publishTime>
+      <publishTime>11/07/2016 16:41:58</publishTime>
     </File>
     <File Include="bin/Google.Apis.YouTube.v3.dll">
-      <publishTime>08/11/2016 08:21:56</publishTime>
+      <publishTime>11/08/2016 08:21:56</publishTime>
     </File>
     <File Include="bin/ICSharpCode.SharpZipLib.dll">
-      <publishTime>03/01/2011 14:16:38</publishTime>
+      <publishTime>01/03/2011 14:16:38</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
-      <publishTime>03/04/2015 17:07:22</publishTime>
+      <publishTime>04/03/2015 17:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
-      <publishTime>03/04/2015 17:07:22</publishTime>
+      <publishTime>04/03/2015 17:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
-      <publishTime>03/04/2015 17:07:22</publishTime>
+      <publishTime>04/03/2015 17:07:22</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
       <publishTime>07/14/2016 02:35:18</publishTime>
@@ -140,13 +167,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/13/2016 23:06:14</publishTime>
     </File>
     <File Include="bin/Octokit.dll">
-      <publishTime>07/10/2016 13:01:18</publishTime>
+      <publishTime>10/07/2016 13:01:18</publishTime>
     </File>
     <File Include="bin/Owin.dll">
       <publishTime>11/13/2012 12:19:34</publishTime>
     </File>
     <File Include="bin/RazorGenerator.Mvc.dll">
-      <publishTime>12/10/2016 15:55:22</publishTime>
+      <publishTime>10/12/2016 15:55:22</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>06/27/2016 14:50:24</publishTime>
@@ -227,7 +254,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/SX.WebCore.dll">
-      <publishTime>11/29/2016 00:54:28</publishTime>
+      <publishTime>11/29/2016 19:41:28</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>01/28/2015 04:02:42</publishTime>
@@ -257,7 +284,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/WebActivatorEx.dll">
-      <publishTime>05/10/2016 13:11:52</publishTime>
+      <publishTime>10/05/2016 13:11:52</publishTime>
     </File>
     <File Include="content/dist/css/site.min.css">
       <publishTime>11/24/2016 18:49:45</publishTime>
@@ -314,7 +341,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/24/2016 18:49:45</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>11/24/2016 18:49:45</publishTime>
+      <publishTime>11/29/2016 19:33:12</publishTime>
     </File>
     <File Include="scripts/gf-navbar.js">
       <publishTime>11/24/2016 18:49:45</publishTime>
@@ -437,7 +464,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/24/2016 18:49:45</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/24/2016 21:46:09</publishTime>
+      <publishTime>11/29/2016 22:18:51</publishTime>
     </File>
   </ItemGroup>
 </Project>

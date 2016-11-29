@@ -197,7 +197,6 @@
     <Content Include="Areas\Admin\Views\SubscribeTemplates\_GridView.cshtml" />
     <Content Include="Areas\Admin\Views\SubscribeTemplates\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Delivery\_GridViewTemplates.cshtml" />
-    <None Include="Properties\PublishProfiles\goldfishpro - Web Deploy.pubxml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
