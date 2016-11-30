@@ -1,4 +1,6 @@
-﻿/// <reference path="../../../../../../../sx.webcore/sx.webcore/scripts/ts/sxgridview/sxgridview.ts" />
+﻿/// <reference path="../../typings/jquery.d.ts" />
+/// <reference path="../../typings/bootstrap.d.ts" />
+/// <reference path="../../typings/sxgridview.d.ts" />
 
 class SxDelivery {
     private _matUrl: string;
@@ -13,8 +15,10 @@ class SxDelivery {
     private _templatesGrid: SxGridView;
     private _templatesTab: JQuery;
     private _templatesBlock: JQuery;
+    private _sendUrl: string;
+    private _modal: JQuery;
 
-    constructor(matUrl: string, teplatesUrl: string, subscribersUrl: string) {
+    constructor(matUrl: string, teplatesUrl: string, subscribersUrl: string, sendUrl: string) {
         this._matUrl = matUrl;
         this._subscribersUrl = subscribersUrl;
         this._mcts = $("#mcts");
@@ -27,6 +31,8 @@ class SxDelivery {
         this._templatesGrid = new SxGridView($("#templates"));
         this._templatesTab = $("a[href=\"#templates-tab\"]");
         this._templatesBlock = $("#templates");
+        this._sendUrl = sendUrl;
+        this._modal = $("#modal-delivery");
     }
 
     public initialize = () => {
@@ -50,7 +56,7 @@ class SxDelivery {
             $.ajax({
                 method: "get",
                 url: this._matUrl,
-                data: { mcts: mcts.replace("null,", "")},
+                data: { mcts: mcts.replace("null,", "") },
                 success: (data: any, status: string, xhr: JQueryXHR): void => {
                     this._matBlock.html(data);
                     this._matGrid.selectCheckboxes();
@@ -115,6 +121,56 @@ class SxDelivery {
                 }
             });
         });
+
+        // send to one
+        $("#subscribers").on("click", ".btn-send-to-one", (e: JQueryEventObject) => {
+            var btn: JQuery = $(e.currentTarget);
+            var subscriberId: string = btn.closest("tr").attr("data-row-id");
+            var subscribers: any[] = [subscriberId];
+
+            var data: any = {
+                mcts: this.selectedMcts(),
+                materials: this._matGrid.selectedRows(),
+                templates: this._templatesGrid.selectedRows(),
+                subscribers: subscribers
+            };
+
+            this.send(data);
+        });
+
+        // send selected
+        $("#subscribers").on("click", ".btn-send-to-all", (e: JQueryEventObject) => {
+
+            if (this._subscribersGrid.selectedRows().length == 0) {
+                return;
+            }
+
+            var data: any = {
+                mcts: this.selectedMcts(),
+                materials: this._matGrid.selectedRows(),
+                templates: this._templatesGrid.selectedRows(),
+                subscribers: this._subscribersGrid.selectedRows()
+            };
+
+            this.send(data);
+        });
+    };
+
+    private send(data: any): void {
+        $.ajax({
+            method: "post",
+            url: this._sendUrl,
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify(data),
+            beforeSend: (xhr: JQueryXHR, setings: JQueryAjaxSettings): void => {
+                this._modal.find(".modal-body").html("<div class=\"text-center\"><i class=\"fa fa-spinner fa-spin\"></i></div>");
+                this._modal.modal("show");
+            },
+            success: (data: any, status: string, xhr: JQueryXHR): void => {
+                this._modal.find(".modal-body").html(data.Message);
+            }
+        });
     };
 
     private clickPill = (e: JQueryEventObject) => {
@@ -168,5 +224,13 @@ class SxDelivery {
 
         li.removeClass("disabled");
         this._deliveryTab.attr("data-toggle", "tab");
+    };
+
+    private selectedMcts(): any[] {
+        var result: any[] = [];
+        this._mcts.find("li.active").each((i: number, e: Element) => {
+            result.push($(e).attr("data-mct"));
+        });
+        return result;
     };
 }

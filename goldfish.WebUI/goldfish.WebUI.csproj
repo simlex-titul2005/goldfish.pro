@@ -191,8 +191,6 @@
     <Content Include="Areas\Admin\Views\Delivery\_GridViewSubscribers.cshtml" />
     <Content Include="Areas\Admin\Views\SiteProjectSecurityItems\_GridView.cshtml" />
     <Content Include="Areas\Admin\Views\SiteProjectSecurityItems\_Edit.cshtml" />
-    <Content Include="Areas\Admin\scripts\ts\sxdelivery\tsconfig.json" />
-    <Content Include="Areas\Admin\scripts\ts\siteprojects\tsconfig.json" />
     <Content Include="Areas\Admin\Views\SubscribeTemplates\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SubscribeTemplates\_GridView.cshtml" />
     <Content Include="Areas\Admin\Views\SubscribeTemplates\Edit.cshtml" />
@@ -200,6 +198,7 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Areas\Admin\Views\Delivery\_ForProjects.cshtml" />
     <None Include="Properties\PublishProfiles\PROD.pubxml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Web.config">
@@ -344,12 +343,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Areas\Admin\scripts\ts\sxdelivery\sxdelivery.ts" />
-    <TypeScriptCompile Include="Areas\Admin\scripts\typings\bootstrap.d.ts" />
-    <TypeScriptCompile Include="Areas\Admin\scripts\typings\jquery.d.ts" />
-    <TypeScriptCompile Include="Areas\Admin\scripts\ts\siteprojects\siteprojects.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

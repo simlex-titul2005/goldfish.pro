@@ -6,7 +6,23 @@
 }
 
 <h2>@ViewBag.Title</h2>
-<br />
+
+@if(!isNew)
+{
+    <div class="form-group">
+        <div class="text-right">
+            <form method="post" action="@Url.Action("Delete")">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x=>x.Id)
+                <button type="submit" class="btn btn-danger" onclick="if(!confirm('Удалить запись?')){return false;}">Удалить</button>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <br />
+}
 
 <form method="post" action="@Url.Action("Edit")">
     @Html.AntiForgeryToken()

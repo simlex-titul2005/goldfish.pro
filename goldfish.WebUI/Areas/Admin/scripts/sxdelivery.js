@@ -1,209 +1,5 @@
-var SxGridView = (function () {
-    function SxGridView(element, callback) {
-        var _this = this;
-        if (callback === void 0) { callback = null; }
-        this._spinner = $("<i class=\"fa fa-spinner fa-spin\"></i>");
-        this.getData = function (query) {
-            var self = _this;
-            var dataAjaxUrl = self._element.find(".sx-gv").attr("data-ajax-url");
-            $.ajax({
-                method: "post",
-                url: dataAjaxUrl,
-                data: query,
-                success: function (data, status, xhr) {
-                    self._element.find(".sx-gv").parent().html(data);
-                    if (_this._selectedRows.length > 0) {
-                        _this.selectCheckboxes();
-                    }
-                }
-            });
-        };
-        this.getCurrentPage = function () {
-            var page = _this._element.find(".sx-gv__pager li.active a").attr("data-page");
-            return page === undefined ? 1 : parseInt(page, 0);
-        };
-        this.fillQueryFilters = function (query) {
-            $(".sx-gv__filter-row input").each(function (i, e) {
-                var input = $(e);
-                var name = input.attr("name");
-                var value = input.val();
-                if (value !== "") {
-                    query.filterModel[name] = value;
-                }
-            });
-        };
-        this.fillQueryOrders = function (query) {
-            var arrow = _this._element.find(".sx-gv__sort-arow").first();
-            if (arrow.length === 0) {
-                return;
-            }
-            var dir = arrow.data("sort-direction");
-            var fieldName = arrow.closest("th").attr("data-field-name");
-            query.order = new SxGridViewOrderItem(fieldName, dir);
-        };
-        this.checkSelectAllCheckbox = function () {
-            var rows = _this._element.find(".sx-gv__row");
-            var count = 0;
-            rows.each(function (i, e) {
-                var existIndex = $.inArray($(e).attr("data-row-id"), _this._selectedRows);
-                if (existIndex > -1) {
-                    count++;
-                }
-            });
-            _this._element.find(".sx-gv__select-all-chbx").prop("checked", count === rows.length);
-        };
-        this.selectCheckboxes = function () {
-            _this._element.find("tr[data-row-id]").each(function (i, e) {
-                var tr = $(e);
-                var rowId = tr.attr("data-row-id");
-                var existIndex = $.inArray(rowId, _this._selectedRows);
-                if (existIndex > -1) {
-                    _this.modifySelectedList(rowId, true);
-                    tr.find(".sx-gv__select-chbx").prop("checked", true);
-                }
-            });
-            _this.checkSelectAllCheckbox();
-        };
-        this.selectedRows = function () {
-            return _this._selectedRows;
-        };
-        this.clearSelectedRows = function () {
-            _this._selectedRows = new Array();
-        };
-        this._selectedRows = new Array();
-        this._element = $(element);
-        this._callback = callback;
-        this._element.on("click", ".sx-gv__pager li:not('.active')", function (e) {
-            var item = $(e.target);
-            var page;
-            page = parseInt(item.attr("data-page"), 0);
-            item.prepend(_this._spinner);
-            var query = new SxGridViewQuery();
-            query.page = page;
-            _this.fillQueryFilters(query);
-            _this.fillQueryOrders(query);
-            _this.getData(query);
-        });
-        this._element.on("click", "th", function (e) {
-            var rowsCount = _this._element.find(".sx-gv__row").length;
-            if (rowsCount === 0) {
-                return;
-            }
-            var th = $(e.currentTarget);
-            var enableSorting = th.attr("data-enable-sorting") !== "false";
-            if (!th.hasClass("sx-gv_first-column") && enableSorting) {
-                var fieldName = th.attr("data-field-name");
-                var arrow = th.find(".sx-gv__sort-arow");
-                var direction = "Asc";
-                if (arrow.length === 1) {
-                    var dir = arrow.data("sort-direction");
-                    if (dir === "Asc") {
-                        direction = "Desc";
-                    }
-                }
-                var query = new SxGridViewQuery();
-                query.page = _this.getCurrentPage();
-                _this.fillQueryFilters(query);
-                query.order = new SxGridViewOrderItem(fieldName, direction);
-                th.prepend(_this._spinner);
-                _this.getData(query);
-            }
-        });
-        this._element.on("click", ".sx-gv__delete-btn", function (e) {
-            var btn = $(e.currentTarget);
-            var url = btn.attr("data-url");
-            var confirmMessage = btn.attr("data-del-conf-mes");
-            var confirmCaption = btn.attr("data-del-conf-caption");
-            var modal = $("#modal-del");
-            var delBtn = modal.find("#modal-del-btn");
-            modal.find(".modal-body").html(confirmMessage);
-            modal.find(".modal-title").html(confirmCaption);
-            delBtn.unbind();
-            delBtn.on("click", function (e) {
-                modal.modal("hide");
-                $.ajax({
-                    method: "post",
-                    data: { __RequestVerificationToken: $("input[name=\"__RequestVerificationToken\"]").val() },
-                    url: url,
-                    success: function (data, status, xhr) {
-                        _this._element.html(data);
-                    }
-                });
-            });
-        });
-        this._element.on("keypress", ".sx-gv__filter-row input", function (e) {
-            var key = e.key;
-            if (key === "Enter") {
-                var query = new SxGridViewQuery();
-                query.page = _this.getCurrentPage();
-                _this.fillQueryFilters(query);
-                _this.fillQueryOrders(query);
-                _this.getData(query);
-            }
-        });
-        this._element.on("click", ".sx-gv__clear-btn", function (e) {
-            var icon = $(e.currentTarget).children("i").first();
-            icon.removeClass("fa-repeat");
-            icon.addClass("fa-spinner").addClass("fa-spin");
-            var query = new SxGridViewQuery();
-            _this.getData(query);
-            return false;
-        });
-        this._element.on("change", ".sx-gv__select-all-chbx", function (e) {
-            var isChecked = $(e.currentTarget).is(":checked");
-            _this._element.find(".sx-gv__select-chbx").each(function (i, e) {
-                var item = $(e);
-                item.prop("checked", isChecked);
-                var rowId = item.closest("tr").attr("data-row-id");
-                _this.modifySelectedList(rowId, isChecked);
-            });
-        });
-        this._element.on("change", ".sx-gv__select-chbx", function (e) {
-            var input = $(e.currentTarget);
-            var isChecked = input.is(":checked");
-            var rowId = input.closest("tr").attr("data-row-id");
-            _this.modifySelectedList(rowId, isChecked);
-            _this.checkSelectAllCheckbox();
-        });
-        this._element.on("click", ".sx-gv__filter-row select option", function (e) {
-            var option = $(e.currentTarget);
-            var select = option.closest("select");
-            var value = option.val();
-            var name = select.attr("name");
-            var query = new SxGridViewQuery();
-            query.page = 1;
-            query.filterModel[name] = value;
-            _this.getData(query);
-        });
-    }
-    SxGridView.prototype.modifySelectedList = function (rowId, isChecked) {
-        var existIndex = $.inArray(rowId, this._selectedRows);
-        if (isChecked && existIndex === -1) {
-            this._selectedRows.push(rowId);
-        }
-        if (!isChecked && existIndex > -1) {
-            this._selectedRows.splice(existIndex, 1);
-        }
-    };
-    ;
-    return SxGridView;
-}());
-var SxGridViewQuery = (function () {
-    function SxGridViewQuery() {
-        this.filterModel = {};
-        this.__RequestVerificationToken = $("input[name=\"__RequestVerificationToken\"]").val();
-    }
-    return SxGridViewQuery;
-}());
-var SxGridViewOrderItem = (function () {
-    function SxGridViewOrderItem(fieldName, direction) {
-        this.fieldName = fieldName;
-        this.direction = direction;
-    }
-    return SxGridViewOrderItem;
-}());
 var SxDelivery = (function () {
-    function SxDelivery(matUrl, teplatesUrl, subscribersUrl) {
+    function SxDelivery(matUrl, teplatesUrl, subscribersUrl, sendUrl) {
         var _this = this;
         this.initialize = function () {
             _this._mcts.on("click", "a", function (e) {
@@ -276,6 +72,30 @@ var SxDelivery = (function () {
                     }
                 });
             });
+            $("#subscribers").on("click", ".btn-send-to-one", function (e) {
+                var btn = $(e.currentTarget);
+                var subscriberId = btn.closest("tr").attr("data-row-id");
+                var subscribers = [subscriberId];
+                var data = {
+                    mcts: _this.selectedMcts(),
+                    materials: _this._matGrid.selectedRows(),
+                    templates: _this._templatesGrid.selectedRows(),
+                    subscribers: subscribers
+                };
+                _this.send(data);
+            });
+            $("#subscribers").on("click", ".btn-send-to-all", function (e) {
+                if (_this._subscribersGrid.selectedRows().length == 0) {
+                    return;
+                }
+                var data = {
+                    mcts: _this.selectedMcts(),
+                    materials: _this._matGrid.selectedRows(),
+                    templates: _this._templatesGrid.selectedRows(),
+                    subscribers: _this._subscribersGrid.selectedRows()
+                };
+                _this.send(data);
+            });
         };
         this.clickPill = function (e) {
             e.preventDefault();
@@ -335,6 +155,34 @@ var SxDelivery = (function () {
         this._templatesGrid = new SxGridView($("#templates"));
         this._templatesTab = $("a[href=\"#templates-tab\"]");
         this._templatesBlock = $("#templates");
+        this._sendUrl = sendUrl;
+        this._modal = $("#modal-delivery");
     }
+    SxDelivery.prototype.send = function (data) {
+        var _this = this;
+        $.ajax({
+            method: "post",
+            url: this._sendUrl,
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify(data),
+            beforeSend: function (xhr, setings) {
+                _this._modal.find(".modal-body").html("<div class=\"text-center\"><i class=\"fa fa-spinner fa-spin\"></i></div>");
+                _this._modal.modal("show");
+            },
+            success: function (data, status, xhr) {
+                _this._modal.find(".modal-body").html(data.Message);
+            }
+        });
+    };
+    ;
+    SxDelivery.prototype.selectedMcts = function () {
+        var result = [];
+        this._mcts.find("li.active").each(function (i, e) {
+            result.push($(e).attr("data-mct"));
+        });
+        return result;
+    };
+    ;
     return SxDelivery;
 }());

@@ -1,5 +1,5 @@
-﻿using SX.WebCore.ViewModels;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using SX.WebCore.ViewModels;
 
 namespace goldfish.WebUI.ViewModels
 {
@@ -7,7 +7,7 @@ namespace goldfish.WebUI.ViewModels
     {
         public override string GetUrl(UrlHelper urlHelper)
         {
-            return urlHelper.Action("Details", "Manuals", new { cat = CategoryId, titleUrl = TitleUrl });
+            return urlHelper.Action("Details", "Manuals", new { cat = CategoryId, titleUrl = TitleUrl, area = "" });
         }
     }
 }

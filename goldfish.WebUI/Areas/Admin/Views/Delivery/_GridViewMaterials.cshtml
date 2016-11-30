@@ -13,5 +13,5 @@
     },
     DataAjaxUrl = Url.Action("Materials", new { mcts=mcts}),
     ShowSelectedCheckbox=true,
-    RowId=x=>string.Format("row-{0}-{1}", x.ModelCoreType, x.Id)
+    RowId=x=>string.Format("{0}-{1}", x.ModelCoreType, x.Id)
 })

@@ -1,0 +1,15 @@
+﻿@model SxVMDeliverySession<VMMaterial>
+
+<h3>Самые популярные проекты</h3>
+
+@if (Model.Materials.Any())
+{
+    <ul>
+        @foreach (var item in Model.Materials)
+        {
+            <li>
+                <h4><a href="@Url.ContentAbsUrl(item.GetUrl(Url))">@item.Title</a></h4>
+            </li>
+        }
+    </ul>
+}

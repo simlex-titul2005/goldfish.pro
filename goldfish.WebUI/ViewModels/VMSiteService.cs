@@ -1,6 +1,5 @@
 ﻿using SX.WebCore.ViewModels;
 using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 
 namespace goldfish.WebUI.ViewModels
 {
@@ -10,11 +9,6 @@ namespace goldfish.WebUI.ViewModels
         [MaxLength(256, ErrorMessageResourceType = typeof(SX.WebCore.Resources.Messages), ErrorMessageResourceName = "MaxLengthField")]
         [Display(Name ="Класс иконки")]
         public string MainPageIconCssClass { get; set; }
-
-        public override string GetUrl(UrlHelper urlHelper)
-        {
-            return urlHelper.Action("Details", "SiteServices", new { titleUrl = this.TitleUrl });
-        }
     }
 
     public sealed class VMSiteServiceMetadata : SxVMMaterialMetadata

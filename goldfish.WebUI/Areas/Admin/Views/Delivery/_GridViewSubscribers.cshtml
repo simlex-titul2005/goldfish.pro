@@ -8,7 +8,7 @@
     Columns = new SxExtantions.SxGridViewColumn<SxVMSubscriber>[] {
         new SxExtantions.SxGridViewColumn<SxVMSubscriber>() { FieldName="DateCreate", Caption="Дата создания", ColumnCssClass=x=>"col-zero" },
         new SxExtantions.SxGridViewColumn<SxVMSubscriber>() { FieldName="Email", Caption="Email" },
-        new SxExtantions.SxGridViewColumn<SxVMSubscriber>() { FieldName="Id", Caption="Функции", ColumnCssClass=x=>"col-cm", Template=x=>string.Format("<button type=\"button\" class=\"btn btn-default btn-sm\">Отправить</button>") }
+        new SxExtantions.SxGridViewColumn<SxVMSubscriber>() { FieldName="Id", Caption="Функции", ColumnCssClass=x=>"col-cm", Template=x=>string.Format("<button type=\"button\" class=\"btn btn-default btn-xs btn-send-to-one\"><i class=\"fa fa-envelope\"></i> Отправить</button>"), EnableSorting=false }
     },
     DataAjaxUrl = Url.Action("Subscribers"),
     ShowSelectedCheckbox = true,
@@ -18,5 +18,5 @@
 @if (Model.Any())
 {
     <br />
-    <button class="btn btn-primary">Отправить выбранным</button>
+    <button class="btn btn-primary btn-send-to-all">Отправить выбранным</button>
 }

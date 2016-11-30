@@ -1,4 +1,6 @@
-﻿/// <reference path="../../../../../../../sx.webcore/sx.webcore/scripts/ts/sxgridview/sxgridview.ts" />
+﻿/// <reference path="../../typings/bootstrap.d.ts" />
+/// <reference path="../../typings/sxgridview.d.ts" />
+/// <reference path="../../typings/jquery.d.ts" />
 
 class PageEditSiteProject {
     private _projectId: number;

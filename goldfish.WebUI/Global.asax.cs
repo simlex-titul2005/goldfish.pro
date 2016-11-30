@@ -1,7 +1,6 @@
 ﻿using goldfish.WebUI.Infrastructure;
 using goldfish.WebUI.Models;
 using SX.WebCore.MvcApplication;
-using SX.WebCore.Providers;
 using System;
 using System.Collections.Generic;
 
