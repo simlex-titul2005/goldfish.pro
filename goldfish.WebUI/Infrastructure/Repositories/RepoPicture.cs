@@ -1,4 +1,4 @@
-﻿using SX.WebCore.Repositories;
+﻿using SX.WebCore.SxRepositories;
 using System;
 using System.Text;
 

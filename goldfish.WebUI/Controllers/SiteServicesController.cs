@@ -4,7 +4,7 @@ using goldfish.WebUI.ViewModels;
 using SX.WebCore;
 using System.Web.Mvc;
 using static SX.WebCore.HtmlHelpers.SxExtantions;
-using SX.WebCore.Repositories;
+using SX.WebCore.SxRepositories;
 using System.Threading.Tasks;
 
 namespace goldfish.WebUI.Controllers

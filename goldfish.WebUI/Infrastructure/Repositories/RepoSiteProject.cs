@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using goldfish.WebUI.Models;
 using goldfish.WebUI.ViewModels;
-using SX.WebCore.Repositories;
+using SX.WebCore.SxRepositories;
 using SX.WebCore.ViewModels;
 using System.Data.SqlClient;
 using System.Linq;

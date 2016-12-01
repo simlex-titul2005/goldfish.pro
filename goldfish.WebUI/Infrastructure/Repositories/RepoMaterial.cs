@@ -1,5 +1,5 @@
 ﻿using SX.WebCore.DbModels.Abstract;
-using SX.WebCore.Repositories;
+using SX.WebCore.SxRepositories;
 using SX.WebCore.ViewModels;
 
 namespace goldfish.WebUI.Infrastructure.Repositories

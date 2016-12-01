@@ -2,7 +2,7 @@
 using goldfish.WebUI.Models;
 using goldfish.WebUI.ViewModels;
 using SX.WebCore;
-using SX.WebCore.Repositories;
+using SX.WebCore.SxRepositories;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 

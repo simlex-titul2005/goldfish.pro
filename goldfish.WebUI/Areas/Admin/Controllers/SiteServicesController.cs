@@ -3,7 +3,7 @@ using goldfish.WebUI.Infrastructure.Repositories;
 using goldfish.WebUI.ViewModels;
 using SX.WebCore.MvcControllers;
 using goldfish.WebUI.Models;
-using SX.WebCore.Repositories;
+using SX.WebCore.SxRepositories;
 using System.Linq;
 
 namespace goldfish.WebUI.Areas.Admin.Controllers

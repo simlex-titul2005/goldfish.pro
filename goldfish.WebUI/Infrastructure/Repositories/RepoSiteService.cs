@@ -1,4 +1,4 @@
-﻿using SX.WebCore.Repositories;
+﻿using SX.WebCore.SxRepositories;
 using goldfish.WebUI.ViewModels;
 using goldfish.WebUI.Models;
 using System.Data.SqlClient;
