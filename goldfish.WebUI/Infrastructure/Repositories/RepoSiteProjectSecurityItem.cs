@@ -2,7 +2,7 @@
 using goldfish.WebUI.Models;
 using goldfish.WebUI.ViewModels;
 using SX.WebCore;
-using SX.WebCore.Providers;
+using SX.WebCore.SxProviders;
 using SX.WebCore.Repositories.Abstract;
 using System;
 using System.Data.SqlClient;
